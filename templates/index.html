@@ -657,52 +657,54 @@
         function speakWord() {
             if (!currentWord) return;
             
-            if (!('speechSynthesis' in window)) {
-                alert('Tarayıcınız ses özelliğini desteklemiyor.');
-                return;
-            }
-            
             // Mobil için önce durdur
-            speechSynthesis.cancel();
+            if (window.speechSynthesis) {
+                speechSynthesis.cancel();
+            }
             
             // Kısa gecikme (mobil için gerekli)
             setTimeout(() => {
-                const utterance = new SpeechSynthesisUtterance(currentWord.english);
-                utterance.lang = 'en-US';
-                
-                // Kadın sesi seç
-                const voices = speechSynthesis.getVoices();
-                const femaleVoice = voices.find(voice => 
-                    voice.lang.startsWith('en') && 
-                    (voice.name.includes('Female') || 
-                     voice.name.includes('female') || 
-                     voice.name.includes('Woman') ||
-                     voice.name.includes('Samantha') ||
-                     voice.name.includes('Victoria') ||
-                     voice.name.includes('Karen') ||
-                     voice.name.includes('Zira'))
-                );
-                
-                if (femaleVoice) {
-                    utterance.voice = femaleVoice;
-                }
-                
-                utterance.rate = 0.9;
-                utterance.pitch = 1.1;
-                
-                // Mobil için hata yakalama
-                utterance.onerror = (e) => {
-                    console.error('Ses hatası:', e);
-                    if (e.error === 'not-allowed') {
-                        alert('Ses çalmak için izin gerekli. Lütfen tarayıcı ayarlarınızı kontrol edin.');
+                try {
+                    const utterance = new SpeechSynthesisUtterance(currentWord.english);
+                    utterance.lang = 'en-US';
+                    
+                    // Kadın sesi seç
+                    const voices = speechSynthesis.getVoices();
+                    const femaleVoice = voices.find(voice => 
+                        voice.lang.startsWith('en') && 
+                        (voice.name.includes('Female') || 
+                         voice.name.includes('female') || 
+                         voice.name.includes('Woman') ||
+                         voice.name.includes('Samantha') ||
+                         voice.name.includes('Victoria') ||
+                         voice.name.includes('Karen') ||
+                         voice.name.includes('Zira'))
+                    );
+                    
+                    if (femaleVoice) {
+                        utterance.voice = femaleVoice;
                     }
-                };
-                
-                utterance.onend = () => {
-                    console.log('Ses tamamlandı');
-                };
-                
-                speechSynthesis.speak(utterance);
+                    
+                    utterance.rate = 0.9;
+                    utterance.pitch = 1.1;
+                    
+                    // Mobil için hata yakalama
+                    utterance.onerror = (e) => {
+                        console.error('Ses hatası:', e);
+                        if (e.error === 'not-allowed') {
+                            alert('Ses çalmak için izin gerekli. Lütfen tarayıcı ayarlarınızı kontrol edin.');
+                        }
+                    };
+                    
+                    utterance.onend = () => {
+                        console.log('Ses tamamlandı');
+                    };
+                    
+                    speechSynthesis.speak(utterance);
+                } catch (error) {
+                    console.error('Ses çalma hatası:', error);
+                    alert('Ses çalınamadı. Lütfen tekrar deneyin.');
+                }
             }, 100);
         }
         
