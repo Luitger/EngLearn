@@ -1,0 +1,440 @@
+/* Material Design Styles - Halloween Theme */
+
+:root {
+    /* Halloween Colors - Light Theme */
+    --md-primary: #FF6B35;
+    --md-primary-variant: #D84315;
+    --md-secondary: #8B4789;
+    --md-secondary-variant: #6A1B9A;
+    --md-background: #FFF8E7;
+    --md-surface: #FFFFFF;
+    --md-error: #B00020;
+    --md-on-primary: #FFFFFF;
+    --md-on-secondary: #FFFFFF;
+    --md-on-background: #2C1810;
+    --md-on-surface: #2C1810;
+    --md-on-error: #FFFFFF;
+    --md-accent: #FF8C00;
+    --md-halloween-purple: #8B4789;
+    --md-halloween-orange: #FF6B35;
+    --md-halloween-green: #7CFC00;
+    
+    /* Elevation Shadows - Halloween themed */
+    --md-shadow-1: 0 1px 3px rgba(139, 71, 137, 0.12), 0 1px 2px rgba(255, 107, 53, 0.24);
+    --md-shadow-2: 0 3px 6px rgba(139, 71, 137, 0.16), 0 3px 6px rgba(255, 107, 53, 0.23);
+    --md-shadow-3: 0 10px 20px rgba(139, 71, 137, 0.19), 0 6px 6px rgba(255, 107, 53, 0.23);
+    --md-shadow-4: 0 14px 28px rgba(139, 71, 137, 0.25), 0 10px 10px rgba(255, 107, 53, 0.22);
+    --md-shadow-5: 0 19px 38px rgba(139, 71, 137, 0.30), 0 15px 12px rgba(255, 107, 53, 0.22);
+    
+    /* Typography */
+    --md-font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+[data-theme="dark"] {
+    --md-primary: #FF8C00;
+    --md-primary-variant: #FF6B35;
+    --md-secondary: #9C27B0;
+    --md-secondary-variant: #7B1FA2;
+    --md-background: #1a0f0a;
+    --md-surface: #2d1f1a;
+    --md-error: #CF6679;
+    --md-on-primary: #000000;
+    --md-on-secondary: #FFFFFF;
+    --md-on-background: #FFF8E7;
+    --md-on-surface: #FFF8E7;
+    --md-on-error: #000000;
+    --md-accent: #FF6B35;
+    --md-halloween-purple: #9C27B0;
+    --md-halloween-orange: #FF8C00;
+    --md-halloween-green: #7CFC00;
+}
+
+/* Material Design Components */
+
+.md-card {
+    background: var(--md-surface);
+    border-radius: 16px;
+    box-shadow: var(--md-shadow-2);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+}
+
+.md-card:hover {
+    box-shadow: var(--md-shadow-4);
+    transform: translateY(-4px);
+}
+
+.md-button {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 28px;
+    border: none;
+    border-radius: 12px;
+    background: var(--md-primary);
+    color: var(--md-on-primary);
+    font-family: var(--md-font-family);
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    text-transform: none;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: var(--md-shadow-2);
+    z-index: 100 !important;
+    white-space: nowrap;
+}
+
+.md-button:hover {
+    box-shadow: var(--md-shadow-3);
+    transform: translateY(-2px);
+}
+
+.md-button:active {
+    box-shadow: var(--md-shadow-1);
+    transform: translateY(0);
+}
+
+.md-button-outlined {
+    background: transparent;
+    color: var(--md-primary);
+    border: 2px solid var(--md-primary);
+    box-shadow: none;
+    z-index: 100 !important;
+    padding: 14px 28px;
+    font-size: 15px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.md-button-text {
+    background: transparent;
+    color: var(--md-primary);
+    box-shadow: none;
+}
+
+.md-button-secondary {
+    background: var(--md-halloween-purple) !important;
+    color: #FFFFFF !important;
+}
+
+.md-button-secondary:hover {
+    background: var(--md-secondary-variant) !important;
+    box-shadow: var(--md-shadow-3);
+    transform: translateY(-2px);
+}
+
+.md-button-accent {
+    background: var(--md-halloween-green) !important;
+    color: #000000 !important;
+    font-weight: 700 !important;
+}
+
+.md-button-accent:hover {
+    background: #90EE90 !important;
+    box-shadow: var(--md-shadow-3);
+    transform: translateY(-2px);
+}
+
+/* Ripple Effect */
+.md-button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.md-button:active::before {
+    width: 300px;
+    height: 300px;
+}
+
+/* Material Input */
+.md-input-group {
+    position: relative;
+    margin: 24px 0;
+}
+
+.md-input {
+    width: 100%;
+    padding: 16px 12px 8px;
+    border: none;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.12);
+    background: transparent;
+    color: var(--md-on-surface);
+    font-family: var(--md-font-family);
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+[data-theme="dark"] .md-input {
+    border-bottom-color: rgba(255, 255, 255, 0.12);
+}
+
+.md-input:focus {
+    outline: none;
+    border-bottom-color: var(--md-primary);
+}
+
+.md-input-label {
+    position: absolute;
+    left: 12px;
+    top: 16px;
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 16px;
+    pointer-events: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+[data-theme="dark"] .md-input-label {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.md-input:focus + .md-input-label,
+.md-input:not(:placeholder-shown) + .md-input-label {
+    top: 0;
+    font-size: 12px;
+    color: var(--md-primary);
+}
+
+/* Avatar Styles */
+.avatar-container {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 3px solid var(--md-primary);
+    object-fit: cover;
+    box-shadow: var(--md-shadow-2);
+    transition: all 0.3s;
+}
+
+.avatar:hover {
+    transform: scale(1.1);
+    box-shadow: var(--md-shadow-3);
+}
+
+.avatar-large {
+    width: 80px;
+    height: 80px;
+}
+
+.avatar-selector {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+    margin: 24px 0;
+}
+
+.avatar-option {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    cursor: pointer;
+    transition: all 0.3s;
+    overflow: hidden;
+    z-index: 100 !important;
+}
+
+.avatar-option:hover {
+    transform: scale(1.1);
+    border-color: var(--md-secondary);
+}
+
+.avatar-option.selected {
+    border-color: var(--md-primary);
+    box-shadow: 0 0 0 4px rgba(98, 0, 238, 0.2);
+}
+
+.avatar-option img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Material Chip */
+.md-chip {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 16px;
+    border-radius: 16px;
+    background: rgba(98, 0, 238, 0.12);
+    color: var(--md-primary);
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* Material FAB */
+.md-fab {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--md-secondary);
+    color: var(--md-on-secondary);
+    border: none;
+    box-shadow: var(--md-shadow-3);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    transition: all 0.3s;
+    z-index: 1000;
+}
+
+.md-fab:hover {
+    box-shadow: var(--md-shadow-4);
+    transform: scale(1.1);
+}
+
+/* Material Snackbar */
+.md-snackbar {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    padding: 16px 24px;
+    background: #323232;
+    color: white;
+    border-radius: 8px;
+    box-shadow: var(--md-shadow-3);
+    opacity: 0;
+    transition: all 0.3s;
+    z-index: 2000;
+}
+
+.md-snackbar.show {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+}
+
+/* Material Progress */
+.md-progress {
+    width: 100%;
+    height: 4px;
+    background: rgba(98, 0, 238, 0.12);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.md-progress-bar {
+    height: 100%;
+    background: var(--md-primary);
+    transition: width 0.3s;
+}
+
+/* Material Divider */
+.md-divider {
+    height: 1px;
+    background: rgba(0, 0, 0, 0.12);
+    margin: 16px 0;
+}
+
+[data-theme="dark"] .md-divider {
+    background: rgba(255, 255, 255, 0.12);
+}
+
+/* Material List */
+.md-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.md-list-item {
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+    border-radius: 8px;
+}
+
+.md-list-item:hover {
+    background: rgba(98, 0, 238, 0.08);
+}
+
+/* Material App Bar */
+.md-app-bar {
+    position: sticky;
+    top: 0;
+    background: var(--md-primary);
+    color: var(--md-on-primary);
+    padding: 16px 24px;
+    box-shadow: var(--md-shadow-2);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Material Bottom Navigation */
+.md-bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--md-surface);
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-around;
+    padding: 8px 0;
+    z-index: 100;
+}
+
+.md-bottom-nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: 8px 16px;
+    color: rgba(0, 0, 0, 0.6);
+    cursor: pointer;
+    transition: color 0.3s;
+    border: none;
+    background: transparent;
+}
+
+[data-theme="dark"] .md-bottom-nav-item {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.md-bottom-nav-item.active {
+    color: var(--md-primary);
+}
+
+.md-bottom-nav-item:hover {
+    color: var(--md-primary);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .avatar-selector {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+    }
+    
+    .avatar-option {
+        width: 60px;
+        height: 60px;
+    }
+}
