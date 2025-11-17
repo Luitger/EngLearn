@@ -1,123 +1,69 @@
 from flask import Flask, render_template, request, jsonify, session
 from flask_cors import CORS
 from datetime import datetime, timedelta
+import sqlite3
 import hashlib
 import secrets
-import json
 import os
 
 app = Flask(__name__)
 app.secret_key = os.environ.get('SECRET_KEY', secrets.token_hex(32))
 CORS(app, supports_credentials=True)
 
-# Veritabanı seçimi
-DATABASE_TYPE = os.environ.get('DATABASE_TYPE', 'sqlite')  # sqlite veya postgres
+DB_PATH = 'kelime_app.db'
 
-if DATABASE_TYPE == 'postgres':
-    import psycopg2
-    from psycopg2.extras import RealDictCursor
-    DATABASE_URL = os.environ.get('DATABASE_URL')
-    
-    def get_db():
-        conn = psycopg2.connect(DATABASE_URL, cursor_factory=RealDictCursor)
-        return conn
-else:
-    import sqlite3
-    DB_PATH = 'kelime_app.db'
-    
-    def get_db():
-        conn = sqlite3.connect(DB_PATH)
-        conn.row_factory = sqlite3.Row
-        return conn
+def get_db():
+    conn = sqlite3.connect(DB_PATH)
+    conn.row_factory = sqlite3.Row
+    return conn
 
-# Veritabanı başlatma
 def init_db():
     conn = get_db()
     c = conn.cursor()
     
-    if DATABASE_TYPE == 'postgres':
-        # PostgreSQL için
-        c.execute('''CREATE TABLE IF NOT EXISTS users (
-            id SERIAL PRIMARY KEY,
-            username TEXT UNIQUE NOT NULL,
-            password TEXT NOT NULL,
-            email TEXT,
-            avatar TEXT DEFAULT 'girl1',
-            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-        )''')
-        
-        c.execute('''CREATE TABLE IF NOT EXISTS learned_words (
-            id SERIAL PRIMARY KEY,
-            user_id INTEGER REFERENCES users(id),
-            word_english TEXT,
-            learned_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-            review_count INTEGER DEFAULT 0,
-            next_review TIMESTAMP,
-            ease_factor REAL DEFAULT 2.5
-        )''')
-        
-        c.execute('''CREATE TABLE IF NOT EXISTS test_results (
-            id SERIAL PRIMARY KEY,
-            user_id INTEGER REFERENCES users(id),
-            score INTEGER,
-            total_questions INTEGER,
-            completed_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-        )''')
-        
-        c.execute('''CREATE TABLE IF NOT EXISTS daily_activity (
-            id SERIAL PRIMARY KEY,
-            user_id INTEGER REFERENCES users(id),
-            date DATE,
-            words_learned INTEGER DEFAULT 0,
-            tests_completed INTEGER DEFAULT 0,
-            study_time INTEGER DEFAULT 0,
-            UNIQUE(user_id, date)
-        )''')
-    else:
-        # SQLite için
-        c.execute('''CREATE TABLE IF NOT EXISTS users (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            username TEXT UNIQUE NOT NULL,
-            password TEXT NOT NULL,
-            email TEXT,
-            avatar TEXT DEFAULT 'girl1',
-            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-        )''')
-        
-        c.execute('''CREATE TABLE IF NOT EXISTS learned_words (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            user_id INTEGER,
-            word_english TEXT,
-            learned_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-            review_count INTEGER DEFAULT 0,
-            next_review TIMESTAMP,
-            ease_factor REAL DEFAULT 2.5,
-            FOREIGN KEY (user_id) REFERENCES users(id)
-        )''')
-        
-        c.execute('''CREATE TABLE IF NOT EXISTS test_results (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            user_id INTEGER,
-            score INTEGER,
-            total_questions INTEGER,
-            completed_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-            FOREIGN KEY (user_id) REFERENCES users(id)
-        )''')
-        
-        c.execute('''CREATE TABLE IF NOT EXISTS daily_activity (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            user_id INTEGER,
-            date DATE,
-            words_learned INTEGER DEFAULT 0,
-            tests_completed INTEGER DEFAULT 0,
-            study_time INTEGER DEFAULT 0,
-            FOREIGN KEY (user_id) REFERENCES users(id),
-            UNIQUE(user_id, date)
-        )''')
+    c.execute('''CREATE TABLE IF NOT EXISTS users (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        username TEXT UNIQUE NOT NULL,
+        password TEXT NOT NULL,
+        email TEXT,
+        avatar TEXT DEFAULT 'girl1',
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    )''')
+    
+    c.execute('''CREATE TABLE IF NOT EXISTS learned_words (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        user_id INTEGER,
+        word_english TEXT,
+        learned_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        review_count INTEGER DEFAULT 0,
+        next_review TIMESTAMP,
+        ease_factor REAL DEFAULT 2.5,
+        FOREIGN KEY (user_id) REFERENCES users(id)
+    )''')
+    
+    c.execute('''CREATE TABLE IF NOT EXISTS test_results (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        user_id INTEGER,
+        score INTEGER,
+        total_questions INTEGER,
+        completed_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        FOREIGN KEY (user_id) REFERENCES users(id)
+    )''')
+    
+    c.execute('''CREATE TABLE IF NOT EXISTS daily_activity (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        user_id INTEGER,
+        date DATE,
+        words_learned INTEGER DEFAULT 0,
+        tests_completed INTEGER DEFAULT 0,
+        study_time INTEGER DEFAULT 0,
+        FOREIGN KEY (user_id) REFERENCES users(id),
+        UNIQUE(user_id, date)
+    )''')
     
     conn.commit()
     conn.close()
-    print(f"✓ Veritabanı hazır ({DATABASE_TYPE})")
+    print("✓ Veritabanı hazır")
 
 def hash_password(password):
     return hashlib.sha256(password.encode()).hexdigest()
@@ -137,23 +83,15 @@ def register():
     c = conn.cursor()
     
     try:
-        if DATABASE_TYPE == 'postgres':
-            c.execute('INSERT INTO users (username, password, email, avatar) VALUES (%s, %s, %s, %s) RETURNING id',
-                      (username, hash_password(password), email, avatar))
-            user_id = c.fetchone()['id']
-        else:
-            c.execute('INSERT INTO users (username, password, email, avatar) VALUES (?, ?, ?, ?)',
-                      (username, hash_password(password), email, avatar))
-            user_id = c.lastrowid
-        
+        c.execute('INSERT INTO users (username, password, email, avatar) VALUES (?, ?, ?, ?)',
+                  (username, hash_password(password), email, avatar))
         conn.commit()
+        user_id = c.lastrowid
         session['user_id'] = user_id
         session['username'] = username
         session['avatar'] = avatar
         return jsonify({'success': True, 'message': 'Kayıt başarılı', 'user_id': user_id, 'avatar': avatar})
-    except Exception as e:
-        conn.rollback()
-        print(f"Kayıt hatası: {e}")
+    except sqlite3.IntegrityError:
         return jsonify({'success': False, 'message': 'Bu kullanıcı adı zaten kullanılıyor'}), 400
     finally:
         conn.close()
@@ -167,21 +105,16 @@ def login():
     conn = get_db()
     c = conn.cursor()
     
-    if DATABASE_TYPE == 'postgres':
-        c.execute('SELECT id, username, avatar FROM users WHERE username = %s AND password = %s',
-                  (username, hash_password(password)))
-    else:
-        c.execute('SELECT id, username, avatar FROM users WHERE username = ? AND password = ?',
-                  (username, hash_password(password)))
-    
+    c.execute('SELECT id, username, avatar FROM users WHERE username = ? AND password = ?',
+              (username, hash_password(password)))
     user = c.fetchone()
     conn.close()
     
     if user:
-        session['user_id'] = user['id'] if DATABASE_TYPE == 'postgres' else user[0]
-        session['username'] = user['username'] if DATABASE_TYPE == 'postgres' else user[1]
-        session['avatar'] = user['avatar'] if DATABASE_TYPE == 'postgres' else (user[2] if len(user) > 2 else 'girl1')
-        return jsonify({'success': True, 'message': 'Giriş başarılı', 'username': session['username'], 'avatar': session['avatar']})
+        session['user_id'] = user[0]
+        session['username'] = user[1]
+        session['avatar'] = user[2] if len(user) > 2 else 'girl1'
+        return jsonify({'success': True, 'message': 'Giriş başarılı', 'username': user[1], 'avatar': session['avatar']})
     else:
         return jsonify({'success': False, 'message': 'Kullanıcı adı veya şifre hatalı'}), 401
 
@@ -213,11 +146,7 @@ def update_avatar():
     conn = get_db()
     c = conn.cursor()
     
-    if DATABASE_TYPE == 'postgres':
-        c.execute('UPDATE users SET avatar = %s WHERE id = %s', (avatar, user_id))
-    else:
-        c.execute('UPDATE users SET avatar = ? WHERE id = ?', (avatar, user_id))
-    
+    c.execute('UPDATE users SET avatar = ? WHERE id = ?', (avatar, user_id))
     conn.commit()
     conn.close()
     
@@ -236,18 +165,13 @@ def learn_word():
     conn = get_db()
     c = conn.cursor()
     
-    if DATABASE_TYPE == 'postgres':
-        c.execute('SELECT id, review_count, ease_factor FROM learned_words WHERE user_id = %s AND word_english = %s',
-                  (user_id, word_english))
-    else:
-        c.execute('SELECT id, review_count, ease_factor FROM learned_words WHERE user_id = ? AND word_english = ?',
-                  (user_id, word_english))
-    
+    c.execute('SELECT id, review_count, ease_factor FROM learned_words WHERE user_id = ? AND word_english = ?',
+              (user_id, word_english))
     existing = c.fetchone()
     
     if existing:
-        review_count = (existing['review_count'] if DATABASE_TYPE == 'postgres' else existing[1]) + 1
-        ease_factor = existing['ease_factor'] if DATABASE_TYPE == 'postgres' else existing[2]
+        review_count = existing[1] + 1
+        ease_factor = existing[2]
         
         if review_count == 1:
             interval = 1
@@ -257,36 +181,20 @@ def learn_word():
             interval = int(6 * ease_factor)
         
         next_review = datetime.now() + timedelta(days=interval)
-        word_id = existing['id'] if DATABASE_TYPE == 'postgres' else existing[0]
         
-        if DATABASE_TYPE == 'postgres':
-            c.execute('UPDATE learned_words SET review_count = %s, next_review = %s, ease_factor = %s WHERE id = %s',
-                      (review_count, next_review, ease_factor, word_id))
-        else:
-            c.execute('UPDATE learned_words SET review_count = ?, next_review = ?, ease_factor = ? WHERE id = ?',
-                      (review_count, next_review, ease_factor, word_id))
+        c.execute('UPDATE learned_words SET review_count = ?, next_review = ?, ease_factor = ? WHERE id = ?',
+                  (review_count, next_review, ease_factor, existing[0]))
     else:
         next_review = datetime.now() + timedelta(days=1)
-        if DATABASE_TYPE == 'postgres':
-            c.execute('INSERT INTO learned_words (user_id, word_english, next_review) VALUES (%s, %s, %s)',
-                      (user_id, word_english, next_review))
-        else:
-            c.execute('INSERT INTO learned_words (user_id, word_english, next_review) VALUES (?, ?, ?)',
-                      (user_id, word_english, next_review))
+        c.execute('INSERT INTO learned_words (user_id, word_english, next_review) VALUES (?, ?, ?)',
+                  (user_id, word_english, next_review))
         
         today = datetime.now().date()
-        if DATABASE_TYPE == 'postgres':
-            c.execute('''INSERT INTO daily_activity (user_id, date, words_learned) 
-                         VALUES (%s, %s, 1)
-                         ON CONFLICT (user_id, date) 
-                         DO UPDATE SET words_learned = daily_activity.words_learned + 1''',
-                      (user_id, today))
-        else:
-            c.execute('''INSERT INTO daily_activity (user_id, date, words_learned) 
-                         VALUES (?, ?, 1)
-                         ON CONFLICT(user_id, date) 
-                         DO UPDATE SET words_learned = words_learned + 1''',
-                      (user_id, today))
+        c.execute('''INSERT INTO daily_activity (user_id, date, words_learned) 
+                     VALUES (?, ?, 1)
+                     ON CONFLICT(user_id, date) 
+                     DO UPDATE SET words_learned = words_learned + 1''',
+                  (user_id, today))
     
     conn.commit()
     conn.close()
@@ -302,24 +210,18 @@ def get_learned_words():
     conn = get_db()
     c = conn.cursor()
     
-    if DATABASE_TYPE == 'postgres':
-        c.execute('''SELECT word_english, learned_at, review_count, next_review 
-                     FROM learned_words 
-                     WHERE user_id = %s 
-                     ORDER BY learned_at DESC''', (user_id,))
-    else:
-        c.execute('''SELECT word_english, learned_at, review_count, next_review 
-                     FROM learned_words 
-                     WHERE user_id = ? 
-                     ORDER BY learned_at DESC''', (user_id,))
+    c.execute('''SELECT word_english, learned_at, review_count, next_review 
+                 FROM learned_words 
+                 WHERE user_id = ? 
+                 ORDER BY learned_at DESC''', (user_id,))
     
     words = []
     for row in c.fetchall():
         words.append({
-            'word': row['word_english'] if DATABASE_TYPE == 'postgres' else row[0],
-            'learned_at': row['learned_at'] if DATABASE_TYPE == 'postgres' else row[1],
-            'review_count': row['review_count'] if DATABASE_TYPE == 'postgres' else row[2],
-            'next_review': row['next_review'] if DATABASE_TYPE == 'postgres' else row[3]
+            'word': row[0],
+            'learned_at': row[1],
+            'review_count': row[2],
+            'next_review': row[3]
         })
     
     conn.close()
@@ -335,20 +237,12 @@ def get_review_words():
     c = conn.cursor()
     
     now = datetime.now()
-    if DATABASE_TYPE == 'postgres':
-        c.execute('''SELECT word_english, next_review 
-                     FROM learned_words 
-                     WHERE user_id = %s AND next_review <= %s 
-                     ORDER BY next_review ASC''', (user_id, now))
-    else:
-        c.execute('''SELECT word_english, next_review 
-                     FROM learned_words 
-                     WHERE user_id = ? AND next_review <= ? 
-                     ORDER BY next_review ASC''', (user_id, now))
+    c.execute('''SELECT word_english, next_review 
+                 FROM learned_words 
+                 WHERE user_id = ? AND next_review <= ? 
+                 ORDER BY next_review ASC''', (user_id, now))
     
-    words = [{'word': row['word_english'] if DATABASE_TYPE == 'postgres' else row[0], 
-              'next_review': row['next_review'] if DATABASE_TYPE == 'postgres' else row[1]} 
-             for row in c.fetchall()]
+    words = [{'word': row[0], 'next_review': row[1]} for row in c.fetchall()]
     
     conn.close()
     return jsonify({'success': True, 'words': words, 'count': len(words)})
@@ -366,26 +260,15 @@ def save_test():
     conn = get_db()
     c = conn.cursor()
     
-    if DATABASE_TYPE == 'postgres':
-        c.execute('INSERT INTO test_results (user_id, score, total_questions) VALUES (%s, %s, %s)',
-                  (user_id, score, total))
-    else:
-        c.execute('INSERT INTO test_results (user_id, score, total_questions) VALUES (?, ?, ?)',
-                  (user_id, score, total))
+    c.execute('INSERT INTO test_results (user_id, score, total_questions) VALUES (?, ?, ?)',
+              (user_id, score, total))
     
     today = datetime.now().date()
-    if DATABASE_TYPE == 'postgres':
-        c.execute('''INSERT INTO daily_activity (user_id, date, tests_completed) 
-                     VALUES (%s, %s, 1)
-                     ON CONFLICT (user_id, date) 
-                     DO UPDATE SET tests_completed = daily_activity.tests_completed + 1''',
-                  (user_id, today))
-    else:
-        c.execute('''INSERT INTO daily_activity (user_id, date, tests_completed) 
-                     VALUES (?, ?, 1)
-                     ON CONFLICT(user_id, date) 
-                     DO UPDATE SET tests_completed = tests_completed + 1''',
-                  (user_id, today))
+    c.execute('''INSERT INTO daily_activity (user_id, date, tests_completed) 
+                 VALUES (?, ?, 1)
+                 ON CONFLICT(user_id, date) 
+                 DO UPDATE SET tests_completed = tests_completed + 1''',
+              (user_id, today))
     
     conn.commit()
     conn.close()
@@ -401,55 +284,34 @@ def get_stats():
     conn = get_db()
     c = conn.cursor()
     
-    if DATABASE_TYPE == 'postgres':
-        c.execute('SELECT COUNT(*) as count FROM learned_words WHERE user_id = %s', (user_id,))
-        total_words = c.fetchone()['count']
-        
-        c.execute('SELECT COUNT(*) as count FROM test_results WHERE user_id = %s', (user_id,))
-        total_tests = c.fetchone()['count']
-        
-        c.execute('SELECT AVG(CAST(score AS FLOAT) / total_questions * 100) as avg FROM test_results WHERE user_id = %s', (user_id,))
-        avg_score = c.fetchone()['avg'] or 0
-    else:
-        c.execute('SELECT COUNT(*) FROM learned_words WHERE user_id = ?', (user_id,))
-        total_words = c.fetchone()[0]
-        
-        c.execute('SELECT COUNT(*) FROM test_results WHERE user_id = ?', (user_id,))
-        total_tests = c.fetchone()[0]
-        
-        c.execute('SELECT AVG(CAST(score AS FLOAT) / total_questions * 100) FROM test_results WHERE user_id = ?', (user_id,))
-        avg_score = c.fetchone()[0] or 0
+    c.execute('SELECT COUNT(*) FROM learned_words WHERE user_id = ?', (user_id,))
+    total_words = c.fetchone()[0]
+    
+    c.execute('SELECT COUNT(*) FROM test_results WHERE user_id = ?', (user_id,))
+    total_tests = c.fetchone()[0]
+    
+    c.execute('SELECT AVG(CAST(score AS FLOAT) / total_questions * 100) FROM test_results WHERE user_id = ?', (user_id,))
+    avg_score = c.fetchone()[0] or 0
     
     seven_days_ago = (datetime.now() - timedelta(days=7)).date()
-    if DATABASE_TYPE == 'postgres':
-        c.execute('''SELECT date, words_learned, tests_completed 
-                     FROM daily_activity 
-                     WHERE user_id = %s AND date >= %s 
-                     ORDER BY date DESC''', (user_id, seven_days_ago))
-    else:
-        c.execute('''SELECT date, words_learned, tests_completed 
-                     FROM daily_activity 
-                     WHERE user_id = ? AND date >= ? 
-                     ORDER BY date DESC''', (user_id, seven_days_ago))
+    c.execute('''SELECT date, words_learned, tests_completed 
+                 FROM daily_activity 
+                 WHERE user_id = ? AND date >= ? 
+                 ORDER BY date DESC''', (user_id, seven_days_ago))
     
     daily_stats = []
     for row in c.fetchall():
         daily_stats.append({
-            'date': str(row['date'] if DATABASE_TYPE == 'postgres' else row[0]),
-            'words_learned': row['words_learned'] if DATABASE_TYPE == 'postgres' else row[1],
-            'tests_completed': row['tests_completed'] if DATABASE_TYPE == 'postgres' else row[2]
+            'date': row[0],
+            'words_learned': row[1],
+            'tests_completed': row[2]
         })
     
-    if DATABASE_TYPE == 'postgres':
-        c.execute('''SELECT date FROM daily_activity 
-                     WHERE user_id = %s 
-                     ORDER BY date DESC''', (user_id,))
-    else:
-        c.execute('''SELECT date FROM daily_activity 
-                     WHERE user_id = ? 
-                     ORDER BY date DESC''', (user_id,))
+    c.execute('''SELECT date FROM daily_activity 
+                 WHERE user_id = ? 
+                 ORDER BY date DESC''', (user_id,))
     
-    dates = [str(row['date'] if DATABASE_TYPE == 'postgres' else row[0]) for row in c.fetchall()]
+    dates = [row[0] for row in c.fetchall()]
     streak = 0
     if dates:
         current_date = datetime.now().date()
@@ -477,32 +339,22 @@ def get_leaderboard():
     conn = get_db()
     c = conn.cursor()
     
-    if DATABASE_TYPE == 'postgres':
-        c.execute('''SELECT u.username, COUNT(lw.id) as word_count, 
-                     AVG(CAST(tr.score AS FLOAT) / tr.total_questions * 100) as avg_score
-                     FROM users u
-                     LEFT JOIN learned_words lw ON u.id = lw.user_id
-                     LEFT JOIN test_results tr ON u.id = tr.user_id
-                     GROUP BY u.id, u.username
-                     ORDER BY word_count DESC, avg_score DESC
-                     LIMIT 10''')
-    else:
-        c.execute('''SELECT u.username, COUNT(lw.id) as word_count, 
-                     AVG(CAST(tr.score AS FLOAT) / tr.total_questions * 100) as avg_score
-                     FROM users u
-                     LEFT JOIN learned_words lw ON u.id = lw.user_id
-                     LEFT JOIN test_results tr ON u.id = tr.user_id
-                     GROUP BY u.id
-                     ORDER BY word_count DESC, avg_score DESC
-                     LIMIT 10''')
+    c.execute('''SELECT u.username, COUNT(lw.id) as word_count, 
+                 AVG(CAST(tr.score AS FLOAT) / tr.total_questions * 100) as avg_score
+                 FROM users u
+                 LEFT JOIN learned_words lw ON u.id = lw.user_id
+                 LEFT JOIN test_results tr ON u.id = tr.user_id
+                 GROUP BY u.id
+                 ORDER BY word_count DESC, avg_score DESC
+                 LIMIT 10''')
     
     leaderboard = []
     for i, row in enumerate(c.fetchall(), 1):
         leaderboard.append({
             'rank': i,
-            'username': row['username'] if DATABASE_TYPE == 'postgres' else row[0],
-            'words_learned': row['word_count'] if DATABASE_TYPE == 'postgres' else row[1],
-            'avg_score': round((row['avg_score'] if DATABASE_TYPE == 'postgres' else row[2]) or 0, 1)
+            'username': row[0],
+            'words_learned': row[1],
+            'avg_score': round(row[2] or 0, 1)
         })
     
     conn.close()
@@ -515,10 +367,9 @@ def index():
 if __name__ == '__main__':
     init_db()
     port = int(os.environ.get('PORT', 5000))
-    print(f"🚀 Kelime Öğrenme Uygulaması")
-    print(f"📊 Veritabanı: {DATABASE_TYPE}")
+    print("🚀 Kelime Öğrenme Uygulaması")
+    print(f"📊 Veritabanı: {DB_PATH}")
     print(f"🌐 Port: {port}")
     app.run(debug=False, host='0.0.0.0', port=port)
 else:
-    # Gunicorn ile çalışırken
     init_db()
