@@ -548,8 +548,8 @@
                     <div class="word-story" id="wordStory">Hello! How are you today?</div>
                     <div class="word-story-tr" id="wordStoryTr">Merhaba! Bugün nasılsın?</div>
                     <div class="card-actions">
-                        <button class="md-button" onclick="event.stopPropagation(); loadRandomWord()">🎲 Yeni Kelime</button>
-                        <button class="md-button md-button-secondary" id="translateBtn" onclick="event.stopPropagation(); showTranslation()">🇹🇷 Türkçe Çeviri</button>
+                        <button class="md-button" onclick="event.stopPropagation(); event.preventDefault(); loadRandomWord()">🎲 Yeni Kelime</button>
+                        <button class="md-button md-button-secondary" id="translateBtn" onclick="event.stopPropagation(); event.preventDefault(); showTranslation()">🇹🇷 Türkçe Çeviri</button>
                     </div>
                 </div>
             </div>
@@ -629,6 +629,12 @@
 
         function loadRandomWord() {
             if (allWords.length === 0) return;
+            
+            // Ses çalıyorsa durdur
+            if (window.speechSynthesis) {
+                speechSynthesis.cancel();
+            }
+            
             currentWord = allWords[Math.floor(Math.random() * allWords.length)];
             displayWord();
             document.getElementById('flashcard').classList.remove('flipped');
@@ -659,56 +665,61 @@
             
             // speechSynthesis kontrolü
             if (!window.speechSynthesis) {
-                console.error('speechSynthesis desteklenmiyor');
+                alert('Tarayıcınız ses özelliğini desteklemiyor. Chrome veya Firefox kullanmayı deneyin.');
                 return;
             }
             
-            // Önceki konuşmayı durdur
+            // Opera GX için özel düzenleme
             speechSynthesis.cancel();
             
-            // Utterance oluştur
-            const utterance = new SpeechSynthesisUtterance(currentWord.english);
-            utterance.lang = 'en-US';
-            utterance.rate = 0.9;
-            utterance.pitch = 1.1;
-            
-            // Sesleri al ve kadın sesi seç
-            const voices = speechSynthesis.getVoices();
-            if (voices.length > 0) {
-                const femaleVoice = voices.find(voice => 
-                    voice.lang.startsWith('en') && 
-                    (voice.name.toLowerCase().includes('female') || 
-                     voice.name.toLowerCase().includes('woman') ||
-                     voice.name.includes('Samantha') ||
-                     voice.name.includes('Victoria') ||
-                     voice.name.includes('Karen') ||
-                     voice.name.includes('Zira'))
-                );
+            // Kısa bekleme (Opera GX için kritik)
+            setTimeout(() => {
+                const utterance = new SpeechSynthesisUtterance(currentWord.english);
+                utterance.lang = 'en-US';
+                utterance.rate = 0.9;
+                utterance.pitch = 1.1;
+                utterance.volume = 1.0;
                 
-                if (femaleVoice) {
-                    utterance.voice = femaleVoice;
-                } else {
-                    // Varsayılan İngilizce ses
-                    const englishVoice = voices.find(v => v.lang.startsWith('en'));
-                    if (englishVoice) utterance.voice = englishVoice;
+                // Sesleri al
+                const voices = speechSynthesis.getVoices();
+                console.log('Mevcut sesler:', voices.length);
+                
+                if (voices.length > 0) {
+                    // İngilizce ses bul
+                    const englishVoice = voices.find(v => 
+                        v.lang === 'en-US' || 
+                        v.lang === 'en-GB' || 
+                        v.lang.startsWith('en')
+                    );
+                    
+                    if (englishVoice) {
+                        utterance.voice = englishVoice;
+                        console.log('Seçilen ses:', englishVoice.name);
+                    }
                 }
-            }
-            
-            // Hata yakalama
-            utterance.onerror = (e) => {
-                console.error('Utterance hatası:', e);
-            };
-            
-            utterance.onstart = () => {
-                console.log('Ses başladı');
-            };
-            
-            utterance.onend = () => {
-                console.log('Ses bitti');
-            };
-            
-            // Konuş
-            speechSynthesis.speak(utterance);
+                
+                utterance.onstart = () => {
+                    console.log('✓ Ses başladı:', currentWord.english);
+                };
+                
+                utterance.onend = () => {
+                    console.log('✓ Ses bitti');
+                };
+                
+                utterance.onerror = (e) => {
+                    console.error('✗ Ses hatası:', e.error);
+                    alert(`Ses çalınamadı: ${e.error}\n\nChrome tarayıcısını deneyin.`);
+                };
+                
+                // Konuş
+                try {
+                    speechSynthesis.speak(utterance);
+                    console.log('speak() çağrıldı');
+                } catch (err) {
+                    console.error('speak() hatası:', err);
+                    alert('Ses sistemi hatası. Lütfen Chrome veya Firefox kullanın.');
+                }
+            }, 250);
         }
         
         // Sesleri yükle
