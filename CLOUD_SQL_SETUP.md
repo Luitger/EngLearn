@@ -1,97 +1,123 @@
-# Cloud SQL PostgreSQL Kurulum Rehberi
+# 🗄️ Google Cloud SQL Kurulum Rehberi
 
-## Adım 1: Cloud SQL Instance Oluştur (5-10 dakika)
+## Adım 1: Cloud SQL Instance Oluştur
 
 ```bash
+# Cloud SQL API'yi aktifleştir
+gcloud services enable sqladmin.googleapis.com
+
+# PostgreSQL instance oluştur (db-f1-micro = ücretsiz tier)
 gcloud sql instances create kelime-db \
   --database-version=POSTGRES_14 \
   --tier=db-f1-micro \
   --region=us-central1 \
   --root-password=YourStrongPassword123
-```
 
-## Adım 2: Veritabanı Oluştur
-
-```bash
+# Veritabanı oluştur
 gcloud sql databases create kelime_app --instance=kelime-db
-```
 
-## Adım 3: Kullanıcı Oluştur
-
-```bash
+# Kullanıcı oluştur
 gcloud sql users create kelime_user \
   --instance=kelime-db \
   --password=UserPassword123
 ```
 
-## Adım 4: Connection Name Al
+## Adım 2: Cloud Run'a Deploy Et
 
 ```bash
-gcloud sql instances describe kelime-db --format="value(connectionName)"
-```
-
-Çıktı: `YOUR_PROJECT:us-central1:kelime-db`
-
-## Adım 5: Cloud Run'a Deploy
-
-```bash
+# Cloud Run'a deploy et ve Cloud SQL'e bağla
 gcloud run deploy kelime-ogrenme \
   --source . \
+  --platform managed \
   --region us-central1 \
   --allow-unauthenticated \
-  --add-cloudsql-instances=YOUR_PROJECT:us-central1:kelime-db \
-  --set-env-vars="USE_POSTGRES=true,DB_HOST=/cloudsql/YOUR_PROJECT:us-central1:kelime-db,DB_NAME=kelime_app,DB_USER=kelime_user,DB_PASSWORD=UserPassword123,SECRET_KEY=$(openssl rand -hex 32)"
+  --memory 512Mi \
+  --add-cloudsql-instances=PROJE_ID:us-central1:kelime-db \
+  --set-env-vars="USE_POSTGRES=true" \
+  --set-env-vars="DB_HOST=/cloudsql/PROJE_ID:us-central1:kelime-db" \
+  --set-env-vars="DB_NAME=kelime_app" \
+  --set-env-vars="DB_USER=kelime_user" \
+  --set-env-vars="DB_PASSWORD=UserPassword123" \
+  --set-env-vars="SECRET_KEY=$(openssl rand -hex 32)"
 ```
 
-## Alternatif: Basit Yol (SQLite ile)
+**ÖNEMLİ:** `PROJE_ID` yerine kendi Google Cloud proje ID'nizi yazın!
 
-Eğer Cloud SQL çok karmaşıksa, şimdilik SQLite ile deploy et:
-
+Proje ID'nizi öğrenmek için:
 ```bash
-gcloud run deploy kelime-ogrenme \
-  --source . \
-  --region us-central1 \
-  --allow-unauthenticated
+gcloud config get-value project
 ```
 
-**Not:** SQLite ile veriler geçici olacak ama uygulama çalışacak!
+## Adım 3: Test Et
+
+Deploy tamamlandıktan sonra URL'yi al:
+```bash
+gcloud run services describe kelime-ogrenme --region us-central1 --format='value(status.url)'
+```
+
+Tarayıcıda aç ve test et!
 
 ## Maliyet
 
-- **Cloud SQL db-f1-micro:** ~$7/ay
-- **Cloud Run:** İlk 2M istek ücretsiz
+- **Cloud SQL (db-f1-micro):** ~$7/ay
+- **Cloud Run:** İlk 2 milyon istek ücretsiz
 - **Toplam:** ~$7-10/ay
+
+## Alternatif: SQLite ile Başla (Ücretsiz)
+
+Eğer Cloud SQL maliyetinden kaçınmak istiyorsan, SQLite ile başla:
+
+```bash
+gcloud run deploy kelime-ogrenme \
+  --source . \
+  --platform managed \
+  --region us-central1 \
+  --allow-unauthenticated \
+  --memory 512Mi
+```
+
+**Not:** SQLite `/tmp` klasöründe çalışır, her yeniden başlatmada veriler sıfırlanır. Test için iyidir.
+
+## Güncelleme
+
+Kod değişikliği yaptıktan sonra:
+```bash
+gcloud run deploy kelime-ogrenme --source .
+```
+
+## Logs
+
+```bash
+# Logları görüntüle
+gcloud run services logs read kelime-ogrenme --region us-central1 --limit 50
+
+# Canlı loglar
+gcloud run services logs tail kelime-ogrenme --region us-central1
+```
 
 ## Sorun Giderme
 
-### Build Hatası
+### Cloud SQL bağlantı hatası:
 ```bash
-# Dockerfile ile deploy et
-gcloud run deploy kelime-ogrenme \
-  --source . \
-  --region us-central1 \
-  --allow-unauthenticated \
-  --use-http2
+# Instance durumunu kontrol et
+gcloud sql instances describe kelime-db
+
+# Bağlantı adını kontrol et
+gcloud sql instances describe kelime-db --format='value(connectionName)'
 ```
 
-### Connection Hatası
-- Cloud SQL instance'ın çalıştığından emin ol
-- Connection name'i doğru yazdığından emin ol
-- Cloud Run service account'a Cloud SQL Client rolü ver
-
-## Hızlı Test
-
-Lokal test (SQLite):
+### Environment variables kontrol:
 ```bash
-python app.py
+gcloud run services describe kelime-ogrenme --region us-central1 --format='value(spec.template.spec.containers[0].env)'
 ```
 
-Lokal test (PostgreSQL):
+## Silme
+
+Servisleri silmek için:
 ```bash
-export USE_POSTGRES=true
-export DB_HOST=localhost
-export DB_NAME=kelime_app
-export DB_USER=kelime_user
-export DB_PASSWORD=UserPassword123
-python app_postgres.py
+# Cloud Run servisini sil
+gcloud run services delete kelime-ogrenme --region us-central1
+
+# Cloud SQL instance'ı sil
+gcloud sql instances delete kelime-db
 ```

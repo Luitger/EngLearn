@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kullanıcı Yönetimi</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; padding: 20px; }
+        .container { max-width: 800px; margin: 0 auto; }
+        .card { background: white; border-radius: 15px; padding: 30px; margin-bottom: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+        h1 { color: #333; margin-bottom: 30px; text-align: center; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; color: #555; font-weight: 500; }
+        input { width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 14px; transition: border 0.3s; }
+        input:focus { outline: none; border-color: #667eea; }
+        button { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 12px 30px; border: none; border-radius: 8px; cursor: pointer; font-size: 16px; font-weight: 600; transition: transform 0.2s; }
+        button:hover { transform: translateY(-2px); }
+        .user-list { margin-top: 20px; }
+        .user-item { background: #f8f9fa; padding: 15px; margin-bottom: 10px; border-radius: 8px; display: flex; justify-content: space-between; align-items: center; }
+        .user-info { flex: 1; }
+        .user-name { font-weight: 600; color: #333; font-size: 16px; }
+        .user-email { color: #666; font-size: 14px; margin-top: 3px; }
+        .user-date { color: #999; font-size: 12px; margin-top: 3px; }
+        .delete-btn { background: #dc3545; padding: 8px 20px; border-radius: 6px; font-size: 14px; }
+        .delete-btn:hover { background: #c82333; }
+        .message { padding: 12px; border-radius: 8px; margin-bottom: 15px; text-align: center; font-weight: 500; }
+        .success { background: #d4edda; color: #155724; }
+        .error { background: #f8d7da; color: #721c24; }
+        .empty { text-align: center; color: #999; padding: 40px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>👥 Kullanıcı Yönetimi</h1>
+            
+            <div id="message"></div>
+            
+            <form id="addUserForm">
+                <div class="form-group">
+                    <label>Kullanıcı Adı *</label>
+                    <input type="text" id="username" required>
+                </div>
+                <div class="form-group">
+                    <label>E-posta</label>
+                    <input type="email" id="email">
+                </div>
+                <div class="form-group">
+                    <label>Şifre *</label>
+                    <input type="password" id="password" required>
+                </div>
+                <button type="submit">Kullanıcı Ekle</button>
+            </form>
+        </div>
+
+        <div class="card">
+            <h1>Kullanıcı Listesi</h1>
+            <div id="userList" class="user-list"></div>
+        </div>
+    </div>
+
+    <script>
+        function showMessage(text, type) {
+            const msg = document.getElementById('message');
+            msg.textContent = text;
+            msg.className = 'message ' + type;
+            setTimeout(() => msg.textContent = '', 3000);
+        }
+
+        async function loadUsers() {
+            try {
+                const res = await fetch('/api/users');
+                const data = await res.json();
+                const list = document.getElementById('userList');
+                
+                if (data.users.length === 0) {
+                    list.innerHTML = '<div class="empty">Henüz kullanıcı yok</div>';
+                    return;
+                }
+                
+                list.innerHTML = data.users.map(user => `
+                    <div class="user-item">
+                        <div class="user-info">
+                            <div class="user-name">${user.username}</div>
+                            <div class="user-email">${user.email || 'E-posta yok'}</div>
+                            <div class="user-date">Oluşturulma: ${new Date(user.created_at).toLocaleString('tr-TR')}</div>
+                        </div>
+                        <button class="delete-btn" onclick="deleteUser(${user.id})">Sil</button>
+                    </div>
+                `).join('');
+            } catch (err) {
+                showMessage('Kullanıcılar yüklenemedi', 'error');
+            }
+        }
+
+        document.getElementById('addUserForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            
+            try {
+                const res = await fetch('/api/users', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({username, email, password})
+                });
+                
+                const data = await res.json();
+                
+                if (data.success) {
+                    showMessage('Kullanıcı başarıyla eklendi!', 'success');
+                    document.getElementById('addUserForm').reset();
+                    loadUsers();
+                } else {
+                    showMessage(data.message, 'error');
+                }
+            } catch (err) {
+                showMessage('Bir hata oluştu', 'error');
+            }
+        });
+
+        async function deleteUser(id) {
+            if (!confirm('Bu kullanıcıyı silmek istediğinize emin misiniz?')) return;
+            
+            try {
+                const res = await fetch(`/api/users/${id}`, {method: 'DELETE'});
+                const data = await res.json();
+                
+                if (data.success) {
+                    showMessage('Kullanıcı silindi', 'success');
+                    loadUsers();
+                } else {
+                    showMessage(data.message, 'error');
+                }
+            } catch (err) {
+                showMessage('Silme işlemi başarısız', 'error');
+            }
+        }
+
+        loadUsers();
+    </script>
+</body>
+</html>
