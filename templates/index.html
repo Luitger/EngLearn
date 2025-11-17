@@ -655,7 +655,18 @@
         }
 
         function speakWord() {
-            if (currentWord && 'speechSynthesis' in window) {
+            if (!currentWord) return;
+            
+            if (!('speechSynthesis' in window)) {
+                alert('Tarayıcınız ses özelliğini desteklemiyor.');
+                return;
+            }
+            
+            // Mobil için önce durdur
+            speechSynthesis.cancel();
+            
+            // Kısa gecikme (mobil için gerekli)
+            setTimeout(() => {
                 const utterance = new SpeechSynthesisUtterance(currentWord.english);
                 utterance.lang = 'en-US';
                 
@@ -676,18 +687,46 @@
                     utterance.voice = femaleVoice;
                 }
                 
-                utterance.rate = 0.9; // Biraz yavaş
-                utterance.pitch = 1.1; // Biraz tiz
+                utterance.rate = 0.9;
+                utterance.pitch = 1.1;
+                
+                // Mobil için hata yakalama
+                utterance.onerror = (e) => {
+                    console.error('Ses hatası:', e);
+                    if (e.error === 'not-allowed') {
+                        alert('Ses çalmak için izin gerekli. Lütfen tarayıcı ayarlarınızı kontrol edin.');
+                    }
+                };
+                
+                utterance.onend = () => {
+                    console.log('Ses tamamlandı');
+                };
                 
                 speechSynthesis.speak(utterance);
-            }
+            }, 100);
         }
         
-        // Sesleri yükle
+        // Sesleri yükle (mobil için önemli)
+        let voicesLoaded = false;
         if ('speechSynthesis' in window) {
-            speechSynthesis.onvoiceschanged = () => {
+            // Sayfa yüklendiğinde sesleri yükle
+            window.addEventListener('load', () => {
                 speechSynthesis.getVoices();
+            });
+            
+            // Ses listesi değiştiğinde güncelle
+            speechSynthesis.onvoiceschanged = () => {
+                const voices = speechSynthesis.getVoices();
+                voicesLoaded = true;
+                console.log(`${voices.length} ses yüklendi`);
             };
+            
+            // iOS için ilk tıklamada sesleri yükle
+            document.addEventListener('click', function initVoices() {
+                if (!voicesLoaded) {
+                    speechSynthesis.getVoices();
+                }
+            }, { once: true });
         }
 
         // Arama
