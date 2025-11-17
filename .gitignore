@@ -27,38 +27,29 @@ wheels/
 instance/
 .webassets-cache
 
-# Database
-*.db
-*.sqlite
-*.sqlite3
-kelime_app.db
-
-# IDE
+# IDEs
 .vscode/
 .idea/
 *.swp
 *.swo
 *~
-.DS_Store
 
-# Environment
-.env
-.env.local
-.env.*.local
+# OS
+.DS_Store
+Thumbs.db
 
 # Logs
 *.log
-logs/
 
-# OS
-Thumbs.db
-.DS_Store
-
-# Node (eğer frontend build varsa)
-node_modules/
-npm-debug.log
-yarn-error.log
+# Database
+*.db
+*.sqlite
+*.sqlite3
 
 # Temporary files
 *.tmp
-*.temp
+*.bak
+
+# IMPORTANT: Never ignore these files!
+# !static/words.json
+# !words_backup.json

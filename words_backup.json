@@ -1,0 +1,4300 @@
+[
+  {
+    "english": "hello",
+    "turkish": "merhaba",
+    "pronunciation": "he-lou",
+    "story": "Hello! How are you today?",
+    "story_tr": "Merhaba! Bugün nasılsın?"
+  },
+  {
+    "english": "cat",
+    "turkish": "kedi",
+    "pronunciation": "ket",
+    "story": "The cat is sleeping on the sofa.",
+    "story_tr": "Kedi kanepede uyuyor."
+  },
+  {
+    "english": "dog",
+    "turkish": "köpek",
+    "pronunciation": "dog",
+    "story": "My dog loves to play in the park.",
+    "story_tr": "Köpeğim parkta oynamayı seviyor."
+  },
+  {
+    "english": "water",
+    "turkish": "su",
+    "pronunciation": "vo-tır",
+    "story": "I drink water every morning.",
+    "story_tr": "Her sabah su içerim."
+  },
+  {
+    "english": "book",
+    "turkish": "kitap",
+    "pronunciation": "buk",
+    "story": "This book is very interesting.",
+    "story_tr": "Bu kitap çok ilginç."
+  },
+  {
+    "english": "house",
+    "turkish": "ev",
+    "pronunciation": "havs",
+    "story": "We live in a big house.",
+    "story_tr": "Büyük bir evde yaşıyoruz."
+  },
+  {
+    "english": "friend",
+    "turkish": "arkadaş",
+    "pronunciation": "frend",
+    "story": "She is my best friend.",
+    "story_tr": "O benim en iyi arkadaşım."
+  },
+  {
+    "english": "food",
+    "turkish": "yemek",
+    "pronunciation": "fud",
+    "story": "The food at this restaurant is delicious.",
+    "story_tr": "Bu restoranda yemekler lezzetli."
+  },
+  {
+    "english": "love",
+    "turkish": "sevgi, aşk",
+    "pronunciation": "lav",
+    "story": "I love spending time with my family.",
+    "story_tr": "Ailemle vakit geçirmeyi seviyorum."
+  },
+  {
+    "english": "time",
+    "turkish": "zaman",
+    "pronunciation": "taym",
+    "story": "What time is it now?",
+    "story_tr": "Şimdi saat kaç?"
+  },
+  {
+    "english": "money",
+    "turkish": "para",
+    "pronunciation": "ma-ni",
+    "story": "I need to save more money.",
+    "story_tr": "Daha fazla para biriktirmem gerekiyor."
+  },
+  {
+    "english": "work",
+    "turkish": "iş, çalışmak",
+    "pronunciation": "vörk",
+    "story": "I work from home every day.",
+    "story_tr": "Her gün evden çalışıyorum."
+  },
+  {
+    "english": "school",
+    "turkish": "okul",
+    "pronunciation": "iskul",
+    "story": "The children go to school by bus.",
+    "story_tr": "Çocuklar okula otobüsle gidiyor."
+  },
+  {
+    "english": "car",
+    "turkish": "araba",
+    "pronunciation": "kar",
+    "story": "His car is very fast.",
+    "story_tr": "Onun arabası çok hızlı."
+  },
+  {
+    "english": "phone",
+    "turkish": "telefon",
+    "pronunciation": "fon",
+    "story": "Can I use your phone?",
+    "story_tr": "Telefonunu kullanabilir miyim?"
+  },
+  {
+    "english": "computer",
+    "turkish": "bilgisayar",
+    "pronunciation": "kom-pyu-tır",
+    "story": "I use my computer for work.",
+    "story_tr": "Bilgisayarımı iş için kullanıyorum."
+  },
+  {
+    "english": "tree",
+    "turkish": "ağaç",
+    "pronunciation": "tri",
+    "story": "There is a big tree in our garden.",
+    "story_tr": "Bahçemizde büyük bir ağaç var."
+  },
+  {
+    "english": "sun",
+    "turkish": "güneş",
+    "pronunciation": "san",
+    "story": "The sun is shining brightly today.",
+    "story_tr": "Bugün güneş parlak bir şekilde parlıyor."
+  },
+  {
+    "english": "moon",
+    "turkish": "ay",
+    "pronunciation": "mun",
+    "story": "The moon looks beautiful tonight.",
+    "story_tr": "Bu gece ay çok güzel görünüyor."
+  },
+  {
+    "english": "star",
+    "turkish": "yıldız",
+    "pronunciation": "star",
+    "story": "I can see many stars in the sky.",
+    "story_tr": "Gökyüzünde birçok yıldız görebiliyorum."
+  },
+  {
+    "english": "rain",
+    "turkish": "yağmur",
+    "pronunciation": "reyn",
+    "story": "It will rain tomorrow.",
+    "story_tr": "Yarın yağmur yağacak."
+  },
+  {
+    "english": "wind",
+    "turkish": "rüzgar",
+    "pronunciation": "vind",
+    "story": "The wind is very strong today.",
+    "story_tr": "Bugün rüzgar çok kuvvetli."
+  },
+  {
+    "english": "fire",
+    "turkish": "ateş",
+    "pronunciation": "fay-ır",
+    "story": "We made a fire to stay warm.",
+    "story_tr": "Isınmak için ateş yaktık."
+  },
+  {
+    "english": "mountain",
+    "turkish": "dağ",
+    "pronunciation": "mavn-tın",
+    "story": "The mountain is covered with snow.",
+    "story_tr": "Dağ karla kaplı."
+  },
+  {
+    "english": "river",
+    "turkish": "nehir",
+    "pronunciation": "ri-vır",
+    "story": "The river flows through the city.",
+    "story_tr": "Nehir şehrin içinden akıyor."
+  },
+  {
+    "english": "flower",
+    "turkish": "çiçek",
+    "pronunciation": "fla-vır",
+    "story": "These flowers smell wonderful.",
+    "story_tr": "Bu çiçekler harika kokuyor."
+  },
+  {
+    "english": "bird",
+    "turkish": "kuş",
+    "pronunciation": "börd",
+    "story": "A bird is singing in the tree.",
+    "story_tr": "Ağaçta bir kuş şarkı söylüyor."
+  },
+  {
+    "english": "fish",
+    "turkish": "balık",
+    "pronunciation": "fiş",
+    "story": "We caught three fish today.",
+    "story_tr": "Bugün üç balık yakaladık."
+  },
+  {
+    "english": "bread",
+    "turkish": "ekmek",
+    "pronunciation": "bred",
+    "story": "I eat bread for breakfast.",
+    "story_tr": "Kahvaltıda ekmek yerim."
+  },
+  {
+    "english": "milk",
+    "turkish": "süt",
+    "pronunciation": "milk",
+    "story": "Do you want milk in your coffee?",
+    "story_tr": "Kahvene süt ister misin?"
+  },
+  {
+    "english": "apple",
+    "turkish": "elma",
+    "pronunciation": "e-pıl",
+    "story": "An apple a day keeps the doctor away.",
+    "story_tr": "Günde bir elma doktoru uzak tutar."
+  },
+  {
+    "english": "orange",
+    "turkish": "portakal",
+    "pronunciation": "o-rinc",
+    "story": "I love fresh orange juice.",
+    "story_tr": "Taze portakal suyunu seviyorum."
+  },
+  {
+    "english": "banana",
+    "turkish": "muz",
+    "pronunciation": "bı-na-na",
+    "story": "Bananas are good for your health.",
+    "story_tr": "Muzlar sağlığınız için iyidir."
+  },
+  {
+    "english": "coffee",
+    "turkish": "kahve",
+    "pronunciation": "ko-fi",
+    "story": "I need a cup of coffee.",
+    "story_tr": "Bir fincan kahveye ihtiyacım var."
+  },
+  {
+    "english": "tea",
+    "turkish": "çay",
+    "pronunciation": "ti",
+    "story": "Would you like some tea?",
+    "story_tr": "Biraz çay ister misiniz?"
+  },
+  {
+    "english": "chair",
+    "turkish": "sandalye",
+    "pronunciation": "çeır",
+    "story": "Please sit on this chair.",
+    "story_tr": "Lütfen bu sandalyeye oturun."
+  },
+  {
+    "english": "table",
+    "turkish": "masa",
+    "pronunciation": "tey-bıl",
+    "story": "Put the book on the table.",
+    "story_tr": "Kitabı masaya koy."
+  },
+  {
+    "english": "door",
+    "turkish": "kapı",
+    "pronunciation": "dor",
+    "story": "Close the door, please.",
+    "story_tr": "Lütfen kapıyı kapat."
+  },
+  {
+    "english": "window",
+    "turkish": "pencere",
+    "pronunciation": "vin-dov",
+    "story": "Open the window for fresh air.",
+    "story_tr": "Temiz hava için pencereyi aç."
+  },
+  {
+    "english": "hand",
+    "turkish": "el",
+    "pronunciation": "hend",
+    "story": "Wash your hands before eating.",
+    "story_tr": "Yemekten önce ellerini yıka."
+  },
+  {
+    "english": "foot",
+    "turkish": "ayak",
+    "pronunciation": "fut",
+    "story": "My foot hurts after running.",
+    "story_tr": "Koştuktan sonra ayağım ağrıyor."
+  },
+  {
+    "english": "head",
+    "turkish": "kafa, baş",
+    "pronunciation": "hed",
+    "story": "I have a headache today.",
+    "story_tr": "Bugün başım ağrıyor."
+  },
+  {
+    "english": "eye",
+    "turkish": "göz",
+    "pronunciation": "ay",
+    "story": "She has beautiful blue eyes.",
+    "story_tr": "Onun güzel mavi gözleri var."
+  },
+  {
+    "english": "ear",
+    "turkish": "kulak",
+    "pronunciation": "iır",
+    "story": "I can't hear you with my left ear.",
+    "story_tr": "Sol kulağımla seni duyamıyorum."
+  },
+  {
+    "english": "mouth",
+    "turkish": "ağız",
+    "pronunciation": "mavs",
+    "story": "Open your mouth and say 'ah'.",
+    "story_tr": "Ağzını aç ve 'ah' de."
+  },
+  {
+    "english": "heart",
+    "turkish": "kalp",
+    "pronunciation": "hart",
+    "story": "Exercise is good for your heart.",
+    "story_tr": "Egzersiz kalbiniz için iyidir."
+  },
+  {
+    "english": "night",
+    "turkish": "gece",
+    "pronunciation": "nayt",
+    "story": "Good night, sleep well!",
+    "story_tr": "İyi geceler, iyi uykular!"
+  },
+  {
+    "english": "day",
+    "turkish": "gün",
+    "pronunciation": "dey",
+    "story": "Have a nice day!",
+    "story_tr": "İyi günler!"
+  },
+  {
+    "english": "morning",
+    "turkish": "sabah",
+    "pronunciation": "mor-ning",
+    "story": "I wake up early every morning.",
+    "story_tr": "Her sabah erken kalkarım."
+  },
+  {
+    "english": "evening",
+    "turkish": "akşam",
+    "pronunciation": "iv-ning",
+    "story": "We meet in the evening.",
+    "story_tr": "Akşam buluşuyoruz."
+  },
+  {
+    "english": "year",
+    "turkish": "yıl",
+    "pronunciation": "yiır",
+    "story": "This year is going very fast.",
+    "story_tr": "Bu yıl çok hızlı geçiyor."
+  },
+  {
+    "english": "month",
+    "turkish": "ay",
+    "pronunciation": "mans",
+    "story": "My birthday is next month.",
+    "story_tr": "Doğum günüm gelecek ay."
+  },
+  {
+    "english": "week",
+    "turkish": "hafta",
+    "pronunciation": "viik",
+    "story": "I go to the gym twice a week.",
+    "story_tr": "Haftada iki kez spor salonuna giderim."
+  },
+  {
+    "english": "hour",
+    "turkish": "saat",
+    "pronunciation": "a-vır",
+    "story": "The meeting will last one hour.",
+    "story_tr": "Toplantı bir saat sürecek."
+  },
+  {
+    "english": "minute",
+    "turkish": "dakika",
+    "pronunciation": "mi-nit",
+    "story": "Wait a minute, please.",
+    "story_tr": "Bir dakika bekle, lütfen."
+  },
+  {
+    "english": "second",
+    "turkish": "saniye",
+    "pronunciation": "se-kınd",
+    "story": "Just a second, I'm coming!",
+    "story_tr": "Bir saniye, geliyorum!"
+  },
+  {
+    "english": "big",
+    "turkish": "büyük",
+    "pronunciation": "big",
+    "story": "This is a very big house.",
+    "story_tr": "Bu çok büyük bir ev."
+  },
+  {
+    "english": "small",
+    "turkish": "küçük",
+    "pronunciation": "simol",
+    "story": "The room is too small.",
+    "story_tr": "Oda çok küçük."
+  },
+  {
+    "english": "good",
+    "turkish": "iyi",
+    "pronunciation": "gud",
+    "story": "That's a good idea!",
+    "story_tr": "Bu iyi bir fikir!"
+  },
+  {
+    "english": "bad",
+    "turkish": "kötü",
+    "pronunciation": "bed",
+    "story": "This is a bad idea.",
+    "story_tr": "Bu kötü bir fikir."
+  },
+  {
+    "english": "hot",
+    "turkish": "sıcak",
+    "pronunciation": "hat",
+    "story": "It's very hot today.",
+    "story_tr": "Bugün çok sıcak."
+  },
+  {
+    "english": "cold",
+    "turkish": "soğuk",
+    "pronunciation": "kold",
+    "story": "The water is too cold.",
+    "story_tr": "Su çok soğuk."
+  },
+  {
+    "english": "new",
+    "turkish": "yeni",
+    "pronunciation": "nyu",
+    "story": "I bought a new phone.",
+    "story_tr": "Yeni bir telefon aldım."
+  },
+  {
+    "english": "old",
+    "turkish": "eski",
+    "pronunciation": "old",
+    "story": "This is an old building.",
+    "story_tr": "Bu eski bir bina."
+  },
+  {
+    "english": "young",
+    "turkish": "genç",
+    "pronunciation": "yang",
+    "story": "She is very young.",
+    "story_tr": "O çok genç."
+  },
+  {
+    "english": "beautiful",
+    "turkish": "güzel",
+    "pronunciation": "byu-ti-ful",
+    "story": "What a beautiful day!",
+    "story_tr": "Ne güzel bir gün!"
+  },
+  {
+    "english": "strong",
+    "turkish": "güçlü",
+    "pronunciation": "strong",
+    "story": "He is very strong.",
+    "story_tr": "O çok güçlü."
+  },
+  {
+    "english": "fast",
+    "turkish": "hızlı",
+    "pronunciation": "fast",
+    "story": "This car is really fast.",
+    "story_tr": "Bu araba gerçekten hızlı."
+  },
+  {
+    "english": "slow",
+    "turkish": "yavaş",
+    "pronunciation": "slow",
+    "story": "The internet is too slow.",
+    "story_tr": "İnternet çok yavaş."
+  },
+  {
+    "english": "happy",
+    "turkish": "mutlu",
+    "pronunciation": "he-pi",
+    "story": "I'm so happy to see you!",
+    "story_tr": "Seni gördüğüme çok mutluyum!"
+  },
+  {
+    "english": "sad",
+    "turkish": "üzgün",
+    "pronunciation": "sed",
+    "story": "Why are you sad?",
+    "story_tr": "Neden üzgünsün?"
+  },
+  {
+    "english": "angry",
+    "turkish": "kızgın",
+    "pronunciation": "eng-ri",
+    "story": "Don't be angry with me.",
+    "story_tr": "Bana kızma."
+  },
+  {
+    "english": "tired",
+    "turkish": "yorgun",
+    "pronunciation": "tay-ırd",
+    "story": "I'm very tired today.",
+    "story_tr": "Bugün çok yorgunum."
+  },
+  {
+    "english": "hungry",
+    "turkish": "aç",
+    "pronunciation": "hang-ri",
+    "story": "Are you hungry?",
+    "story_tr": "Aç mısın?"
+  },
+  {
+    "english": "thirsty",
+    "turkish": "susuz",
+    "pronunciation": "sörs-ti",
+    "story": "I'm thirsty, can I have water?",
+    "story_tr": "Susadım, su alabilir miyim?"
+  },
+  {
+    "english": "sick",
+    "turkish": "hasta",
+    "pronunciation": "sik",
+    "story": "I feel sick today.",
+    "story_tr": "Bugün kendimi hasta hissediyorum."
+  },
+  {
+    "english": "healthy",
+    "turkish": "sağlıklı",
+    "pronunciation": "hel-si",
+    "story": "Eating vegetables keeps you healthy.",
+    "story_tr": "Sebze yemek seni sağlıklı tutar."
+  },
+  {
+    "english": "rich",
+    "turkish": "zengin",
+    "pronunciation": "riç",
+    "story": "He is a very rich man.",
+    "story_tr": "O çok zengin bir adam."
+  },
+  {
+    "english": "poor",
+    "turkish": "fakir",
+    "pronunciation": "pur",
+    "story": "They are poor but happy.",
+    "story_tr": "Onlar fakir ama mutlu."
+  },
+  {
+    "english": "smart",
+    "turkish": "akıllı",
+    "pronunciation": "smart",
+    "story": "You are very smart!",
+    "story_tr": "Çok akıllısın!"
+  },
+  {
+    "english": "stupid",
+    "turkish": "aptal",
+    "pronunciation": "stu-pid",
+    "story": "That was a stupid mistake.",
+    "story_tr": "Bu aptalca bir hataydı."
+  },
+  {
+    "english": "easy",
+    "turkish": "kolay",
+    "pronunciation": "i-zi",
+    "story": "This test is very easy.",
+    "story_tr": "Bu test çok kolay."
+  },
+  {
+    "english": "difficult",
+    "turkish": "zor",
+    "pronunciation": "di-fi-kılt",
+    "story": "Learning English is not difficult.",
+    "story_tr": "İngilizce öğrenmek zor değil."
+  },
+  {
+    "english": "right",
+    "turkish": "doğru, sağ",
+    "pronunciation": "rayt",
+    "story": "You are right!",
+    "story_tr": "Haklısın!"
+  },
+  {
+    "english": "wrong",
+    "turkish": "yanlış",
+    "pronunciation": "rong",
+    "story": "That answer is wrong.",
+    "story_tr": "O cevap yanlış."
+  },
+  {
+    "english": "clean",
+    "turkish": "temiz",
+    "pronunciation": "klin",
+    "story": "Keep your room clean.",
+    "story_tr": "Odanı temiz tut."
+  },
+  {
+    "english": "dirty",
+    "turkish": "kirli",
+    "pronunciation": "dör-ti",
+    "story": "Your hands are dirty.",
+    "story_tr": "Ellerin kirli."
+  },
+  {
+    "english": "open",
+    "turkish": "açık",
+    "pronunciation": "o-pın",
+    "story": "The store is open now.",
+    "story_tr": "Dükkan şimdi açık."
+  },
+  {
+    "english": "close",
+    "turkish": "kapalı, kapatmak",
+    "pronunciation": "kloz",
+    "story": "Please close the door.",
+    "story_tr": "Lütfen kapıyı kapat."
+  },
+  {
+    "english": "long",
+    "turkish": "uzun",
+    "pronunciation": "long",
+    "story": "She has long hair.",
+    "story_tr": "Onun uzun saçları var."
+  },
+  {
+    "english": "short",
+    "turkish": "kısa",
+    "pronunciation": "şort",
+    "story": "This is a short story.",
+    "story_tr": "Bu kısa bir hikaye."
+  },
+  {
+    "english": "tall",
+    "turkish": "uzun boylu",
+    "pronunciation": "tol",
+    "story": "He is very tall.",
+    "story_tr": "O çok uzun boylu."
+  },
+  {
+    "english": "wide",
+    "turkish": "geniş",
+    "pronunciation": "vayd",
+    "story": "The street is very wide.",
+    "story_tr": "Sokak çok geniş."
+  },
+  {
+    "english": "narrow",
+    "turkish": "dar",
+    "pronunciation": "ne-rov",
+    "story": "This road is too narrow.",
+    "story_tr": "Bu yol çok dar."
+  },
+  {
+    "english": "heavy",
+    "turkish": "ağır",
+    "pronunciation": "he-vi",
+    "story": "This box is very heavy.",
+    "story_tr": "Bu kutu çok ağır."
+  },
+  {
+    "english": "light",
+    "turkish": "hafif, ışık",
+    "pronunciation": "layt",
+    "story": "Turn on the light, please.",
+    "story_tr": "Lütfen ışığı aç."
+  },
+  {
+    "english": "dark",
+    "turkish": "karanlık",
+    "pronunciation": "dark",
+    "story": "It's dark outside.",
+    "story_tr": "Dışarısı karanlık."
+  },
+  {
+    "english": "bright",
+    "turkish": "parlak",
+    "pronunciation": "brayt",
+    "story": "The sun is very bright.",
+    "story_tr": "Güneş çok parlak."
+  },
+  {
+    "english": "quiet",
+    "turkish": "sessiz",
+    "pronunciation": "kva-yet",
+    "story": "Please be quiet in the library.",
+    "story_tr": "Lütfen kütüphanede sessiz ol."
+  },
+  {
+    "english": "loud",
+    "turkish": "gürültülü",
+    "pronunciation": "lavd",
+    "story": "The music is too loud.",
+    "story_tr": "Müzik çok gürültülü."
+  },
+  {
+    "english": "soft",
+    "turkish": "yumuşak",
+    "pronunciation": "soft",
+    "story": "This pillow is very soft.",
+    "story_tr": "Bu yastık çok yumuşak."
+  },
+  {
+    "english": "hard",
+    "turkish": "sert",
+    "pronunciation": "hard",
+    "story": "This bed is too hard.",
+    "story_tr": "Bu yatak çok sert."
+  },
+  {
+    "english": "wet",
+    "turkish": "ıslak",
+    "pronunciation": "vet",
+    "story": "My clothes are wet.",
+    "story_tr": "Giysilerim ıslak."
+  },
+  {
+    "english": "dry",
+    "turkish": "kuru",
+    "pronunciation": "dray",
+    "story": "The ground is dry.",
+    "story_tr": "Zemin kuru."
+  },
+  {
+    "english": "full",
+    "turkish": "dolu",
+    "pronunciation": "ful",
+    "story": "The glass is full.",
+    "story_tr": "Bardak dolu."
+  },
+  {
+    "english": "empty",
+    "turkish": "boş",
+    "pronunciation": "emp-ti",
+    "story": "The bottle is empty.",
+    "story_tr": "Şişe boş."
+  },
+  {
+    "english": "cheap",
+    "turkish": "ucuz",
+    "pronunciation": "çip",
+    "story": "This shirt is very cheap.",
+    "story_tr": "Bu gömlek çok ucuz."
+  },
+  {
+    "english": "expensive",
+    "turkish": "pahalı",
+    "pronunciation": "eks-pen-siv",
+    "story": "That watch is too expensive.",
+    "story_tr": "O saat çok pahalı."
+  },
+  {
+    "english": "near",
+    "turkish": "yakın",
+    "pronunciation": "niır",
+    "story": "The school is near my house.",
+    "story_tr": "Okul evime yakın."
+  },
+  {
+    "english": "far",
+    "turkish": "uzak",
+    "pronunciation": "far",
+    "story": "How far is the airport?",
+    "story_tr": "Havaalanı ne kadar uzak?"
+  },
+  {
+    "english": "early",
+    "turkish": "erken",
+    "pronunciation": "ör-li",
+    "story": "I wake up early every day.",
+    "story_tr": "Her gün erken kalkarım."
+  },
+  {
+    "english": "late",
+    "turkish": "geç",
+    "pronunciation": "leyt",
+    "story": "Don't be late for school!",
+    "story_tr": "Okula geç kalma!"
+  },
+  {
+    "english": "always",
+    "turkish": "her zaman",
+    "pronunciation": "ol-veys",
+    "story": "I always drink coffee in the morning.",
+    "story_tr": "Sabahları her zaman kahve içerim."
+  },
+  {
+    "english": "never",
+    "turkish": "asla",
+    "pronunciation": "ne-vır",
+    "story": "I never eat fast food.",
+    "story_tr": "Asla fast food yemem."
+  },
+  {
+    "english": "sometimes",
+    "turkish": "bazen",
+    "pronunciation": "sam-tayms",
+    "story": "Sometimes I go to the gym.",
+    "story_tr": "Bazen spor salonuna giderim."
+  },
+  {
+    "english": "today",
+    "turkish": "bugün",
+    "pronunciation": "tu-dey",
+    "story": "What are you doing today?",
+    "story_tr": "Bugün ne yapıyorsun?"
+  },
+  {
+    "english": "tomorrow",
+    "turkish": "yarın",
+    "pronunciation": "tu-mo-ro",
+    "story": "See you tomorrow!",
+    "story_tr": "Yarın görüşürüz!"
+  },
+  {
+    "english": "yesterday",
+    "turkish": "dün",
+    "pronunciation": "yes-tır-dey",
+    "story": "I saw him yesterday.",
+    "story_tr": "Onu dün gördüm."
+  },
+  {
+    "english": "here",
+    "turkish": "burada",
+    "pronunciation": "hiır",
+    "story": "Come here, please.",
+    "story_tr": "Buraya gel lütfen."
+  },
+  {
+    "english": "there",
+    "turkish": "orada",
+    "pronunciation": "deır",
+    "story": "Put it over there.",
+    "story_tr": "Onu oraya koy."
+  },
+  {
+    "english": "up",
+    "turkish": "yukarı",
+    "pronunciation": "ap",
+    "story": "Look up at the sky.",
+    "story_tr": "Gökyüzüne bak."
+  },
+  {
+    "english": "down",
+    "turkish": "aşağı",
+    "pronunciation": "davn",
+    "story": "Sit down, please.",
+    "story_tr": "Lütfen otur."
+  },
+  {
+    "english": "left",
+    "turkish": "sol",
+    "pronunciation": "left",
+    "story": "Turn left at the corner.",
+    "story_tr": "Köşede sola dön."
+  },
+  {
+    "english": "inside",
+    "turkish": "içeride",
+    "pronunciation": "in-sayd",
+    "story": "Come inside, it's cold.",
+    "story_tr": "İçeri gel, hava soğuk."
+  },
+  {
+    "english": "outside",
+    "turkish": "dışarıda",
+    "pronunciation": "avt-sayd",
+    "story": "Let's go outside and play.",
+    "story_tr": "Hadi dışarı çıkıp oynayalım."
+  },
+  {
+    "english": "before",
+    "turkish": "önce",
+    "pronunciation": "bi-for",
+    "story": "Wash your hands before eating.",
+    "story_tr": "Yemekten önce ellerini yıka."
+  },
+  {
+    "english": "after",
+    "turkish": "sonra",
+    "pronunciation": "af-tır",
+    "story": "We'll talk after the meeting.",
+    "story_tr": "Toplantıdan sonra konuşacağız."
+  },
+  {
+    "english": "between",
+    "turkish": "arasında",
+    "pronunciation": "bit-vin",
+    "story": "The bank is between the cafe and the shop.",
+    "story_tr": "Banka kafe ile dükkan arasında."
+  },
+  {
+    "english": "people",
+    "turkish": "insanlar",
+    "pronunciation": "pi-pıl",
+    "story": "Many people are here today.",
+    "story_tr": "Bugün burada çok insan var."
+  },
+  {
+    "english": "man",
+    "turkish": "adam, erkek",
+    "pronunciation": "men",
+    "story": "That man is my teacher.",
+    "story_tr": "O adam benim öğretmenim."
+  },
+  {
+    "english": "woman",
+    "turkish": "kadın",
+    "pronunciation": "vu-men",
+    "story": "The woman is reading a book.",
+    "story_tr": "Kadın kitap okuyor."
+  },
+  {
+    "english": "child",
+    "turkish": "çocuk",
+    "pronunciation": "çayld",
+    "story": "The child is playing outside.",
+    "story_tr": "Çocuk dışarıda oynuyor."
+  },
+  {
+    "english": "boy",
+    "turkish": "erkek çocuk",
+    "pronunciation": "boy",
+    "story": "The boy is riding a bike.",
+    "story_tr": "Erkek çocuk bisiklet sürüyor."
+  },
+  {
+    "english": "girl",
+    "turkish": "kız çocuk",
+    "pronunciation": "görl",
+    "story": "The girl is singing a song.",
+    "story_tr": "Kız çocuk şarkı söylüyor."
+  },
+  {
+    "english": "family",
+    "turkish": "aile",
+    "pronunciation": "fe-mi-li",
+    "story": "I love my family.",
+    "story_tr": "Ailemi seviyorum."
+  },
+  {
+    "english": "mother",
+    "turkish": "anne",
+    "pronunciation": "ma-dır",
+    "story": "My mother cooks delicious food.",
+    "story_tr": "Annem lezzetli yemekler pişirir."
+  },
+  {
+    "english": "father",
+    "turkish": "baba",
+    "pronunciation": "fa-dır",
+    "story": "My father works in an office.",
+    "story_tr": "Babam bir ofiste çalışıyor."
+  },
+  {
+    "english": "brother",
+    "turkish": "erkek kardeş",
+    "pronunciation": "bra-dır",
+    "story": "My brother is older than me.",
+    "story_tr": "Erkek kardeşim benden büyük."
+  },
+  {
+    "english": "sister",
+    "turkish": "kız kardeş",
+    "pronunciation": "sis-tır",
+    "story": "My sister is a doctor.",
+    "story_tr": "Kız kardeşim doktor."
+  },
+  {
+    "english": "baby",
+    "turkish": "bebek",
+    "pronunciation": "bey-bi",
+    "story": "The baby is sleeping.",
+    "story_tr": "Bebek uyuyor."
+  },
+  {
+    "english": "husband",
+    "turkish": "koca, eş",
+    "pronunciation": "haz-bınd",
+    "story": "Her husband is very kind.",
+    "story_tr": "Onun kocası çok nazik."
+  },
+  {
+    "english": "wife",
+    "turkish": "karı, eş",
+    "pronunciation": "vayf",
+    "story": "His wife is a teacher.",
+    "story_tr": "Onun karısı öğretmen."
+  },
+  {
+    "english": "son",
+    "turkish": "oğul",
+    "pronunciation": "san",
+    "story": "Their son is in college.",
+    "story_tr": "Onların oğlu üniversitede."
+  },
+  {
+    "english": "daughter",
+    "turkish": "kız evlat",
+    "pronunciation": "do-tır",
+    "story": "My daughter loves to dance.",
+    "story_tr": "Kızım dans etmeyi seviyor."
+  },
+  {
+    "english": "parent",
+    "turkish": "ebeveyn",
+    "pronunciation": "pe-rınt",
+    "story": "Every parent loves their children.",
+    "story_tr": "Her ebeveyn çocuklarını sever."
+  },
+  {
+    "english": "grandfather",
+    "turkish": "büyükbaba",
+    "pronunciation": "grend-fa-dır",
+    "story": "My grandfather tells great stories.",
+    "story_tr": "Büyükbabam harika hikayeler anlatır."
+  },
+  {
+    "english": "grandmother",
+    "turkish": "büyükanne",
+    "pronunciation": "grend-ma-dır",
+    "story": "My grandmother makes cookies.",
+    "story_tr": "Büyükannem kurabiye yapar."
+  },
+  {
+    "english": "uncle",
+    "turkish": "amca, dayı",
+    "pronunciation": "an-kıl",
+    "story": "My uncle lives in another city.",
+    "story_tr": "Amcam başka bir şehirde yaşıyor."
+  },
+  {
+    "english": "aunt",
+    "turkish": "teyze, hala",
+    "pronunciation": "ant",
+    "story": "My aunt is visiting us.",
+    "story_tr": "Teyzem bizi ziyaret ediyor."
+  },
+  {
+    "english": "cousin",
+    "turkish": "kuzen",
+    "pronunciation": "ka-zın",
+    "story": "My cousin is my best friend.",
+    "story_tr": "Kuzenim benim en iyi arkadaşım."
+  },
+  {
+    "english": "person",
+    "turkish": "kişi",
+    "pronunciation": "pör-sın",
+    "story": "That person is very nice.",
+    "story_tr": "O kişi çok nazik."
+  },
+  {
+    "english": "student",
+    "turkish": "öğrenci",
+    "pronunciation": "stu-dent",
+    "story": "She is a good student.",
+    "story_tr": "O iyi bir öğrenci."
+  },
+  {
+    "english": "teacher",
+    "turkish": "öğretmen",
+    "pronunciation": "ti-çır",
+    "story": "Our teacher is very patient.",
+    "story_tr": "Öğretmenimiz çok sabırlı."
+  },
+  {
+    "english": "doctor",
+    "turkish": "doktor",
+    "pronunciation": "dok-tır",
+    "story": "The doctor will see you now.",
+    "story_tr": "Doktor şimdi sizi görecek."
+  },
+  {
+    "english": "nurse",
+    "turkish": "hemşire",
+    "pronunciation": "nörs",
+    "story": "The nurse is very helpful.",
+    "story_tr": "Hemşire çok yardımsever."
+  },
+  {
+    "english": "police",
+    "turkish": "polis",
+    "pronunciation": "po-lis",
+    "story": "The police are coming.",
+    "story_tr": "Polis geliyor."
+  },
+  {
+    "english": "driver",
+    "turkish": "sürücü",
+    "pronunciation": "dray-vır",
+    "story": "The bus driver is friendly.",
+    "story_tr": "Otobüs şoförü arkadaş canlısı."
+  },
+  {
+    "english": "worker",
+    "turkish": "işçi",
+    "pronunciation": "vör-kır",
+    "story": "The workers are on break.",
+    "story_tr": "İşçiler molada."
+  },
+  {
+    "english": "boss",
+    "turkish": "patron",
+    "pronunciation": "bos",
+    "story": "My boss is very understanding.",
+    "story_tr": "Patronum çok anlayışlı."
+  },
+  {
+    "english": "customer",
+    "turkish": "müşteri",
+    "pronunciation": "kas-tı-mır",
+    "story": "The customer is always right.",
+    "story_tr": "Müşteri her zaman haklıdır."
+  },
+  {
+    "english": "neighbor",
+    "turkish": "komşu",
+    "pronunciation": "ney-bır",
+    "story": "Our neighbor is very friendly.",
+    "story_tr": "Komşumuz çok arkadaş canlısı."
+  },
+  {
+    "english": "stranger",
+    "turkish": "yabancı",
+    "pronunciation": "strey-ncır",
+    "story": "Don't talk to strangers.",
+    "story_tr": "Yabancılarla konuşma."
+  },
+  {
+    "english": "guest",
+    "turkish": "misafir",
+    "pronunciation": "gest",
+    "story": "We have guests tonight.",
+    "story_tr": "Bu gece misafirlerimiz var."
+  },
+  {
+    "english": "name",
+    "turkish": "isim",
+    "pronunciation": "neym",
+    "story": "What is your name?",
+    "story_tr": "Adın ne?"
+  },
+  {
+    "english": "age",
+    "turkish": "yaş",
+    "pronunciation": "eyc",
+    "story": "What is your age?",
+    "story_tr": "Kaç yaşındasın?"
+  },
+  {
+    "english": "address",
+    "turkish": "adres",
+    "pronunciation": "ad-res",
+    "story": "What is your address?",
+    "story_tr": "Adresin ne?"
+  },
+  {
+    "english": "number",
+    "turkish": "numara, sayı",
+    "pronunciation": "nam-bır",
+    "story": "What is your phone number?",
+    "story_tr": "Telefon numaran ne?"
+  },
+  {
+    "english": "color",
+    "turkish": "renk",
+    "pronunciation": "ka-lır",
+    "story": "What is your favorite color?",
+    "story_tr": "En sevdiğin renk ne?"
+  },
+  {
+    "english": "red",
+    "turkish": "kırmızı",
+    "pronunciation": "red",
+    "story": "I like red roses.",
+    "story_tr": "Kırmızı gülleri severim."
+  },
+  {
+    "english": "blue",
+    "turkish": "mavi",
+    "pronunciation": "blu",
+    "story": "The sky is blue.",
+    "story_tr": "Gökyüzü mavi."
+  },
+  {
+    "english": "green",
+    "turkish": "yeşil",
+    "pronunciation": "grin",
+    "story": "The grass is green.",
+    "story_tr": "Çimen yeşil."
+  },
+  {
+    "english": "yellow",
+    "turkish": "sarı",
+    "pronunciation": "ye-lou",
+    "story": "The sun is yellow.",
+    "story_tr": "Güneş sarı."
+  },
+  {
+    "english": "black",
+    "turkish": "siyah",
+    "pronunciation": "blek",
+    "story": "I have a black cat.",
+    "story_tr": "Siyah bir kedim var."
+  },
+  {
+    "english": "white",
+    "turkish": "beyaz",
+    "pronunciation": "vayt",
+    "story": "Snow is white.",
+    "story_tr": "Kar beyazdır."
+  },
+  {
+    "english": "brown",
+    "turkish": "kahverengi",
+    "pronunciation": "bravn",
+    "story": "The dog is brown.",
+    "story_tr": "Köpek kahverengi."
+  },
+  {
+    "english": "pink",
+    "turkish": "pembe",
+    "pronunciation": "pink",
+    "story": "She loves pink flowers.",
+    "story_tr": "Pembe çiçekleri seviyor."
+  },
+  {
+    "english": "purple",
+    "turkish": "mor",
+    "pronunciation": "pör-pıl",
+    "story": "Purple is a beautiful color.",
+    "story_tr": "Mor güzel bir renk."
+  },
+  {
+    "english": "gray",
+    "turkish": "gri",
+    "pronunciation": "grey",
+    "story": "The clouds are gray today.",
+    "story_tr": "Bugün bulutlar gri."
+  },
+  {
+    "english": "country",
+    "turkish": "ülke",
+    "pronunciation": "kant-ri",
+    "story": "Which country are you from?",
+    "story_tr": "Hangi ülkedensin?"
+  },
+  {
+    "english": "city",
+    "turkish": "şehir",
+    "pronunciation": "si-ti",
+    "story": "I live in a big city.",
+    "story_tr": "Büyük bir şehirde yaşıyorum."
+  },
+  {
+    "english": "town",
+    "turkish": "kasaba",
+    "pronunciation": "tavn",
+    "story": "This is a small town.",
+    "story_tr": "Bu küçük bir kasaba."
+  },
+  {
+    "english": "village",
+    "turkish": "köy",
+    "pronunciation": "vi-lic",
+    "story": "My grandparents live in a village.",
+    "story_tr": "Büyükannem ve büyükbabam bir köyde yaşıyor."
+  },
+  {
+    "english": "street",
+    "turkish": "sokak",
+    "pronunciation": "strit",
+    "story": "The street is very busy.",
+    "story_tr": "Sokak çok kalabalık."
+  },
+  {
+    "english": "road",
+    "turkish": "yol",
+    "pronunciation": "rod",
+    "story": "This road goes to the beach.",
+    "story_tr": "Bu yol sahile gidiyor."
+  },
+  {
+    "english": "bridge",
+    "turkish": "köprü",
+    "pronunciation": "bric",
+    "story": "The bridge is very old.",
+    "story_tr": "Köprü çok eski."
+  },
+  {
+    "english": "building",
+    "turkish": "bina",
+    "pronunciation": "bil-ding",
+    "story": "That building is very tall.",
+    "story_tr": "O bina çok yüksek."
+  },
+  {
+    "english": "hospital",
+    "turkish": "hastane",
+    "pronunciation": "hos-pi-tıl",
+    "story": "The hospital is near here.",
+    "story_tr": "Hastane buraya yakın."
+  },
+  {
+    "english": "bank",
+    "turkish": "banka",
+    "pronunciation": "benk",
+    "story": "I need to go to the bank.",
+    "story_tr": "Bankaya gitmem gerekiyor."
+  },
+  {
+    "english": "shop",
+    "turkish": "dükkan",
+    "pronunciation": "şop",
+    "story": "The shop opens at 9 AM.",
+    "story_tr": "Dükkan sabah 9'da açılıyor."
+  },
+  {
+    "english": "store",
+    "turkish": "mağaza",
+    "pronunciation": "stor",
+    "story": "The store has many items.",
+    "story_tr": "Mağazada birçok ürün var."
+  },
+  {
+    "english": "market",
+    "turkish": "pazar, market",
+    "pronunciation": "mar-kit",
+    "story": "I buy vegetables at the market.",
+    "story_tr": "Pazardan sebze alıyorum."
+  },
+  {
+    "english": "restaurant",
+    "turkish": "restoran",
+    "pronunciation": "res-to-rant",
+    "story": "This restaurant is expensive.",
+    "story_tr": "Bu restoran pahalı."
+  },
+  {
+    "english": "hotel",
+    "turkish": "otel",
+    "pronunciation": "ho-tel",
+    "story": "We stayed at a nice hotel.",
+    "story_tr": "Güzel bir otelde kaldık."
+  },
+  {
+    "english": "airport",
+    "turkish": "havaalanı",
+    "pronunciation": "er-port",
+    "story": "The airport is crowded.",
+    "story_tr": "Havaalanı kalabalık."
+  },
+  {
+    "english": "station",
+    "turkish": "istasyon",
+    "pronunciation": "stey-şın",
+    "story": "The train station is nearby.",
+    "story_tr": "Tren istasyonu yakında."
+  },
+  {
+    "english": "park",
+    "turkish": "park",
+    "pronunciation": "park",
+    "story": "Children play in the park.",
+    "story_tr": "Çocuklar parkta oynuyor."
+  },
+  {
+    "english": "garden",
+    "turkish": "bahçe",
+    "pronunciation": "gar-dın",
+    "story": "We have a beautiful garden.",
+    "story_tr": "Güzel bir bahçemiz var."
+  },
+  {
+    "english": "beach",
+    "turkish": "plaj, sahil",
+    "pronunciation": "biç",
+    "story": "Let's go to the beach.",
+    "story_tr": "Hadi sahile gidelim."
+  },
+  {
+    "english": "sea",
+    "turkish": "deniz",
+    "pronunciation": "si",
+    "story": "The sea is calm today.",
+    "story_tr": "Bugün deniz sakin."
+  },
+  {
+    "english": "ocean",
+    "turkish": "okyanus",
+    "pronunciation": "o-şın",
+    "story": "The ocean is very deep.",
+    "story_tr": "Okyanus çok derin."
+  },
+  {
+    "english": "lake",
+    "turkish": "göl",
+    "pronunciation": "leyk",
+    "story": "We swim in the lake.",
+    "story_tr": "Gölde yüzüyoruz."
+  },
+  {
+    "english": "forest",
+    "turkish": "orman",
+    "pronunciation": "fo-rest",
+    "story": "The forest is full of trees.",
+    "story_tr": "Orman ağaçlarla dolu."
+  },
+  {
+    "english": "desert",
+    "turkish": "çöl",
+    "pronunciation": "de-zırt",
+    "story": "The desert is very hot.",
+    "story_tr": "Çöl çok sıcak."
+  },
+  {
+    "english": "island",
+    "turkish": "ada",
+    "pronunciation": "ay-lınd",
+    "story": "We visited a beautiful island.",
+    "story_tr": "Güzel bir adayı ziyaret ettik."
+  },
+  {
+    "english": "world",
+    "turkish": "dünya",
+    "pronunciation": "vörld",
+    "story": "The world is beautiful.",
+    "story_tr": "Dünya güzel."
+  },
+  {
+    "english": "earth",
+    "turkish": "dünya, toprak",
+    "pronunciation": "örs",
+    "story": "We live on Earth.",
+    "story_tr": "Dünya'da yaşıyoruz."
+  },
+  {
+    "english": "sky",
+    "turkish": "gökyüzü",
+    "pronunciation": "is-kay",
+    "story": "The sky is clear tonight.",
+    "story_tr": "Bu gece gökyüzü açık."
+  },
+  {
+    "english": "cloud",
+    "turkish": "bulut",
+    "pronunciation": "klavd",
+    "story": "There are many clouds today.",
+    "story_tr": "Bugün çok bulut var."
+  },
+  {
+    "english": "weather",
+    "turkish": "hava durumu",
+    "pronunciation": "ve-dır",
+    "story": "The weather is nice today.",
+    "story_tr": "Bugün hava güzel."
+  },
+  {
+    "english": "season",
+    "turkish": "mevsim",
+    "pronunciation": "si-zın",
+    "story": "Summer is my favorite season.",
+    "story_tr": "Yaz en sevdiğim mevsim."
+  },
+  {
+    "english": "spring",
+    "turkish": "ilkbahar",
+    "pronunciation": "ısp-ring",
+    "story": "Flowers bloom in spring.",
+    "story_tr": "İlkbaharda çiçekler açar."
+  },
+  {
+    "english": "summer",
+    "turkish": "yaz",
+    "pronunciation": "sa-mır",
+    "story": "Summer is very hot.",
+    "story_tr": "Yaz çok sıcak."
+  },
+  {
+    "english": "autumn",
+    "turkish": "sonbahar",
+    "pronunciation": "o-tım",
+    "story": "Leaves fall in autumn.",
+    "story_tr": "Sonbaharda yapraklar düşer."
+  },
+  {
+    "english": "winter",
+    "turkish": "kış",
+    "pronunciation": "vin-tır",
+    "story": "It snows in winter.",
+    "story_tr": "Kışın kar yağar."
+  },
+  {
+    "english": "snow",
+    "turkish": "kar",
+    "pronunciation": "is-nou",
+    "story": "Children love snow.",
+    "story_tr": "Çocuklar karı sever."
+  },
+  {
+    "english": "ice",
+    "turkish": "buz",
+    "pronunciation": "ays",
+    "story": "The ice is melting.",
+    "story_tr": "Buz eriyor."
+  },
+  {
+    "english": "storm",
+    "turkish": "fırtına",
+    "pronunciation": "ıs-torm",
+    "story": "The storm is coming.",
+    "story_tr": "Fırtına geliyor."
+  },
+  {
+    "english": "thunder",
+    "turkish": "gök gürültüsü",
+    "pronunciation": "san-dır",
+    "story": "I heard thunder last night.",
+    "story_tr": "Dün gece gök gürültüsü duydum."
+  },
+  {
+    "english": "lightning",
+    "turkish": "şimşek",
+    "pronunciation": "layt-ning",
+    "story": "Lightning struck the tree.",
+    "story_tr": "Şimşek ağaca çarptı."
+  },
+  {
+    "english": "temperature",
+    "turkish": "sıcaklık",
+    "pronunciation": "tem-pı-rı-çır",
+    "story": "The temperature is rising.",
+    "story_tr": "Sıcaklık yükseliyor."
+  },
+  {
+    "english": "animal",
+    "turkish": "hayvan",
+    "pronunciation": "e-ni-mıl",
+    "story": "I love animals.",
+    "story_tr": "Hayvanları seviyorum."
+  },
+  {
+    "english": "pet",
+    "turkish": "evcil hayvan",
+    "pronunciation": "pet",
+    "story": "Do you have a pet?",
+    "story_tr": "Evcil hayvanın var mı?"
+  },
+  {
+    "english": "horse",
+    "turkish": "at",
+    "pronunciation": "hors",
+    "story": "The horse is running fast.",
+    "story_tr": "At hızlı koşuyor."
+  },
+  {
+    "english": "cow",
+    "turkish": "inek",
+    "pronunciation": "kav",
+    "story": "The cow gives us milk.",
+    "story_tr": "İnek bize süt verir."
+  },
+  {
+    "english": "pig",
+    "turkish": "domuz",
+    "pronunciation": "pig",
+    "story": "The pig is in the mud.",
+    "story_tr": "Domuz çamurda."
+  },
+  {
+    "english": "sheep",
+    "turkish": "koyun",
+    "pronunciation": "şip",
+    "story": "Sheep give us wool.",
+    "story_tr": "Koyunlar bize yün verir."
+  },
+  {
+    "english": "chicken",
+    "turkish": "tavuk",
+    "pronunciation": "çi-kın",
+    "story": "The chicken laid an egg.",
+    "story_tr": "Tavuk yumurta yumurtladı."
+  },
+  {
+    "english": "duck",
+    "turkish": "ördek",
+    "pronunciation": "dak",
+    "story": "The duck is swimming.",
+    "story_tr": "Ördek yüzüyor."
+  },
+  {
+    "english": "rabbit",
+    "turkish": "tavşan",
+    "pronunciation": "re-bit",
+    "story": "The rabbit is eating carrots.",
+    "story_tr": "Tavşan havuç yiyor."
+  },
+  {
+    "english": "mouse",
+    "turkish": "fare",
+    "pronunciation": "mavs",
+    "story": "I saw a mouse in the kitchen.",
+    "story_tr": "Mutfakta bir fare gördüm."
+  },
+  {
+    "english": "lion",
+    "turkish": "aslan",
+    "pronunciation": "la-yın",
+    "story": "The lion is the king of animals.",
+    "story_tr": "Aslan hayvanların kralıdır."
+  },
+  {
+    "english": "tiger",
+    "turkish": "kaplan",
+    "pronunciation": "tay-gır",
+    "story": "The tiger is very strong.",
+    "story_tr": "Kaplan çok güçlü."
+  },
+  {
+    "english": "bear",
+    "turkish": "ayı",
+    "pronunciation": "beır",
+    "story": "Bears sleep in winter.",
+    "story_tr": "Ayılar kışın uyur."
+  },
+  {
+    "english": "elephant",
+    "turkish": "fil",
+    "pronunciation": "e-li-fınt",
+    "story": "The elephant is very big.",
+    "story_tr": "Fil çok büyük."
+  },
+  {
+    "english": "monkey",
+    "turkish": "maymun",
+    "pronunciation": "man-ki",
+    "story": "Monkeys love bananas.",
+    "story_tr": "Maymunlar muz sever."
+  },
+  {
+    "english": "snake",
+    "turkish": "yılan",
+    "pronunciation": "is-neyk",
+    "story": "Be careful of snakes.",
+    "story_tr": "Yılanlardan dikkatli ol."
+  },
+  {
+    "english": "frog",
+    "turkish": "kurbağa",
+    "pronunciation": "frog",
+    "story": "The frog is jumping.",
+    "story_tr": "Kurbağa zıplıyor."
+  },
+  {
+    "english": "butterfly",
+    "turkish": "kelebek",
+    "pronunciation": "ba-tır-flay",
+    "story": "The butterfly is beautiful.",
+    "story_tr": "Kelebek güzel."
+  },
+  {
+    "english": "bee",
+    "turkish": "arı",
+    "pronunciation": "bi",
+    "story": "Bees make honey.",
+    "story_tr": "Arılar bal yapar."
+  },
+  {
+    "english": "ant",
+    "turkish": "karınca",
+    "pronunciation": "ent",
+    "story": "Ants work together.",
+    "story_tr": "Karıncalar birlikte çalışır."
+  },
+  {
+    "english": "spider",
+    "turkish": "örümcek",
+    "pronunciation": "is-pay-dır",
+    "story": "The spider made a web.",
+    "story_tr": "Örümcek ağ yaptı."
+  },
+  {
+    "english": "fly",
+    "turkish": "sinek",
+    "pronunciation": "flay",
+    "story": "There is a fly in the room.",
+    "story_tr": "Odada bir sinek var."
+  },
+  {
+    "english": "mosquito",
+    "turkish": "sivrisinek",
+    "pronunciation": "mıs-ki-to",
+    "story": "Mosquitoes bite at night.",
+    "story_tr": "Sivrisinekler geceleri ısırır."
+  },
+  {
+    "english": "insect",
+    "turkish": "böcek",
+    "pronunciation": "in-sekt",
+    "story": "Many insects live in the garden.",
+    "story_tr": "Bahçede birçok böcek yaşar."
+  },
+  {
+    "english": "plant",
+    "turkish": "bitki",
+    "pronunciation": "plent",
+    "story": "Plants need water.",
+    "story_tr": "Bitkiler suya ihtiyaç duyar."
+  },
+  {
+    "english": "grass",
+    "turkish": "çimen",
+    "pronunciation": "gras",
+    "story": "The grass is green.",
+    "story_tr": "Çimen yeşil."
+  },
+  {
+    "english": "leaf",
+    "turkish": "yaprak",
+    "pronunciation": "lif",
+    "story": "The leaf fell from the tree.",
+    "story_tr": "Yaprak ağaçtan düştü."
+  },
+  {
+    "english": "root",
+    "turkish": "kök",
+    "pronunciation": "rut",
+    "story": "The roots are underground.",
+    "story_tr": "Kökler yer altında."
+  },
+  {
+    "english": "seed",
+    "turkish": "tohum",
+    "pronunciation": "sid",
+    "story": "Plant the seeds in spring.",
+    "story_tr": "İlkbaharda tohumları ek."
+  },
+  {
+    "english": "fruit",
+    "turkish": "meyve",
+    "pronunciation": "frut",
+    "story": "Fruit is healthy.",
+    "story_tr": "Meyve sağlıklıdır."
+  },
+  {
+    "english": "vegetable",
+    "turkish": "sebze",
+    "pronunciation": "ve-cı-tı-bıl",
+    "story": "Eat your vegetables.",
+    "story_tr": "Sebzelerini ye."
+  },
+  {
+    "english": "tomato",
+    "turkish": "domates",
+    "pronunciation": "tı-mey-to",
+    "story": "Tomatoes are red.",
+    "story_tr": "Domatesler kırmızıdır."
+  },
+  {
+    "english": "potato",
+    "turkish": "patates",
+    "pronunciation": "pı-tey-to",
+    "story": "I like fried potatoes.",
+    "story_tr": "Kızarmış patates severim."
+  },
+  {
+    "english": "carrot",
+    "turkish": "havuç",
+    "pronunciation": "ke-rıt",
+    "story": "Carrots are good for eyes.",
+    "story_tr": "Havuç gözler için iyidir."
+  },
+  {
+    "english": "onion",
+    "turkish": "soğan",
+    "pronunciation": "an-yın",
+    "story": "Onions make me cry.",
+    "story_tr": "Soğan beni ağlatır."
+  },
+  {
+    "english": "lettuce",
+    "turkish": "marul",
+    "pronunciation": "le-tis",
+    "story": "Lettuce is in the salad.",
+    "story_tr": "Marul salatada."
+  },
+  {
+    "english": "cucumber",
+    "turkish": "salatalık",
+    "pronunciation": "kyu-kam-bır",
+    "story": "Cucumbers are fresh.",
+    "story_tr": "Salatalıklar taze."
+  },
+  {
+    "english": "pepper",
+    "turkish": "biber",
+    "pronunciation": "pe-pır",
+    "story": "This pepper is spicy.",
+    "story_tr": "Bu biber acı."
+  },
+  {
+    "english": "rice",
+    "turkish": "pirinç",
+    "pronunciation": "rays",
+    "story": "Rice is a staple food.",
+    "story_tr": "Pirinç temel bir gıdadır."
+  },
+  {
+    "english": "meat",
+    "turkish": "et",
+    "pronunciation": "mit",
+    "story": "I don't eat meat.",
+    "story_tr": "Et yemem."
+  },
+  {
+    "english": "beef",
+    "turkish": "sığır eti",
+    "pronunciation": "bif",
+    "story": "Beef is expensive.",
+    "story_tr": "Sığır eti pahalı."
+  },
+  {
+    "english": "pork",
+    "turkish": "domuz eti",
+    "pronunciation": "pork",
+    "story": "Some people don't eat pork.",
+    "story_tr": "Bazı insanlar domuz eti yemez."
+  },
+  {
+    "english": "egg",
+    "turkish": "yumurta",
+    "pronunciation": "eg",
+    "story": "I eat eggs for breakfast.",
+    "story_tr": "Kahvaltıda yumurta yerim."
+  },
+  {
+    "english": "cheese",
+    "turkish": "peynir",
+    "pronunciation": "çiz",
+    "story": "I love cheese.",
+    "story_tr": "Peyniri severim."
+  },
+  {
+    "english": "butter",
+    "turkish": "tereyağı",
+    "pronunciation": "ba-tır",
+    "story": "Put butter on the bread.",
+    "story_tr": "Ekmeğe tereyağı sür."
+  },
+  {
+    "english": "sugar",
+    "turkish": "şeker",
+    "pronunciation": "şu-gır",
+    "story": "Too much sugar is bad.",
+    "story_tr": "Çok fazla şeker kötüdür."
+  },
+  {
+    "english": "salt",
+    "turkish": "tuz",
+    "pronunciation": "solt",
+    "story": "Pass me the salt, please.",
+    "story_tr": "Tuzu uzatır mısın lütfen."
+  },
+  {
+    "english": "oil",
+    "turkish": "yağ",
+    "pronunciation": "oyl",
+    "story": "Cook with olive oil.",
+    "story_tr": "Zeytinyağı ile pişir."
+  },
+  {
+    "english": "soup",
+    "turkish": "çorba",
+    "pronunciation": "sup",
+    "story": "The soup is hot.",
+    "story_tr": "Çorba sıcak."
+  },
+  {
+    "english": "salad",
+    "turkish": "salata",
+    "pronunciation": "se-lıd",
+    "story": "I'll have a salad.",
+    "story_tr": "Salata alacağım."
+  },
+  {
+    "english": "sandwich",
+    "turkish": "sandviç",
+    "pronunciation": "send-viç",
+    "story": "Make me a sandwich.",
+    "story_tr": "Bana sandviç yap."
+  },
+  {
+    "english": "pizza",
+    "turkish": "pizza",
+    "pronunciation": "pit-za",
+    "story": "Let's order pizza.",
+    "story_tr": "Hadi pizza sipariş edelim."
+  },
+  {
+    "english": "burger",
+    "turkish": "hamburger",
+    "pronunciation": "bör-gır",
+    "story": "I want a burger.",
+    "story_tr": "Hamburger istiyorum."
+  },
+  {
+    "english": "cake",
+    "turkish": "kek",
+    "pronunciation": "keyk",
+    "story": "The cake is sweet.",
+    "story_tr": "Kek tatlı."
+  },
+  {
+    "english": "cookie",
+    "turkish": "kurabiye",
+    "pronunciation": "ku-ki",
+    "story": "These cookies are delicious.",
+    "story_tr": "Bu kurabiyeler lezzetli."
+  },
+  {
+    "english": "chocolate",
+    "turkish": "çikolata",
+    "pronunciation": "çok-lıt",
+    "story": "I love chocolate.",
+    "story_tr": "Çikolatayı severim."
+  },
+  {
+    "english": "candy",
+    "turkish": "şeker",
+    "pronunciation": "ken-di",
+    "story": "Children love candy.",
+    "story_tr": "Çocuklar şeker sever."
+  },
+  {
+    "english": "ice cream",
+    "turkish": "dondurma",
+    "pronunciation": "ays krim",
+    "story": "Ice cream is cold and sweet.",
+    "story_tr": "Dondurma soğuk ve tatlı."
+  },
+  {
+    "english": "juice",
+    "turkish": "meyve suyu",
+    "pronunciation": "cus",
+    "story": "Orange juice is healthy.",
+    "story_tr": "Portakal suyu sağlıklıdır."
+  },
+  {
+    "english": "soda",
+    "turkish": "gazoz",
+    "pronunciation": "so-da",
+    "story": "Soda has too much sugar.",
+    "story_tr": "Gazozda çok fazla şeker var."
+  },
+  {
+    "english": "beer",
+    "turkish": "bira",
+    "pronunciation": "biır",
+    "story": "He drinks beer sometimes.",
+    "story_tr": "Bazen bira içer."
+  },
+  {
+    "english": "wine",
+    "turkish": "şarap",
+    "pronunciation": "vayn",
+    "story": "Red wine is popular.",
+    "story_tr": "Kırmızı şarap popüler."
+  },
+  {
+    "english": "bottle",
+    "turkish": "şişe",
+    "pronunciation": "bo-tıl",
+    "story": "The bottle is empty.",
+    "story_tr": "Şişe boş."
+  },
+  {
+    "english": "glass",
+    "turkish": "bardak, cam",
+    "pronunciation": "glas",
+    "story": "Pour water in the glass.",
+    "story_tr": "Bardağa su dök."
+  },
+  {
+    "english": "cup",
+    "turkish": "fincan",
+    "pronunciation": "kap",
+    "story": "I need a cup of tea.",
+    "story_tr": "Bir fincan çaya ihtiyacım var."
+  },
+  {
+    "english": "plate",
+    "turkish": "tabak",
+    "pronunciation": "pleyt",
+    "story": "Put the food on the plate.",
+    "story_tr": "Yemeği tabağa koy."
+  },
+  {
+    "english": "bowl",
+    "turkish": "kase",
+    "pronunciation": "bol",
+    "story": "The soup is in the bowl.",
+    "story_tr": "Çorba kasede."
+  },
+  {
+    "english": "spoon",
+    "turkish": "kaşık",
+    "pronunciation": "is-pun",
+    "story": "I need a spoon.",
+    "story_tr": "Kaşığa ihtiyacım var."
+  },
+  {
+    "english": "fork",
+    "turkish": "çatal",
+    "pronunciation": "fork",
+    "story": "Use a fork to eat.",
+    "story_tr": "Yemek için çatal kullan."
+  },
+  {
+    "english": "knife",
+    "turkish": "bıçak",
+    "pronunciation": "nayf",
+    "story": "Be careful with the knife.",
+    "story_tr": "Bıçakla dikkatli ol."
+  },
+  {
+    "english": "kitchen",
+    "turkish": "mutfak",
+    "pronunciation": "ki-çın",
+    "story": "Mom is in the kitchen.",
+    "story_tr": "Annem mutfakta."
+  },
+  {
+    "english": "bedroom",
+    "turkish": "yatak odası",
+    "pronunciation": "bed-rum",
+    "story": "My bedroom is upstairs.",
+    "story_tr": "Yatak odam üst katta."
+  },
+  {
+    "english": "bathroom",
+    "turkish": "banyo",
+    "pronunciation": "bas-rum",
+    "story": "The bathroom is clean.",
+    "story_tr": "Banyo temiz."
+  },
+  {
+    "english": "living room",
+    "turkish": "oturma odası",
+    "pronunciation": "li-ving rum",
+    "story": "We watch TV in the living room.",
+    "story_tr": "Oturma odasında TV izliyoruz."
+  },
+  {
+    "english": "room",
+    "turkish": "oda",
+    "pronunciation": "rum",
+    "story": "This room is big.",
+    "story_tr": "Bu oda büyük."
+  },
+  {
+    "english": "wall",
+    "turkish": "duvar",
+    "pronunciation": "vol",
+    "story": "The wall is white.",
+    "story_tr": "Duvar beyaz."
+  },
+  {
+    "english": "floor",
+    "turkish": "zemin, kat",
+    "pronunciation": "flor",
+    "story": "The floor is clean.",
+    "story_tr": "Zemin temiz."
+  },
+  {
+    "english": "ceiling",
+    "turkish": "tavan",
+    "pronunciation": "si-ling",
+    "story": "The ceiling is high.",
+    "story_tr": "Tavan yüksek."
+  },
+  {
+    "english": "roof",
+    "turkish": "çatı",
+    "pronunciation": "ruf",
+    "story": "The roof needs repair.",
+    "story_tr": "Çatının tamire ihtiyacı var."
+  },
+  {
+    "english": "stairs",
+    "turkish": "merdivenler",
+    "pronunciation": "ıs-ters",
+    "story": "Go up the stairs.",
+    "story_tr": "Merdivenleri çık."
+  },
+  {
+    "english": "elevator",
+    "turkish": "asansör",
+    "pronunciation": "e-le-vı-tır",
+    "story": "Take the elevator to floor 5.",
+    "story_tr": "5. kata asansörle çık."
+  },
+  {
+    "english": "key",
+    "turkish": "anahtar",
+    "pronunciation": "ki",
+    "story": "I lost my key.",
+    "story_tr": "Anahtarımı kaybettim."
+  },
+  {
+    "english": "lock",
+    "turkish": "kilit",
+    "pronunciation": "lok",
+    "story": "Lock the door.",
+    "story_tr": "Kapıyı kilitle."
+  },
+  {
+    "english": "light",
+    "turkish": "ışık, lamba",
+    "pronunciation": "layt",
+    "story": "Turn on the light.",
+    "story_tr": "Işığı aç."
+  },
+  {
+    "english": "lamp",
+    "turkish": "lamba",
+    "pronunciation": "lemp",
+    "story": "The lamp is on the table.",
+    "story_tr": "Lamba masada."
+  },
+  {
+    "english": "mirror",
+    "turkish": "ayna",
+    "pronunciation": "mi-rır",
+    "story": "Look in the mirror.",
+    "story_tr": "Aynaya bak."
+  },
+  {
+    "english": "picture",
+    "turkish": "resim",
+    "pronunciation": "pik-çır",
+    "story": "That's a nice picture.",
+    "story_tr": "Bu güzel bir resim."
+  },
+  {
+    "english": "photo",
+    "turkish": "fotoğraf",
+    "pronunciation": "fo-to",
+    "story": "Take a photo of me.",
+    "story_tr": "Benim fotoğrafımı çek."
+  },
+  {
+    "english": "camera",
+    "turkish": "kamera",
+    "pronunciation": "ke-mı-ra",
+    "story": "I bought a new camera.",
+    "story_tr": "Yeni bir kamera aldım."
+  },
+  {
+    "english": "television",
+    "turkish": "televizyon",
+    "pronunciation": "te-le-vi-zın",
+    "story": "Watch television after dinner.",
+    "story_tr": "Akşam yemeğinden sonra televizyon izle."
+  },
+  {
+    "english": "radio",
+    "turkish": "radyo",
+    "pronunciation": "re-di-yo",
+    "story": "Listen to the radio.",
+    "story_tr": "Radyo dinle."
+  },
+  {
+    "english": "music",
+    "turkish": "müzik",
+    "pronunciation": "myu-zik",
+    "story": "I love music.",
+    "story_tr": "Müziği severim."
+  },
+  {
+    "english": "song",
+    "turkish": "şarkı",
+    "pronunciation": "song",
+    "story": "This song is beautiful.",
+    "story_tr": "Bu şarkı güzel."
+  },
+  {
+    "english": "movie",
+    "turkish": "film",
+    "pronunciation": "mu-vi",
+    "story": "Let's watch a movie.",
+    "story_tr": "Hadi film izleyelim."
+  },
+  {
+    "english": "video",
+    "turkish": "video",
+    "pronunciation": "vi-di-yo",
+    "story": "I watched a funny video.",
+    "story_tr": "Komik bir video izledim."
+  },
+  {
+    "english": "game",
+    "turkish": "oyun",
+    "pronunciation": "geym",
+    "story": "Let's play a game.",
+    "story_tr": "Hadi oyun oynayalım."
+  },
+  {
+    "english": "toy",
+    "turkish": "oyuncak",
+    "pronunciation": "toy",
+    "story": "Children love toys.",
+    "story_tr": "Çocuklar oyuncak sever."
+  },
+  {
+    "english": "ball",
+    "turkish": "top",
+    "pronunciation": "bol",
+    "story": "Throw me the ball.",
+    "story_tr": "Topu bana at."
+  },
+  {
+    "english": "sport",
+    "turkish": "spor",
+    "pronunciation": "is-port",
+    "story": "I love sports.",
+    "story_tr": "Sporu severim."
+  },
+  {
+    "english": "football",
+    "turkish": "futbol",
+    "pronunciation": "fut-bol",
+    "story": "Football is popular.",
+    "story_tr": "Futbol popüler."
+  },
+  {
+    "english": "basketball",
+    "turkish": "basketbol",
+    "pronunciation": "bas-ket-bol",
+    "story": "He plays basketball.",
+    "story_tr": "Basketbol oynuyor."
+  },
+  {
+    "english": "tennis",
+    "turkish": "tenis",
+    "pronunciation": "te-nis",
+    "story": "Tennis is fun.",
+    "story_tr": "Tenis eğlenceli."
+  },
+  {
+    "english": "swimming",
+    "turkish": "yüzme",
+    "pronunciation": "is-vi-ming",
+    "story": "Swimming is good exercise.",
+    "story_tr": "Yüzme iyi bir egzersiz."
+  },
+  {
+    "english": "running",
+    "turkish": "koşu",
+    "pronunciation": "ra-ning",
+    "story": "I go running every morning.",
+    "story_tr": "Her sabah koşuya giderim."
+  },
+  {
+    "english": "walking",
+    "turkish": "yürüme",
+    "pronunciation": "vo-king",
+    "story": "Walking is healthy.",
+    "story_tr": "Yürümek sağlıklıdır."
+  },
+  {
+    "english": "dancing",
+    "turkish": "dans",
+    "pronunciation": "den-sing",
+    "story": "She loves dancing.",
+    "story_tr": "Dans etmeyi seviyor."
+  },
+  {
+    "english": "singing",
+    "turkish": "şarkı söyleme",
+    "pronunciation": "sin-ging",
+    "story": "He is good at singing.",
+    "story_tr": "Şarkı söylemede iyidir."
+  },
+  {
+    "english": "reading",
+    "turkish": "okuma",
+    "pronunciation": "ri-ding",
+    "story": "Reading is my hobby.",
+    "story_tr": "Okumak benim hobim."
+  },
+  {
+    "english": "writing",
+    "turkish": "yazma",
+    "pronunciation": "ray-ting",
+    "story": "I enjoy writing stories.",
+    "story_tr": "Hikaye yazmaktan keyif alıyorum."
+  },
+  {
+    "english": "drawing",
+    "turkish": "çizim",
+    "pronunciation": "dro-ing",
+    "story": "She is drawing a picture.",
+    "story_tr": "Bir resim çiziyor."
+  },
+  {
+    "english": "painting",
+    "turkish": "resim yapma",
+    "pronunciation": "peyn-ting",
+    "story": "Painting is relaxing.",
+    "story_tr": "Resim yapmak rahatlatıcı."
+  },
+  {
+    "english": "cooking",
+    "turkish": "yemek pişirme",
+    "pronunciation": "ku-king",
+    "story": "I love cooking.",
+    "story_tr": "Yemek pişirmeyi seviyorum."
+  },
+  {
+    "english": "eating",
+    "turkish": "yeme",
+    "pronunciation": "i-ting",
+    "story": "Eating healthy is important.",
+    "story_tr": "Sağlıklı yemek yemek önemli."
+  },
+  {
+    "english": "drinking",
+    "turkish": "içme",
+    "pronunciation": "drin-king",
+    "story": "Drinking water is good.",
+    "story_tr": "Su içmek iyidir."
+  },
+  {
+    "english": "sleeping",
+    "turkish": "uyuma",
+    "pronunciation": "ıs-lip-ping",
+    "story": "Sleeping well is important.",
+    "story_tr": "İyi uyumak önemli."
+  },
+  {
+    "english": "thinking",
+    "turkish": "düşünme",
+    "pronunciation": "sin-king",
+    "story": "I am thinking about you.",
+    "story_tr": "Seni düşünüyorum."
+  },
+  {
+    "english": "talking",
+    "turkish": "konuşma",
+    "pronunciation": "to-king",
+    "story": "Stop talking, please.",
+    "story_tr": "Lütfen konuşmayı kes."
+  },
+  {
+    "english": "listening",
+    "turkish": "dinleme",
+    "pronunciation": "li-sı-ning",
+    "story": "Listening is important.",
+    "story_tr": "Dinlemek önemli."
+  },
+  {
+    "english": "watching",
+    "turkish": "izleme",
+    "pronunciation": "vo-çing",
+    "story": "I am watching TV.",
+    "story_tr": "TV izliyorum."
+  },
+  {
+    "english": "looking",
+    "turkish": "bakma",
+    "pronunciation": "lu-king",
+    "story": "What are you looking at?",
+    "story_tr": "Neye bakıyorsun?"
+  },
+  {
+    "english": "seeing",
+    "turkish": "görme",
+    "pronunciation": "si-ing",
+    "story": "I am seeing a doctor.",
+    "story_tr": "Doktora gidiyorum."
+  },
+  {
+    "english": "hearing",
+    "turkish": "duyma",
+    "pronunciation": "hi-ring",
+    "story": "I am hearing strange sounds.",
+    "story_tr": "Garip sesler duyuyorum."
+  },
+  {
+    "english": "feeling",
+    "turkish": "hissetme",
+    "pronunciation": "fi-ling",
+    "story": "I am feeling happy.",
+    "story_tr": "Mutlu hissediyorum."
+  },
+  {
+    "english": "touching",
+    "turkish": "dokunma",
+    "pronunciation": "ta-çing",
+    "story": "Don't touch that!",
+    "story_tr": "Ona dokunma!"
+  },
+  {
+    "english": "smelling",
+    "turkish": "koklama",
+    "pronunciation": "ıs-me-ling",
+    "story": "This flower is smelling nice.",
+    "story_tr": "Bu çiçek güzel kokuyor."
+  },
+  {
+    "english": "tasting",
+    "turkish": "tatma",
+    "pronunciation": "teys-ting",
+    "story": "I am tasting the soup.",
+    "story_tr": "Çorbayı tadıyorum."
+  },
+  {
+    "english": "buying",
+    "turkish": "satın alma",
+    "pronunciation": "bay-ing",
+    "story": "I am buying a new phone.",
+    "story_tr": "Yeni bir telefon alıyorum."
+  },
+  {
+    "english": "selling",
+    "turkish": "satma",
+    "pronunciation": "se-ling",
+    "story": "He is selling his car.",
+    "story_tr": "Arabasını satıyor."
+  },
+  {
+    "english": "giving",
+    "turkish": "verme",
+    "pronunciation": "gi-ving",
+    "story": "She is giving me a gift.",
+    "story_tr": "Bana hediye veriyor."
+  },
+  {
+    "english": "taking",
+    "turkish": "alma",
+    "pronunciation": "tey-king",
+    "story": "Take this book.",
+    "story_tr": "Bu kitabı al."
+  },
+  {
+    "english": "bringing",
+    "turkish": "getirme",
+    "pronunciation": "brin-ging",
+    "story": "Bring me water, please.",
+    "story_tr": "Lütfen bana su getir."
+  },
+  {
+    "english": "sending",
+    "turkish": "gönderme",
+    "pronunciation": "sen-ding",
+    "story": "I am sending an email.",
+    "story_tr": "E-posta gönderiyorum."
+  },
+  {
+    "english": "receiving",
+    "turkish": "alma",
+    "pronunciation": "ri-si-ving",
+    "story": "I am receiving a package.",
+    "story_tr": "Bir paket alıyorum."
+  },
+  {
+    "english": "opening",
+    "turkish": "açma",
+    "pronunciation": "o-pı-ning",
+    "story": "Open the door.",
+    "story_tr": "Kapıyı aç."
+  },
+  {
+    "english": "closing",
+    "turkish": "kapatma",
+    "pronunciation": "klo-zing",
+    "story": "Close the window.",
+    "story_tr": "Pencereyi kapat."
+  },
+  {
+    "english": "starting",
+    "turkish": "başlama",
+    "pronunciation": "ıs-tar-ting",
+    "story": "Let's start the meeting.",
+    "story_tr": "Hadi toplantıyı başlatalım."
+  },
+  {
+    "english": "stopping",
+    "turkish": "durma",
+    "pronunciation": "ıs-to-ping",
+    "story": "Stop the car!",
+    "story_tr": "Arabayı durdur!"
+  },
+  {
+    "english": "finishing",
+    "turkish": "bitirme",
+    "pronunciation": "fi-ni-şing",
+    "story": "I am finishing my work.",
+    "story_tr": "İşimi bitiriyorum."
+  },
+  {
+    "english": "beginning",
+    "turkish": "başlangıç",
+    "pronunciation": "bi-gi-ning",
+    "story": "This is just the beginning.",
+    "story_tr": "Bu sadece başlangıç."
+  },
+  {
+    "english": "end",
+    "turkish": "son",
+    "pronunciation": "end",
+    "story": "This is the end.",
+    "story_tr": "Bu son."
+  },
+  {
+    "english": "middle",
+    "turkish": "orta",
+    "pronunciation": "mi-dıl",
+    "story": "Stand in the middle.",
+    "story_tr": "Ortada dur."
+  },
+  {
+    "english": "top",
+    "turkish": "üst, tepe",
+    "pronunciation": "top",
+    "story": "Put it on top.",
+    "story_tr": "Üste koy."
+  },
+  {
+    "english": "bottom",
+    "turkish": "alt",
+    "pronunciation": "bo-tım",
+    "story": "Look at the bottom.",
+    "story_tr": "Alta bak."
+  },
+  {
+    "english": "side",
+    "turkish": "yan",
+    "pronunciation": "sayd",
+    "story": "Move to the side.",
+    "story_tr": "Yana geç."
+  },
+  {
+    "english": "front",
+    "turkish": "ön",
+    "pronunciation": "frant",
+    "story": "Sit in the front.",
+    "story_tr": "Öne otur."
+  },
+  {
+    "english": "corner",
+    "turkish": "köşe",
+    "pronunciation": "kor-nır",
+    "story": "The shop is on the corner.",
+    "story_tr": "Dükkan köşede."
+  },
+  {
+    "english": "center",
+    "turkish": "merkez",
+    "pronunciation": "sen-tır",
+    "story": "Meet me at the center.",
+    "story_tr": "Benimle merkezde buluş."
+  },
+  {
+    "english": "edge",
+    "turkish": "kenar",
+    "pronunciation": "ec",
+    "story": "Don't go near the edge.",
+    "story_tr": "Kenara yaklaşma."
+  },
+  {
+    "english": "line",
+    "turkish": "çizgi, hat",
+    "pronunciation": "layn",
+    "story": "Draw a straight line.",
+    "story_tr": "Düz bir çizgi çiz."
+  },
+  {
+    "english": "circle",
+    "turkish": "daire",
+    "pronunciation": "sör-kıl",
+    "story": "Make a circle.",
+    "story_tr": "Bir daire yap."
+  },
+  {
+    "english": "square",
+    "turkish": "kare",
+    "pronunciation": "is-kveır",
+    "story": "This is a square.",
+    "story_tr": "Bu bir kare."
+  },
+  {
+    "english": "triangle",
+    "turkish": "üçgen",
+    "pronunciation": "tray-en-gıl",
+    "story": "Draw a triangle.",
+    "story_tr": "Bir üçgen çiz."
+  },
+  {
+    "english": "shape",
+    "turkish": "şekil",
+    "pronunciation": "şeyp",
+    "story": "What shape is this?",
+    "story_tr": "Bu ne şekil?"
+  },
+  {
+    "english": "size",
+    "turkish": "boyut",
+    "pronunciation": "sayz",
+    "story": "What size do you need?",
+    "story_tr": "Hangi bedene ihtiyacın var?"
+  },
+  {
+    "english": "length",
+    "turkish": "uzunluk",
+    "pronunciation": "lengs",
+    "story": "Measure the length.",
+    "story_tr": "Uzunluğu ölç."
+  },
+  {
+    "english": "width",
+    "turkish": "genişlik",
+    "pronunciation": "vids",
+    "story": "What is the width?",
+    "story_tr": "Genişlik ne kadar?"
+  },
+  {
+    "english": "height",
+    "turkish": "yükseklik",
+    "pronunciation": "hayt",
+    "story": "Check the height.",
+    "story_tr": "Yüksekliği kontrol et."
+  },
+  {
+    "english": "depth",
+    "turkish": "derinlik",
+    "pronunciation": "deps",
+    "story": "The depth is 10 meters.",
+    "story_tr": "Derinlik 10 metre."
+  },
+  {
+    "english": "distance",
+    "turkish": "mesafe",
+    "pronunciation": "dis-tıns",
+    "story": "The distance is far.",
+    "story_tr": "Mesafe uzak."
+  },
+  {
+    "english": "speed",
+    "turkish": "hız",
+    "pronunciation": "is-pid",
+    "story": "Reduce your speed.",
+    "story_tr": "Hızını azalt."
+  },
+  {
+    "english": "direction",
+    "turkish": "yön",
+    "pronunciation": "di-rek-şın",
+    "story": "Which direction?",
+    "story_tr": "Hangi yön?"
+  },
+  {
+    "english": "north",
+    "turkish": "kuzey",
+    "pronunciation": "nors",
+    "story": "Go north.",
+    "story_tr": "Kuzeye git."
+  },
+  {
+    "english": "south",
+    "turkish": "güney",
+    "pronunciation": "savs",
+    "story": "Head south.",
+    "story_tr": "Güneye git."
+  },
+  {
+    "english": "east",
+    "turkish": "doğu",
+    "pronunciation": "ist",
+    "story": "The sun rises in the east.",
+    "story_tr": "Güneş doğuda doğar."
+  },
+  {
+    "english": "west",
+    "turkish": "batı",
+    "pronunciation": "vest",
+    "story": "Go west.",
+    "story_tr": "Batıya git."
+  },
+  {
+    "english": "map",
+    "turkish": "harita",
+    "pronunciation": "mep",
+    "story": "Look at the map.",
+    "story_tr": "Haritaya bak."
+  },
+  {
+    "english": "place",
+    "turkish": "yer",
+    "pronunciation": "pleys",
+    "story": "This is a nice place.",
+    "story_tr": "Burası güzel bir yer."
+  },
+  {
+    "english": "location",
+    "turkish": "konum",
+    "pronunciation": "lo-key-şın",
+    "story": "Share your location.",
+    "story_tr": "Konumunu paylaş."
+  },
+  {
+    "english": "position",
+    "turkish": "pozisyon",
+    "pronunciation": "pı-zi-şın",
+    "story": "Change your position.",
+    "story_tr": "Pozisyonunu değiştir."
+  },
+  {
+    "english": "area",
+    "turkish": "alan",
+    "pronunciation": "e-ri-ıa",
+    "story": "This area is safe.",
+    "story_tr": "Bu alan güvenli."
+  },
+  {
+    "english": "space",
+    "turkish": "alan, uzay",
+    "pronunciation": "ıs-peys",
+    "story": "We need more space.",
+    "story_tr": "Daha fazla alana ihtiyacımız var."
+  },
+  {
+    "english": "office",
+    "turkish": "ofis",
+    "pronunciation": "o-fis",
+    "story": "I work in an office.",
+    "story_tr": "Bir ofiste çalışıyorum."
+  },
+  {
+    "english": "company",
+    "turkish": "şirket",
+    "pronunciation": "kam-pı-ni",
+    "story": "Which company do you work for?",
+    "story_tr": "Hangi şirkette çalışıyorsun?"
+  },
+  {
+    "english": "business",
+    "turkish": "iş",
+    "pronunciation": "biz-nıs",
+    "story": "Business is good.",
+    "story_tr": "İşler iyi."
+  },
+  {
+    "english": "job",
+    "turkish": "iş",
+    "pronunciation": "cob",
+    "story": "I need a new job.",
+    "story_tr": "Yeni bir işe ihtiyacım var."
+  },
+  {
+    "english": "career",
+    "turkish": "kariyer",
+    "pronunciation": "kı-ri-ır",
+    "story": "She has a great career.",
+    "story_tr": "Harika bir kariyeri var."
+  },
+  {
+    "english": "meeting",
+    "turkish": "toplantı",
+    "pronunciation": "mi-ting",
+    "story": "We have a meeting at 3.",
+    "story_tr": "Saat 3'te toplantımız var."
+  },
+  {
+    "english": "project",
+    "turkish": "proje",
+    "pronunciation": "pro-cekt",
+    "story": "This project is important.",
+    "story_tr": "Bu proje önemli."
+  },
+  {
+    "english": "plan",
+    "turkish": "plan",
+    "pronunciation": "plen",
+    "story": "What's the plan?",
+    "story_tr": "Plan ne?"
+  },
+  {
+    "english": "idea",
+    "turkish": "fikir",
+    "pronunciation": "ay-di-ıa",
+    "story": "That's a good idea!",
+    "story_tr": "Bu iyi bir fikir!"
+  },
+  {
+    "english": "problem",
+    "turkish": "problem",
+    "pronunciation": "prob-lım",
+    "story": "We have a problem.",
+    "story_tr": "Bir problemimiz var."
+  },
+  {
+    "english": "solution",
+    "turkish": "çözüm",
+    "pronunciation": "sı-lu-şın",
+    "story": "I found a solution.",
+    "story_tr": "Bir çözüm buldum."
+  },
+  {
+    "english": "answer",
+    "turkish": "cevap",
+    "pronunciation": "en-sır",
+    "story": "What's the answer?",
+    "story_tr": "Cevap ne?"
+  },
+  {
+    "english": "question",
+    "turkish": "soru",
+    "pronunciation": "kues-çın",
+    "story": "I have a question.",
+    "story_tr": "Bir sorum var."
+  },
+  {
+    "english": "help",
+    "turkish": "yardım",
+    "pronunciation": "help",
+    "story": "I need help.",
+    "story_tr": "Yardıma ihtiyacım var."
+  },
+  {
+    "english": "advice",
+    "turkish": "tavsiye",
+    "pronunciation": "ıd-vays",
+    "story": "Can you give me advice?",
+    "story_tr": "Bana tavsiye verebilir misin?"
+  },
+  {
+    "english": "information",
+    "turkish": "bilgi",
+    "pronunciation": "in-for-mey-şın",
+    "story": "I need more information.",
+    "story_tr": "Daha fazla bilgiye ihtiyacım var."
+  },
+  {
+    "english": "news",
+    "turkish": "haber",
+    "pronunciation": "nyuz",
+    "story": "Did you hear the news?",
+    "story_tr": "Haberi duydun mu?"
+  },
+  {
+    "english": "story",
+    "turkish": "hikaye",
+    "pronunciation": "ıs-to-ri",
+    "story": "Tell me a story.",
+    "story_tr": "Bana bir hikaye anlat."
+  },
+  {
+    "english": "word",
+    "turkish": "kelime",
+    "pronunciation": "vörd",
+    "story": "What does this word mean?",
+    "story_tr": "Bu kelime ne anlama geliyor?"
+  },
+  {
+    "english": "sentence",
+    "turkish": "cümle",
+    "pronunciation": "sen-tıns",
+    "story": "Write a sentence.",
+    "story_tr": "Bir cümle yaz."
+  },
+  {
+    "english": "language",
+    "turkish": "dil",
+    "pronunciation": "leng-vic",
+    "story": "I speak two languages.",
+    "story_tr": "İki dil konuşuyorum."
+  },
+  {
+    "english": "English",
+    "turkish": "İngilizce",
+    "pronunciation": "ing-liş",
+    "story": "I am learning English.",
+    "story_tr": "İngilizce öğreniyorum."
+  },
+  {
+    "english": "lesson",
+    "turkish": "ders",
+    "pronunciation": "le-sın",
+    "story": "Today's lesson is important.",
+    "story_tr": "Bugünkü ders önemli."
+  },
+  {
+    "english": "class",
+    "turkish": "sınıf",
+    "pronunciation": "klas",
+    "story": "Which class are you in?",
+    "story_tr": "Hangi sınıftasın?"
+  },
+  {
+    "english": "homework",
+    "turkish": "ödev",
+    "pronunciation": "hom-vörk",
+    "story": "Do your homework.",
+    "story_tr": "Ödevini yap."
+  },
+  {
+    "english": "test",
+    "turkish": "test, sınav",
+    "pronunciation": "test",
+    "story": "We have a test tomorrow.",
+    "story_tr": "Yarın testimiz var."
+  },
+  {
+    "english": "exam",
+    "turkish": "sınav",
+    "pronunciation": "ig-zem",
+    "story": "The exam is difficult.",
+    "story_tr": "Sınav zor."
+  },
+  {
+    "english": "grade",
+    "turkish": "not",
+    "pronunciation": "greyd",
+    "story": "What grade did you get?",
+    "story_tr": "Kaç aldın?"
+  },
+  {
+    "english": "paper",
+    "turkish": "kağıt",
+    "pronunciation": "pey-pır",
+    "story": "Write it on paper.",
+    "story_tr": "Kağıda yaz."
+  },
+  {
+    "english": "pen",
+    "turkish": "kalem",
+    "pronunciation": "pen",
+    "story": "I need a pen.",
+    "story_tr": "Kaleme ihtiyacım var."
+  },
+  {
+    "english": "pencil",
+    "turkish": "kurşun kalem",
+    "pronunciation": "pen-sıl",
+    "story": "Use a pencil.",
+    "story_tr": "Kurşun kalem kullan."
+  },
+  {
+    "english": "eraser",
+    "turkish": "silgi",
+    "pronunciation": "i-rey-sır",
+    "story": "I need an eraser.",
+    "story_tr": "Silgiye ihtiyacım var."
+  },
+  {
+    "english": "ruler",
+    "turkish": "cetvel",
+    "pronunciation": "ru-lır",
+    "story": "Use a ruler to draw.",
+    "story_tr": "Çizmek için cetvel kullan."
+  },
+  {
+    "english": "bag",
+    "turkish": "çanta",
+    "pronunciation": "beg",
+    "story": "Put it in your bag.",
+    "story_tr": "Çantana koy."
+  },
+  {
+    "english": "pocket",
+    "turkish": "cep",
+    "pronunciation": "po-kit",
+    "story": "It's in my pocket.",
+    "story_tr": "Cebimde."
+  },
+  {
+    "english": "wallet",
+    "turkish": "cüzdan",
+    "pronunciation": "vo-lit",
+    "story": "I lost my wallet.",
+    "story_tr": "Cüzdanımı kaybettim."
+  },
+  {
+    "english": "purse",
+    "turkish": "el çantası",
+    "pronunciation": "pörs",
+    "story": "Her purse is expensive.",
+    "story_tr": "Onun el çantası pahalı."
+  },
+  {
+    "english": "watch",
+    "turkish": "saat",
+    "pronunciation": "voç",
+    "story": "What time is your watch?",
+    "story_tr": "Saatin kaç?"
+  },
+  {
+    "english": "clock",
+    "turkish": "saat",
+    "pronunciation": "klok",
+    "story": "The clock is ticking.",
+    "story_tr": "Saat tik tak ediyor."
+  },
+  {
+    "english": "ring",
+    "turkish": "yüzük",
+    "pronunciation": "ring",
+    "story": "That's a beautiful ring.",
+    "story_tr": "Bu güzel bir yüzük."
+  },
+  {
+    "english": "necklace",
+    "turkish": "kolye",
+    "pronunciation": "nek-lıs",
+    "story": "She wears a gold necklace.",
+    "story_tr": "Altın kolye takıyor."
+  },
+  {
+    "english": "bracelet",
+    "turkish": "bilezik",
+    "pronunciation": "breys-lıt",
+    "story": "I bought a silver bracelet.",
+    "story_tr": "Gümüş bilezik aldım."
+  },
+  {
+    "english": "earring",
+    "turkish": "küpe",
+    "pronunciation": "i-ring",
+    "story": "Her earrings are pretty.",
+    "story_tr": "Küpeleri güzel."
+  },
+  {
+    "english": "glasses",
+    "turkish": "gözlük",
+    "pronunciation": "gla-sız",
+    "story": "I need my glasses.",
+    "story_tr": "Gözlüğüme ihtiyacım var."
+  },
+  {
+    "english": "hat",
+    "turkish": "şapka",
+    "pronunciation": "het",
+    "story": "Wear a hat in the sun.",
+    "story_tr": "Güneşte şapka tak."
+  },
+  {
+    "english": "cap",
+    "turkish": "kep",
+    "pronunciation": "kep",
+    "story": "He wears a baseball cap.",
+    "story_tr": "Beyzbol kasketi takıyor."
+  },
+  {
+    "english": "shirt",
+    "turkish": "gömlek",
+    "pronunciation": "şört",
+    "story": "This shirt is clean.",
+    "story_tr": "Bu gömlek temiz."
+  },
+  {
+    "english": "t-shirt",
+    "turkish": "tişört",
+    "pronunciation": "ti şört",
+    "story": "I wear a t-shirt.",
+    "story_tr": "Tişört giyiyorum."
+  },
+  {
+    "english": "pants",
+    "turkish": "pantolon",
+    "pronunciation": "pents",
+    "story": "These pants are tight.",
+    "story_tr": "Bu pantolonlar dar."
+  },
+  {
+    "english": "jeans",
+    "turkish": "kot pantolon",
+    "pronunciation": "cins",
+    "story": "I love wearing jeans.",
+    "story_tr": "Kot pantolon giymeyi seviyorum."
+  },
+  {
+    "english": "shorts",
+    "turkish": "şort",
+    "pronunciation": "şorts",
+    "story": "It's hot, wear shorts.",
+    "story_tr": "Hava sıcak, şort giy."
+  },
+  {
+    "english": "skirt",
+    "turkish": "etek",
+    "pronunciation": "ıs-kört",
+    "story": "She wears a long skirt.",
+    "story_tr": "Uzun etek giyiyor."
+  },
+  {
+    "english": "dress",
+    "turkish": "elbise",
+    "pronunciation": "dres",
+    "story": "That dress is beautiful.",
+    "story_tr": "O elbise güzel."
+  },
+  {
+    "english": "suit",
+    "turkish": "takım elbise",
+    "pronunciation": "sut",
+    "story": "He wears a suit to work.",
+    "story_tr": "İşe takım elbise giyiyor."
+  },
+  {
+    "english": "coat",
+    "turkish": "palto",
+    "pronunciation": "kot",
+    "story": "Wear a coat, it's cold.",
+    "story_tr": "Palto giy, hava soğuk."
+  },
+  {
+    "english": "jacket",
+    "turkish": "ceket",
+    "pronunciation": "ce-kit",
+    "story": "I need a warm jacket.",
+    "story_tr": "Sıcak bir cekete ihtiyacım var."
+  },
+  {
+    "english": "sweater",
+    "turkish": "kazak",
+    "pronunciation": "is-ve-tır",
+    "story": "This sweater is soft.",
+    "story_tr": "Bu kazak yumuşak."
+  },
+  {
+    "english": "socks",
+    "turkish": "çorap",
+    "pronunciation": "soks",
+    "story": "I need clean socks.",
+    "story_tr": "Temiz çoraba ihtiyacım var."
+  },
+  {
+    "english": "shoes",
+    "turkish": "ayakkabı",
+    "pronunciation": "şuz",
+    "story": "These shoes are comfortable.",
+    "story_tr": "Bu ayakkabılar rahat."
+  },
+  {
+    "english": "boots",
+    "turkish": "bot",
+    "pronunciation": "buts",
+    "story": "Wear boots in winter.",
+    "story_tr": "Kışın bot giy."
+  },
+  {
+    "english": "sandals",
+    "turkish": "sandalet",
+    "pronunciation": "sen-dıls",
+    "story": "I wear sandals in summer.",
+    "story_tr": "Yazın sandalet giyiyorum."
+  },
+  {
+    "english": "tie",
+    "turkish": "kravat",
+    "pronunciation": "tay",
+    "story": "He wears a tie.",
+    "story_tr": "Kravat takıyor."
+  },
+  {
+    "english": "belt",
+    "turkish": "kemer",
+    "pronunciation": "belt",
+    "story": "Tighten your belt.",
+    "story_tr": "Kemerini sıkılaştır."
+  },
+  {
+    "english": "button",
+    "turkish": "düğme",
+    "pronunciation": "ba-tın",
+    "story": "The button fell off.",
+    "story_tr": "Düğme düştü."
+  },
+  {
+    "english": "zipper",
+    "turkish": "fermuar",
+    "pronunciation": "zi-pır",
+    "story": "The zipper is broken.",
+    "story_tr": "Fermuar bozuk."
+  },
+  {
+    "english": "clothes",
+    "turkish": "giysiler",
+    "pronunciation": "kloz",
+    "story": "Wash your clothes.",
+    "story_tr": "Giysilerini yıka."
+  },
+  {
+    "english": "fashion",
+    "turkish": "moda",
+    "pronunciation": "fe-şın",
+    "story": "She follows fashion.",
+    "story_tr": "Modayı takip ediyor."
+  },
+  {
+    "english": "style",
+    "turkish": "stil",
+    "pronunciation": "ıs-tayl",
+    "story": "I like your style.",
+    "story_tr": "Stilini beğendim."
+  },
+  {
+    "english": "color",
+    "turkish": "renk",
+    "pronunciation": "ka-lır",
+    "story": "What's your favorite color?",
+    "story_tr": "En sevdiğin renk ne?"
+  },
+  {
+    "english": "pattern",
+    "turkish": "desen",
+    "pronunciation": "pe-tırn",
+    "story": "I like this pattern.",
+    "story_tr": "Bu deseni beğendim."
+  },
+  {
+    "english": "material",
+    "turkish": "malzeme",
+    "pronunciation": "mı-ti-ri-ıl",
+    "story": "What material is this?",
+    "story_tr": "Bu ne malzemeden?"
+  },
+  {
+    "english": "cotton",
+    "turkish": "pamuk",
+    "pronunciation": "ko-tın",
+    "story": "This is 100% cotton.",
+    "story_tr": "Bu %100 pamuk."
+  },
+  {
+    "english": "silk",
+    "turkish": "ipek",
+    "pronunciation": "silk",
+    "story": "Silk is expensive.",
+    "story_tr": "İpek pahalı."
+  },
+  {
+    "english": "wool",
+    "turkish": "yün",
+    "pronunciation": "vul",
+    "story": "This sweater is wool.",
+    "story_tr": "Bu kazak yünden."
+  },
+  {
+    "english": "leather",
+    "turkish": "deri",
+    "pronunciation": "le-dır",
+    "story": "Leather shoes are durable.",
+    "story_tr": "Deri ayakkabılar dayanıklı."
+  },
+  {
+    "english": "plastic",
+    "turkish": "plastik",
+    "pronunciation": "ples-tik",
+    "story": "Don't use plastic bags.",
+    "story_tr": "Plastik poşet kullanma."
+  },
+  {
+    "english": "metal",
+    "turkish": "metal",
+    "pronunciation": "me-tıl",
+    "story": "This is made of metal.",
+    "story_tr": "Bu metalden yapılmış."
+  },
+  {
+    "english": "wood",
+    "turkish": "ahşap",
+    "pronunciation": "vud",
+    "story": "The table is wood.",
+    "story_tr": "Masa ahşap."
+  },
+  {
+    "english": "stone",
+    "turkish": "taş",
+    "pronunciation": "ıs-ton",
+    "story": "This wall is stone.",
+    "story_tr": "Bu duvar taştan."
+  },
+  {
+    "english": "glass",
+    "turkish": "cam",
+    "pronunciation": "glas",
+    "story": "Be careful, it's glass.",
+    "story_tr": "Dikkatli ol, cam."
+  },
+  {
+    "english": "gold",
+    "turkish": "altın",
+    "pronunciation": "gold",
+    "story": "Gold is valuable.",
+    "story_tr": "Altın değerli."
+  },
+  {
+    "english": "silver",
+    "turkish": "gümüş",
+    "pronunciation": "sil-vır",
+    "story": "I have a silver ring.",
+    "story_tr": "Gümüş yüzüğüm var."
+  },
+  {
+    "english": "diamond",
+    "turkish": "elmas",
+    "pronunciation": "day-mınd",
+    "story": "Diamonds are expensive.",
+    "story_tr": "Elmaslar pahalı."
+  },
+  {
+    "english": "price",
+    "turkish": "fiyat",
+    "pronunciation": "prays",
+    "story": "What's the price?",
+    "story_tr": "Fiyatı ne?"
+  },
+  {
+    "english": "cost",
+    "turkish": "maliyet",
+    "pronunciation": "kost",
+    "story": "How much does it cost?",
+    "story_tr": "Ne kadar?"
+  },
+  {
+    "english": "value",
+    "turkish": "değer",
+    "pronunciation": "vel-yu",
+    "story": "This has great value.",
+    "story_tr": "Bunun büyük değeri var."
+  },
+  {
+    "english": "cheap",
+    "turkish": "ucuz",
+    "pronunciation": "çip",
+    "story": "This is very cheap.",
+    "story_tr": "Bu çok ucuz."
+  },
+  {
+    "english": "expensive",
+    "turkish": "pahalı",
+    "pronunciation": "eks-pen-siv",
+    "story": "That's too expensive.",
+    "story_tr": "Bu çok pahalı."
+  },
+  {
+    "english": "free",
+    "turkish": "ücretsiz",
+    "pronunciation": "fri",
+    "story": "This is free.",
+    "story_tr": "Bu ücretsiz."
+  },
+  {
+    "english": "sale",
+    "turkish": "indirim",
+    "pronunciation": "seyl",
+    "story": "There's a big sale.",
+    "story_tr": "Büyük indirim var."
+  },
+  {
+    "english": "discount",
+    "turkish": "indirim",
+    "pronunciation": "dis-kavnt",
+    "story": "Do you have a discount?",
+    "story_tr": "İndiriminiz var mı?"
+  },
+  {
+    "english": "payment",
+    "turkish": "ödeme",
+    "pronunciation": "pey-mınt",
+    "story": "Cash or card payment?",
+    "story_tr": "Nakit mi kart mı?"
+  },
+  {
+    "english": "cash",
+    "turkish": "nakit",
+    "pronunciation": "keş",
+    "story": "I'll pay with cash.",
+    "story_tr": "Nakit ödeyeceğim."
+  },
+  {
+    "english": "card",
+    "turkish": "kart",
+    "pronunciation": "kard",
+    "story": "Can I pay by card?",
+    "story_tr": "Kartla ödeyebilir miyim?"
+  },
+  {
+    "english": "credit",
+    "turkish": "kredi",
+    "pronunciation": "kre-dit",
+    "story": "I have good credit.",
+    "story_tr": "İyi kredim var."
+  },
+  {
+    "english": "debt",
+    "turkish": "borç",
+    "pronunciation": "det",
+    "story": "I have no debt.",
+    "story_tr": "Borcum yok."
+  },
+  {
+    "english": "loan",
+    "turkish": "kredi",
+    "pronunciation": "lon",
+    "story": "I need a loan.",
+    "story_tr": "Krediye ihtiyacım var."
+  },
+  {
+    "english": "interest",
+    "turkish": "faiz",
+    "pronunciation": "int-rıst",
+    "story": "The interest rate is high.",
+    "story_tr": "Faiz oranı yüksek."
+  },
+  {
+    "english": "tax",
+    "turkish": "vergi",
+    "pronunciation": "teks",
+    "story": "Don't forget the tax.",
+    "story_tr": "Vergiyi unutma."
+  },
+  {
+    "english": "bill",
+    "turkish": "fatura",
+    "pronunciation": "bil",
+    "story": "Pay the bill, please.",
+    "story_tr": "Lütfen hesabı öde."
+  },
+  {
+    "english": "receipt",
+    "turkish": "fiş",
+    "pronunciation": "ri-sit",
+    "story": "Keep the receipt.",
+    "story_tr": "Fişi sakla."
+  },
+  {
+    "english": "change",
+    "turkish": "para üstü",
+    "pronunciation": "çeync",
+    "story": "Here's your change.",
+    "story_tr": "İşte para üstünüz."
+  },
+  {
+    "english": "tip",
+    "turkish": "bahşiş",
+    "pronunciation": "tip",
+    "story": "Leave a tip for the waiter.",
+    "story_tr": "Garsona bahşiş bırak."
+  },
+  {
+    "english": "service",
+    "turkish": "hizmet",
+    "pronunciation": "sör-vıs",
+    "story": "The service is excellent.",
+    "story_tr": "Hizmet mükemmel."
+  },
+  {
+    "english": "quality",
+    "turkish": "kalite",
+    "pronunciation": "kvo-li-ti",
+    "story": "This is high quality.",
+    "story_tr": "Bu yüksek kalite."
+  },
+  {
+    "english": "quantity",
+    "turkish": "miktar",
+    "pronunciation": "kvon-ti-ti",
+    "story": "What quantity do you need?",
+    "story_tr": "Ne kadar miktara ihtiyacın var?"
+  },
+  {
+    "english": "amount",
+    "turkish": "miktar",
+    "pronunciation": "ı-mavnt",
+    "story": "The amount is correct.",
+    "story_tr": "Miktar doğru."
+  },
+  {
+    "english": "total",
+    "turkish": "toplam",
+    "pronunciation": "to-tıl",
+    "story": "What's the total?",
+    "story_tr": "Toplam ne kadar?"
+  },
+  {
+    "english": "half",
+    "turkish": "yarım",
+    "pronunciation": "haf",
+    "story": "Give me half.",
+    "story_tr": "Bana yarısını ver."
+  },
+  {
+    "english": "quarter",
+    "turkish": "çeyrek",
+    "pronunciation": "kvor-tır",
+    "story": "It's a quarter past three.",
+    "story_tr": "Saat üçü çeyrek geçiyor."
+  },
+  {
+    "english": "whole",
+    "turkish": "bütün",
+    "pronunciation": "hol",
+    "story": "I ate the whole pizza.",
+    "story_tr": "Tüm pizzayı yedim."
+  },
+  {
+    "english": "part",
+    "turkish": "parça",
+    "pronunciation": "part",
+    "story": "This is part of the set.",
+    "story_tr": "Bu setin bir parçası."
+  },
+  {
+    "english": "piece",
+    "turkish": "parça",
+    "pronunciation": "pis",
+    "story": "Can I have a piece?",
+    "story_tr": "Bir parça alabilir miyim?"
+  },
+  {
+    "english": "bit",
+    "turkish": "parça",
+    "pronunciation": "bit",
+    "story": "Just a little bit.",
+    "story_tr": "Sadece biraz."
+  },
+  {
+    "english": "lot",
+    "turkish": "çok",
+    "pronunciation": "lot",
+    "story": "I have a lot of work.",
+    "story_tr": "Çok işim var."
+  },
+  {
+    "english": "few",
+    "turkish": "az",
+    "pronunciation": "fyu",
+    "story": "Only a few people came.",
+    "story_tr": "Sadece birkaç kişi geldi."
+  },
+  {
+    "english": "many",
+    "turkish": "çok",
+    "pronunciation": "me-ni",
+    "story": "Many people are here.",
+    "story_tr": "Burada çok insan var."
+  },
+  {
+    "english": "much",
+    "turkish": "çok",
+    "pronunciation": "maç",
+    "story": "How much do you want?",
+    "story_tr": "Ne kadar istiyorsun?"
+  },
+  {
+    "english": "some",
+    "turkish": "biraz",
+    "pronunciation": "sam",
+    "story": "I need some help.",
+    "story_tr": "Biraz yardıma ihtiyacım var."
+  },
+  {
+    "english": "any",
+    "turkish": "herhangi",
+    "pronunciation": "e-ni",
+    "story": "Do you have any questions?",
+    "story_tr": "Herhangi bir sorun var mı?"
+  },
+  {
+    "english": "all",
+    "turkish": "hepsi",
+    "pronunciation": "ol",
+    "story": "All students passed.",
+    "story_tr": "Tüm öğrenciler geçti."
+  },
+  {
+    "english": "every",
+    "turkish": "her",
+    "pronunciation": "ev-ri",
+    "story": "Every day is important.",
+    "story_tr": "Her gün önemli."
+  },
+  {
+    "english": "each",
+    "turkish": "her biri",
+    "pronunciation": "iç",
+    "story": "Each person gets one.",
+    "story_tr": "Her kişi bir tane alır."
+  },
+  {
+    "english": "both",
+    "turkish": "ikisi de",
+    "pronunciation": "bos",
+    "story": "Both answers are correct.",
+    "story_tr": "İki cevap da doğru."
+  },
+  {
+    "english": "either",
+    "turkish": "ikisinden biri",
+    "pronunciation": "ay-dır",
+    "story": "Choose either one.",
+    "story_tr": "İkisinden birini seç."
+  },
+  {
+    "english": "neither",
+    "turkish": "ikisi de değil",
+    "pronunciation": "nay-dır",
+    "story": "Neither option is good.",
+    "story_tr": "İki seçenek de iyi değil."
+  },
+  {
+    "english": "other",
+    "turkish": "diğer",
+    "pronunciation": "a-dır",
+    "story": "The other one is better.",
+    "story_tr": "Diğeri daha iyi."
+  },
+  {
+    "english": "another",
+    "turkish": "başka bir",
+    "pronunciation": "ı-na-dır",
+    "story": "Give me another chance.",
+    "story_tr": "Bana başka bir şans ver."
+  },
+  {
+    "english": "same",
+    "turkish": "aynı",
+    "pronunciation": "seym",
+    "story": "We have the same phone.",
+    "story_tr": "Aynı telefona sahibiz."
+  },
+  {
+    "english": "different",
+    "turkish": "farklı",
+    "pronunciation": "dif-rınt",
+    "story": "This is different.",
+    "story_tr": "Bu farklı."
+  },
+  {
+    "english": "similar",
+    "turkish": "benzer",
+    "pronunciation": "si-mi-lır",
+    "story": "They look similar.",
+    "story_tr": "Benzer görünüyorlar."
+  },
+  {
+    "english": "equal",
+    "turkish": "eşit",
+    "pronunciation": "i-kıl",
+    "story": "All people are equal.",
+    "story_tr": "Tüm insanlar eşittir."
+  },
+  {
+    "english": "more",
+    "turkish": "daha fazla",
+    "pronunciation": "mor",
+    "story": "I need more time.",
+    "story_tr": "Daha fazla zamana ihtiyacım var."
+  },
+  {
+    "english": "less",
+    "turkish": "daha az",
+    "pronunciation": "les",
+    "story": "Eat less sugar.",
+    "story_tr": "Daha az şeker ye."
+  },
+  {
+    "english": "most",
+    "turkish": "en çok",
+    "pronunciation": "most",
+    "story": "This is the most important.",
+    "story_tr": "Bu en önemlisi."
+  },
+  {
+    "english": "least",
+    "turkish": "en az",
+    "pronunciation": "list",
+    "story": "This costs the least.",
+    "story_tr": "Bu en az maliyetli."
+  },
+  {
+    "english": "better",
+    "turkish": "daha iyi",
+    "pronunciation": "be-tır",
+    "story": "This is better.",
+    "story_tr": "Bu daha iyi."
+  },
+  {
+    "english": "worse",
+    "turkish": "daha kötü",
+    "pronunciation": "vörs",
+    "story": "It's getting worse.",
+    "story_tr": "Daha da kötüleşiyor."
+  },
+  {
+    "english": "best",
+    "turkish": "en iyi",
+    "pronunciation": "best",
+    "story": "You're the best!",
+    "story_tr": "Sen en iyisisin!"
+  },
+  {
+    "english": "worst",
+    "turkish": "en kötü",
+    "pronunciation": "vörst",
+    "story": "That's the worst.",
+    "story_tr": "Bu en kötüsü."
+  },
+  {
+    "english": "first",
+    "turkish": "ilk",
+    "pronunciation": "först",
+    "story": "I'm first in line.",
+    "story_tr": "Sırada ilk benim."
+  },
+  {
+    "english": "last",
+    "turkish": "son",
+    "pronunciation": "last",
+    "story": "This is my last chance.",
+    "story_tr": "Bu benim son şansım."
+  },
+  {
+    "english": "next",
+    "turkish": "sonraki",
+    "pronunciation": "nekst",
+    "story": "Next, please!",
+    "story_tr": "Sıradaki lütfen!"
+  },
+  {
+    "english": "previous",
+    "turkish": "önceki",
+    "pronunciation": "pri-vi-ıs",
+    "story": "Go to the previous page.",
+    "story_tr": "Önceki sayfaya git."
+  },
+  {
+    "english": "only",
+    "turkish": "sadece",
+    "pronunciation": "on-li",
+    "story": "I only have one.",
+    "story_tr": "Sadece bir tane var."
+  },
+  {
+    "english": "also",
+    "turkish": "ayrıca",
+    "pronunciation": "ol-so",
+    "story": "I also like pizza.",
+    "story_tr": "Ben de pizza severim."
+  },
+  {
+    "english": "too",
+    "turkish": "de, çok",
+    "pronunciation": "tu",
+    "story": "Me too!",
+    "story_tr": "Ben de!"
+  },
+  {
+    "english": "very",
+    "turkish": "çok",
+    "pronunciation": "ve-ri",
+    "story": "It's very hot.",
+    "story_tr": "Çok sıcak."
+  },
+  {
+    "english": "quite",
+    "turkish": "oldukça",
+    "pronunciation": "kvayt",
+    "story": "It's quite good.",
+    "story_tr": "Oldukça iyi."
+  },
+  {
+    "english": "really",
+    "turkish": "gerçekten",
+    "pronunciation": "ri-ıli",
+    "story": "I really like it.",
+    "story_tr": "Gerçekten beğendim."
+  },
+  {
+    "english": "actually",
+    "turkish": "aslında",
+    "pronunciation": "ek-çu-ıli",
+    "story": "Actually, I'm busy.",
+    "story_tr": "Aslında meşgulüm."
+  },
+  {
+    "english": "probably",
+    "turkish": "muhtemelen",
+    "pronunciation": "pro-bıb-li",
+    "story": "He's probably late.",
+    "story_tr": "Muhtemelen geç kaldı."
+  },
+  {
+    "english": "maybe",
+    "turkish": "belki",
+    "pronunciation": "mey-bi",
+    "story": "Maybe tomorrow.",
+    "story_tr": "Belki yarın."
+  },
+  {
+    "english": "perhaps",
+    "turkish": "belki",
+    "pronunciation": "pör-heps",
+    "story": "Perhaps you're right.",
+    "story_tr": "Belki haklısın."
+  },
+  {
+    "english": "certainly",
+    "turkish": "kesinlikle",
+    "pronunciation": "sör-tın-li",
+    "story": "Certainly, I can help.",
+    "story_tr": "Kesinlikle yardım edebilirim."
+  },
+  {
+    "english": "definitely",
+    "turkish": "kesinlikle",
+    "pronunciation": "de-fi-nıt-li",
+    "story": "I'll definitely come.",
+    "story_tr": "Kesinlikle geleceğim."
+  },
+  {
+    "english": "absolutely",
+    "turkish": "kesinlikle",
+    "pronunciation": "eb-sı-lut-li",
+    "story": "Absolutely correct!",
+    "story_tr": "Kesinlikle doğru!"
+  },
+  {
+    "english": "exactly",
+    "turkish": "tam olarak",
+    "pronunciation": "ig-zekt-li",
+    "story": "Exactly what I need!",
+    "story_tr": "Tam ihtiyacım olan şey!"
+  },
+  {
+    "english": "almost",
+    "turkish": "neredeyse",
+    "pronunciation": "ol-most",
+    "story": "I'm almost done.",
+    "story_tr": "Neredeyse bittim."
+  },
+  {
+    "english": "nearly",
+    "turkish": "neredeyse",
+    "pronunciation": "ni-ırli",
+    "story": "It's nearly midnight.",
+    "story_tr": "Neredeyse gece yarısı."
+  },
+  {
+    "english": "just",
+    "turkish": "sadece, az önce",
+    "pronunciation": "cast",
+    "story": "I just arrived.",
+    "story_tr": "Az önce geldim."
+  },
+  {
+    "english": "still",
+    "turkish": "hala",
+    "pronunciation": "ıs-til",
+    "story": "I'm still waiting.",
+    "story_tr": "Hala bekliyorum."
+  },
+  {
+    "english": "yet",
+    "turkish": "henüz",
+    "pronunciation": "yet",
+    "story": "Not yet.",
+    "story_tr": "Henüz değil."
+  },
+  {
+    "english": "already",
+    "turkish": "zaten",
+    "pronunciation": "ol-re-di",
+    "story": "I already know.",
+    "story_tr": "Zaten biliyorum."
+  },
+  {
+    "english": "soon",
+    "turkish": "yakında",
+    "pronunciation": "sun",
+    "story": "See you soon!",
+    "story_tr": "Yakında görüşürüz!"
+  },
+  {
+    "english": "immediately",
+    "turkish": "hemen",
+    "pronunciation": "i-mi-di-ıt-li",
+    "story": "Come immediately!",
+    "story_tr": "Hemen gel!"
+  },
+  {
+    "english": "suddenly",
+    "turkish": "aniden",
+    "pronunciation": "sa-dın-li",
+    "story": "Suddenly, it rained.",
+    "story_tr": "Aniden yağmur yağdı."
+  },
+  {
+    "english": "quickly",
+    "turkish": "hızlıca",
+    "pronunciation": "kvik-li",
+    "story": "Do it quickly!",
+    "story_tr": "Hızlıca yap!"
+  },
+  {
+    "english": "slowly",
+    "turkish": "yavaşça",
+    "pronunciation": "ıs-lou-li",
+    "story": "Drive slowly.",
+    "story_tr": "Yavaş sür."
+  },
+  {
+    "english": "carefully",
+    "turkish": "dikkatle",
+    "pronunciation": "ker-fı-li",
+    "story": "Listen carefully.",
+    "story_tr": "Dikkatle dinle."
+  },
+  {
+    "english": "easily",
+    "turkish": "kolayca",
+    "pronunciation": "i-zi-li",
+    "story": "You can do it easily.",
+    "story_tr": "Bunu kolayca yapabilirsin."
+  },
+  {
+    "english": "hardly",
+    "turkish": "zar zor",
+    "pronunciation": "hard-li",
+    "story": "I can hardly see.",
+    "story_tr": "Zar zor görebiliyorum."
+  },
+  {
+    "english": "clearly",
+    "turkish": "açıkça",
+    "pronunciation": "kli-ırli",
+    "story": "Speak clearly.",
+    "story_tr": "Açıkça konuş."
+  },
+  {
+    "english": "loudly",
+    "turkish": "yüksek sesle",
+    "pronunciation": "lavd-li",
+    "story": "Don't talk loudly.",
+    "story_tr": "Yüksek sesle konuşma."
+  },
+  {
+    "english": "quietly",
+    "turkish": "sessizce",
+    "pronunciation": "kvay-ıt-li",
+    "story": "Walk quietly.",
+    "story_tr": "Sessizce yürü."
+  },
+  {
+    "english": "together",
+    "turkish": "birlikte",
+    "pronunciation": "tı-ge-dır",
+    "story": "Let's work together.",
+    "story_tr": "Hadi birlikte çalışalım."
+  },
+  {
+    "english": "alone",
+    "turkish": "yalnız",
+    "pronunciation": "ı-lon",
+    "story": "I live alone.",
+    "story_tr": "Yalnız yaşıyorum."
+  },
+  {
+    "english": "away",
+    "turkish": "uzakta",
+    "pronunciation": "ı-vey",
+    "story": "Go away!",
+    "story_tr": "Git buradan!"
+  },
+  {
+    "english": "back",
+    "turkish": "geri",
+    "pronunciation": "bek",
+    "story": "Come back soon.",
+    "story_tr": "Yakında geri gel."
+  },
+  {
+    "english": "forward",
+    "turkish": "ileri",
+    "pronunciation": "for-vırd",
+    "story": "Move forward.",
+    "story_tr": "İleri git."
+  },
+  {
+    "english": "backward",
+    "turkish": "geri",
+    "pronunciation": "bek-vırd",
+    "story": "Step backward.",
+    "story_tr": "Geri adım at."
+  },
+  {
+    "english": "upward",
+    "turkish": "yukarı doğru",
+    "pronunciation": "ap-vırd",
+    "story": "Look upward.",
+    "story_tr": "Yukarı bak."
+  },
+  {
+    "english": "downward",
+    "turkish": "aşağı doğru",
+    "pronunciation": "davn-vırd",
+    "story": "Move downward.",
+    "story_tr": "Aşağı in."
+  },
+  {
+    "english": "everywhere",
+    "turkish": "her yerde",
+    "pronunciation": "ev-ri-veer",
+    "story": "I looked everywhere.",
+    "story_tr": "Her yere baktım."
+  },
+  {
+    "english": "somewhere",
+    "turkish": "bir yerde",
+    "pronunciation": "sam-veer",
+    "story": "It's somewhere here.",
+    "story_tr": "Buralarda bir yerde."
+  },
+  {
+    "english": "nowhere",
+    "turkish": "hiçbir yerde",
+    "pronunciation": "no-veer",
+    "story": "I have nowhere to go.",
+    "story_tr": "Gidecek yerim yok."
+  },
+  {
+    "english": "anywhere",
+    "turkish": "herhangi bir yerde",
+    "pronunciation": "e-ni-veer",
+    "story": "You can sit anywhere.",
+    "story_tr": "Herhangi bir yere oturabilirsin."
+  },
+  {
+    "english": "everyone",
+    "turkish": "herkes",
+    "pronunciation": "ev-ri-van",
+    "story": "Everyone is here.",
+    "story_tr": "Herkes burada."
+  },
+  {
+    "english": "someone",
+    "turkish": "birisi",
+    "pronunciation": "sam-van",
+    "story": "Someone is calling.",
+    "story_tr": "Birisi arıyor."
+  },
+  {
+    "english": "no one",
+    "turkish": "kimse",
+    "pronunciation": "no van",
+    "story": "No one knows.",
+    "story_tr": "Kimse bilmiyor."
+  },
+  {
+    "english": "anyone",
+    "turkish": "herhangi biri",
+    "pronunciation": "e-ni-van",
+    "story": "Can anyone help?",
+    "story_tr": "Birisi yardım edebilir mi?"
+  },
+  {
+    "english": "everything",
+    "turkish": "her şey",
+    "pronunciation": "ev-ri-sing",
+    "story": "Everything is fine.",
+    "story_tr": "Her şey yolunda."
+  },
+  {
+    "english": "something",
+    "turkish": "bir şey",
+    "pronunciation": "sam-sing",
+    "story": "I need something.",
+    "story_tr": "Bir şeye ihtiyacım var."
+  },
+  {
+    "english": "nothing",
+    "turkish": "hiçbir şey",
+    "pronunciation": "na-sing",
+    "story": "Nothing is wrong.",
+    "story_tr": "Hiçbir şey yanlış değil."
+  },
+  {
+    "english": "anything",
+    "turkish": "herhangi bir şey",
+    "pronunciation": "e-ni-sing",
+    "story": "Do you need anything?",
+    "story_tr": "Bir şeye ihtiyacın var mı?"
+  },
+  {
+    "english": "yes",
+    "turkish": "evet",
+    "pronunciation": "yes",
+    "story": "Yes, I agree.",
+    "story_tr": "Evet, katılıyorum."
+  },
+  {
+    "english": "no",
+    "turkish": "hayır",
+    "pronunciation": "no",
+    "story": "No, thank you.",
+    "story_tr": "Hayır, teşekkürler."
+  },
+  {
+    "english": "please",
+    "turkish": "lütfen",
+    "pronunciation": "pliz",
+    "story": "Please help me.",
+    "story_tr": "Lütfen bana yardım et."
+  },
+  {
+    "english": "thank you",
+    "turkish": "teşekkür ederim",
+    "pronunciation": "senk yu",
+    "story": "Thank you very much!",
+    "story_tr": "Çok teşekkür ederim!"
+  },
+  {
+    "english": "sorry",
+    "turkish": "üzgünüm",
+    "pronunciation": "so-ri",
+    "story": "I'm sorry.",
+    "story_tr": "Üzgünüm."
+  },
+  {
+    "english": "excuse me",
+    "turkish": "affedersiniz",
+    "pronunciation": "eks-kyuz mi",
+    "story": "Excuse me, where is the bank?",
+    "story_tr": "Affedersiniz, banka nerede?"
+  },
+  {
+    "english": "goodbye",
+    "turkish": "hoşça kal",
+    "pronunciation": "gud-bay",
+    "story": "Goodbye, see you later!",
+    "story_tr": "Hoşça kal, sonra görüşürüz!"
+  },
+  {
+    "english": "welcome",
+    "turkish": "hoş geldiniz",
+    "pronunciation": "vel-kam",
+    "story": "Welcome to our home!",
+    "story_tr": "Evimize hoş geldiniz!"
+  },
+  {
+    "english": "congratulations",
+    "turkish": "tebrikler",
+    "pronunciation": "kong-ra-çu-ley-şıns",
+    "story": "Congratulations on your success!",
+    "story_tr": "Başarın için tebrikler!"
+  },
+  {
+    "english": "happy birthday",
+    "turkish": "doğum günün kutlu olsun",
+    "pronunciation": "he-pi börs-dey",
+    "story": "Happy birthday to you!",
+    "story_tr": "Doğum günün kutlu olsun!"
+  },
+  {
+    "english": "good luck",
+    "turkish": "iyi şanslar",
+    "pronunciation": "gud lak",
+    "story": "Good luck on your exam!",
+    "story_tr": "Sınavında iyi şanslar!"
+  },
+  {
+    "english": "bless you",
+    "turkish": "çok yaşa",
+    "pronunciation": "bles yu",
+    "story": "Bless you! (after sneezing)",
+    "story_tr": "Çok yaşa! (hapşırma sonrası)"
+  },
+  {
+    "english": "cheers",
+    "turkish": "şerefe",
+    "pronunciation": "çi-ırs",
+    "story": "Cheers! Let's celebrate!",
+    "story_tr": "Şerefe! Hadi kutlayalım!"
+  },
+  {
+    "english": "okay",
+    "turkish": "tamam",
+    "pronunciation": "o-key",
+    "story": "Okay, I understand.",
+    "story_tr": "Tamam, anlıyorum."
+  },
+  {
+    "english": "alright",
+    "turkish": "peki",
+    "pronunciation": "ol-rayt",
+    "story": "Alright, let's go!",
+    "story_tr": "Peki, hadi gidelim!"
+  },
+  {
+    "english": "sure",
+    "turkish": "elbette",
+    "pronunciation": "şur",
+    "story": "Sure, no problem!",
+    "story_tr": "Elbette, sorun değil!"
+  },
+  {
+    "english": "of course",
+    "turkish": "tabii ki",
+    "pronunciation": "ov kors",
+    "story": "Of course I'll help you!",
+    "story_tr": "Tabii ki sana yardım edeceğim!"
+  },
+  {
+    "english": "why not",
+    "turkish": "neden olmasın",
+    "pronunciation": "vay not",
+    "story": "Why not? Let's try!",
+    "story_tr": "Neden olmasın? Hadi deneyelim!"
+  },
+  {
+    "english": "I see",
+    "turkish": "anlıyorum",
+    "pronunciation": "ay si",
+    "story": "I see what you mean.",
+    "story_tr": "Ne demek istediğini anlıyorum."
+  },
+  {
+    "english": "I know",
+    "turkish": "biliyorum",
+    "pronunciation": "ay no",
+    "story": "I know the answer.",
+    "story_tr": "Cevabı biliyorum."
+  },
+  {
+    "english": "I think",
+    "turkish": "sanırım",
+    "pronunciation": "ay sink",
+    "story": "I think you're right.",
+    "story_tr": "Sanırım haklısın."
+  },
+  {
+    "english": "I hope",
+    "turkish": "umarım",
+    "pronunciation": "ay hop",
+    "story": "I hope so!",
+    "story_tr": "Umarım öyledir!"
+  },
+  {
+    "english": "I believe",
+    "turkish": "inanıyorum",
+    "pronunciation": "ay bi-liv",
+    "story": "I believe in you!",
+    "story_tr": "Sana inanıyorum!"
+  },
+  {
+    "english": "I understand",
+    "turkish": "anlıyorum",
+    "pronunciation": "ay an-dır-stend",
+    "story": "I understand now.",
+    "story_tr": "Şimdi anlıyorum."
+  },
+  {
+    "english": "I agree",
+    "turkish": "katılıyorum",
+    "pronunciation": "ay ıg-ri",
+    "story": "I agree with you.",
+    "story_tr": "Seninle aynı fikirdeyim."
+  },
+  {
+    "english": "I disagree",
+    "turkish": "katılmıyorum",
+    "pronunciation": "ay dis-ıg-ri",
+    "story": "I disagree with that.",
+    "story_tr": "Buna katılmıyorum."
+  },
+  {
+    "english": "I remember",
+    "turkish": "hatırlıyorum",
+    "pronunciation": "ay ri-mem-bır",
+    "story": "I remember you!",
+    "story_tr": "Seni hatırlıyorum!"
+  },
+  {
+    "english": "I forget",
+    "turkish": "unutuyorum",
+    "pronunciation": "ay for-get",
+    "story": "I forget his name.",
+    "story_tr": "Onun adını unutuyorum."
+  }
+]

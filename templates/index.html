@@ -1,92 +1,58 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kelime Öğrenme</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Creepster&family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/static/css/material.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --bg-primary: #f5f7fa;
-            --bg-secondary: #ffffff;
-            --text-primary: #2d3748;
-            --text-secondary: #718096;
-            --accent: #667eea;
-            --accent-hover: #5a67d8;
-            --border: #e2e8f0;
-            --success: #48bb78;
-            --shadow: rgba(0, 0, 0, 0.1);
-        }
-
-        [data-theme="dark"] {
-            --bg-primary: #1a202c;
-            --bg-secondary: #2d3748;
-            --text-primary: #f7fafc;
-            --text-secondary: #cbd5e0;
-            --border: #4a5568;
-            --shadow: rgba(0, 0, 0, 0.3);
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
         body {
-            font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-family: 'Roboto', sans-serif;
             background: var(--md-background);
             color: var(--md-on-background);
-            line-height: 1.6;
-            transition: background 0.3s, color 0.3s;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            overflow-x: hidden;
-            display: flex;
             min-height: 100vh;
-        }
-
-        html {
-            scroll-behavior: smooth;
-            -webkit-text-size-adjust: 100%;
-        }
-
-        .main-layout {
-            display: flex;
-            width: 100%;
-            max-width: 1600px;
-            margin: 0 auto;
-            gap: 20px;
             padding: 20px;
-            position: relative;
-            z-index: 10;
         }
 
-        .content-area {
-            flex: 1;
-            min-width: 0;
+        /* Buton fontları */
+        .md-button, .md-button-outlined, .md-button-secondary, .md-button-accent {
+            font-family: 'Fredoka', 'Roboto', sans-serif;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: none;
         }
 
-        .sidebar {
-            width: 320px;
-            position: sticky;
+        .theme-toggle {
+            position: fixed;
             top: 20px;
-            height: fit-content;
-            max-height: calc(100vh - 40px);
-            overflow-y: auto;
+            right: 20px;
+            z-index: 1000;
+            background: var(--md-surface);
+            border: none;
+            border-radius: 50%;
+            width: 56px;
+            height: 56px;
+            cursor: pointer;
+            box-shadow: var(--md-shadow-3);
+            font-size: 24px;
+            transition: all 0.3s;
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1);
         }
 
         .container {
-            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         header {
             text-align: center;
-            padding: 30px 0;
+            padding: 40px 0;
         }
 
         h1 {
@@ -97,56 +63,22 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
             font-weight: 700;
+            font-family: 'Creepster', cursive;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
 
         .subtitle {
-            color: var(--text-secondary);
+            color: var(--md-on-surface);
+            opacity: 0.7;
             font-size: 1.1rem;
         }
-
-        .controls {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center;
-            align-items: center;
-            margin: 30px 0;
-            position: relative;
-            z-index: 10;
-        }
-
-        .search-box {
-            flex: 1;
-            min-width: 250px;
-            max-width: 400px;
-            padding: 14px 20px;
-            border: 2px solid rgba(0, 0, 0, 0.12);
-            border-radius: 25px;
-            background: var(--md-surface);
-            color: var(--md-on-surface);
-            font-size: 1rem;
-            font-family: 'Roboto', sans-serif;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        [data-theme="dark"] .search-box {
-            border-color: rgba(255, 255, 255, 0.12);
-        }
-
-        .search-box:focus {
-            outline: none;
-            border-color: var(--md-primary);
-            box-shadow: 0 0 0 3px rgba(98, 0, 238, 0.1);
-        }
-
-
 
         .stats {
             display: flex;
             gap: 20px;
             justify-content: center;
-            flex-wrap: wrap;
-            margin: 20px 0;
+            margin: 30px 0;
         }
 
         .stat-card {
@@ -155,12 +87,6 @@
             border-radius: 16px;
             box-shadow: var(--md-shadow-2);
             text-align: center;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .stat-card:hover {
-            box-shadow: var(--md-shadow-3);
-            transform: translateY(-2px);
         }
 
         .stat-number {
@@ -174,15 +100,36 @@
             opacity: 0.7;
             font-size: 0.9rem;
             margin-top: 5px;
-            font-weight: 500;
+        }
+
+        .controls {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+
+        .search-box {
+            flex: 1;
+            min-width: 250px;
+            max-width: 400px;
+            padding: 14px 20px;
+            border: 2px solid rgba(0, 0, 0, 0.12);
+            border-radius: 25px;
+            background: var(--md-surface);
+            color: var(--md-on-surface);
+            font-size: 1rem;
+        }
+
+        .search-box:focus {
+            outline: none;
+            border-color: var(--md-primary);
         }
 
         .card-container {
             perspective: 1000px;
             margin: 40px auto;
-            max-width: 600px;
-            position: relative;
-            z-index: 10;
         }
 
         .card {
@@ -192,8 +139,6 @@
             transform-style: preserve-3d;
             transition: transform 0.6s;
             cursor: pointer;
-            -webkit-tap-highlight-color: transparent;
-            touch-action: manipulation;
         }
 
         .card.flipped {
@@ -211,32 +156,33 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            box-shadow: 0 10px 30px var(--shadow);
+            box-shadow: var(--md-shadow-3);
         }
 
         .card-front {
             background: linear-gradient(135deg, var(--md-primary) 0%, var(--md-primary-variant) 100%);
-            color: var(--md-on-primary);
-            box-shadow: var(--md-shadow-3);
+            color: white;
         }
 
         .card-back {
             background: var(--md-surface);
             color: var(--md-on-surface);
             transform: rotateY(180deg);
-            box-shadow: var(--md-shadow-3);
         }
 
         .word-english {
             font-size: 3rem;
             font-weight: bold;
             margin-bottom: 20px;
+            font-family: 'Fredoka', sans-serif;
+            letter-spacing: 1px;
         }
 
         .word-pronunciation {
             font-size: 1.3rem;
             opacity: 0.9;
             margin-bottom: 20px;
+            font-family: 'Fredoka', sans-serif;
         }
 
         .word-kiro {
@@ -244,12 +190,14 @@
             color: var(--md-primary);
             font-weight: 600;
             margin-bottom: 15px;
+            font-family: 'Fredoka', sans-serif;
         }
 
         .word-turkish {
             font-size: 1.8rem;
             font-weight: 600;
             margin-bottom: 25px;
+            font-family: 'Fredoka', sans-serif;
         }
 
         .word-story {
@@ -257,7 +205,7 @@
             line-height: 1.8;
             text-align: center;
             max-width: 500px;
-            color: var(--md-on-surface);
+            font-family: 'Roboto', sans-serif;
         }
 
         .word-story-tr {
@@ -265,10 +213,20 @@
             line-height: 1.6;
             text-align: center;
             max-width: 500px;
-            color: var(--md-on-surface);
             opacity: 0.7;
             margin-top: 10px;
             font-style: italic;
+            display: none;
+        }
+        
+        .word-story-tr.visible {
+            display: block;
+            animation: fadeIn 0.3s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 0.7; transform: translateY(0); }
         }
 
         .card-actions {
@@ -277,297 +235,6 @@
             margin-top: 30px;
             flex-wrap: wrap;
             justify-content: center;
-        }
-
-
-
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            z-index: 2100;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .modal.active {
-            display: flex;
-        }
-
-        .modal-content {
-            background: var(--md-surface);
-            padding: 40px;
-            border-radius: 24px;
-            max-width: 500px;
-            width: 90%;
-            max-height: 80vh;
-            overflow-y: auto;
-            box-shadow: var(--md-shadow-5);
-            position: relative;
-            z-index: 2200;
-        }
-
-        .modal-header {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            color: var(--md-primary);
-        }
-
-        .modal-close {
-            float: right;
-            font-size: 2rem;
-            cursor: pointer;
-            color: var(--text-secondary);
-            line-height: 1;
-            position: relative;
-            z-index: 2300;
-        }
-
-        .modal-close:hover {
-            color: var(--text-primary);
-        }
-
-        .input-group {
-            margin-bottom: 20px;
-        }
-
-        .input-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: var(--text-primary);
-        }
-
-        .input-group input {
-            width: 100%;
-            padding: 12px;
-            border: 2px solid var(--border);
-            border-radius: 10px;
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            font-size: 1rem;
-        }
-
-        .input-group input:focus {
-            outline: none;
-            border-color: var(--accent);
-        }
-
-        .suggestion-box {
-            background: var(--bg-primary);
-            padding: 20px;
-            border-radius: 10px;
-            margin-top: 20px;
-            border-left: 4px solid var(--accent);
-        }
-
-        .confetti {
-            position: fixed;
-            width: 10px;
-            height: 10px;
-            background: var(--accent);
-            position: absolute;
-            animation: confetti-fall 3s linear forwards;
-            pointer-events: none;
-        }
-
-        @keyframes confetti-fall {
-            to {
-                transform: translateY(100vh) rotate(360deg);
-                opacity: 0;
-            }
-        }
-
-
-
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 1.8rem;
-            }
-
-            .subtitle {
-                font-size: 1rem;
-            }
-
-            .word-english {
-                font-size: 2.2rem;
-            }
-
-            .word-pronunciation {
-                font-size: 1.1rem;
-            }
-
-            .word-kiro {
-                font-size: 1.3rem;
-            }
-
-            .word-turkish {
-                font-size: 1.5rem;
-            }
-
-            .word-story {
-                font-size: 1rem;
-            }
-
-            .card {
-                height: 450px;
-            }
-
-            .card-face {
-                padding: 25px 20px;
-            }
-
-            .controls {
-                flex-direction: column;
-                gap: 12px;
-            }
-
-            .search-box {
-                width: 100%;
-                max-width: 100%;
-            }
-
-            .btn {
-                width: 100%;
-                padding: 14px 24px;
-                font-size: 1rem;
-            }
-
-
-
-            .stats {
-                gap: 12px;
-            }
-
-            .stat-card {
-                padding: 15px 20px;
-                flex: 1;
-                min-width: 100px;
-            }
-
-            .stat-number {
-                font-size: 1.6rem;
-            }
-
-            .stat-label {
-                font-size: 0.85rem;
-            }
-
-            .modal-content {
-                padding: 25px;
-                width: 95%;
-            }
-
-            .modal-header {
-                font-size: 1.5rem;
-            }
-
-            .learned-list {
-                grid-template-columns: 1fr;
-            }
-
-            .container {
-                padding: 15px;
-            }
-
-            header {
-                padding: 20px 0;
-            }
-
-            .card-container {
-                margin: 25px auto;
-            }
-
-            .card-actions {
-                gap: 10px;
-                margin-top: 20px;
-            }
-
-            .flip-hint {
-                font-size: 0.85rem;
-                bottom: 15px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 1.5rem;
-            }
-
-            .subtitle {
-                font-size: 0.9rem;
-            }
-
-            .word-english {
-                font-size: 1.8rem;
-            }
-
-            .word-pronunciation {
-                font-size: 1rem;
-                margin-bottom: 15px;
-            }
-
-            .word-kiro {
-                font-size: 1.2rem;
-            }
-
-            .word-turkish {
-                font-size: 1.3rem;
-                margin-bottom: 20px;
-            }
-
-            .word-story {
-                font-size: 0.95rem;
-            }
-
-            .card {
-                height: 420px;
-            }
-
-            .card-face {
-                padding: 20px 15px;
-            }
-
-            .btn {
-                padding: 12px 20px;
-                font-size: 0.95rem;
-            }
-
-            .stat-card {
-                padding: 12px 15px;
-            }
-
-            .stat-number {
-                font-size: 1.4rem;
-            }
-
-            .modal-content {
-                padding: 20px;
-            }
-
-
-        }
-
-        /* Touch-friendly improvements */
-        @media (hover: none) and (pointer: coarse) {
-            .btn {
-                min-height: 48px;
-            }
-
-            .search-box {
-                min-height: 48px;
-            }
-
-
-
-            .card {
-                -webkit-tap-highlight-color: transparent;
-            }
         }
 
         .flip-hint {
@@ -583,297 +250,296 @@
             50% { opacity: 0.3; }
         }
 
-        /* Avatar Dropdown Menu */
-        .avatar-menu-container {
-            position: fixed;
-            top: 20px;
-            right: 80px;
-            z-index: 1100;
-        }
-
-        .avatar-button {
-            width: 56px;
-            height: 56px;
-            border-radius: 50%;
-            border: 3px solid var(--md-primary);
-            cursor: pointer;
-            transition: all 0.3s;
-            box-shadow: var(--md-shadow-2);
-            overflow: hidden;
-            background: var(--md-surface);
-        }
-
-        .avatar-button:hover {
-            transform: scale(1.1);
-            box-shadow: var(--md-shadow-3);
-        }
-
-        .avatar-button img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .avatar-dropdown {
-            position: absolute;
-            top: 65px;
-            right: 0;
-            background: var(--md-surface);
-            border-radius: 12px;
-            box-shadow: var(--md-shadow-4);
-            min-width: 200px;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(-10px);
-            transition: all 0.3s;
-        }
-
-        .avatar-dropdown.show {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-
-        .avatar-dropdown-item {
-            padding: 12px 20px;
-            cursor: pointer;
-            transition: background 0.2s;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: var(--md-on-surface);
-            border-bottom: 1px solid rgba(0,0,0,0.1);
-        }
-
-        [data-theme="dark"] .avatar-dropdown-item {
-            border-bottom-color: rgba(255,255,255,0.1);
-        }
-
-        .avatar-dropdown-item:last-child {
-            border-bottom: none;
-        }
-
-        .avatar-dropdown-item:hover {
-            background: rgba(98, 0, 238, 0.08);
-        }
-
-        .avatar-dropdown-item:first-child {
-            border-radius: 12px 12px 0 0;
-        }
-
-        .avatar-dropdown-item:last-child {
-            border-radius: 0 0 12px 12px;
-        }
-
-        /* Spider Web Canvas */
-        #spiderWebCanvas {
+        .modal {
+            display: none;
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            pointer-events: none !important;
-            z-index: 0 !important;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
         }
 
-        /* Leaderboard Sidebar */
-        .leaderboard-card {
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
             background: var(--md-surface);
-            border-radius: 16px;
-            padding: 24px;
-            box-shadow: var(--md-shadow-3);
-            border: 2px solid var(--md-halloween-orange);
+            padding: 40px;
+            border-radius: 24px;
+            max-width: 600px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: var(--md-shadow-5);
         }
 
-        .leaderboard-header {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 20px;
-            font-size: 1.5rem;
+        .modal-header {
+            font-size: 1.8rem;
             font-weight: 700;
-            color: var(--md-halloween-orange);
+            margin-bottom: 20px;
+            color: var(--md-primary);
         }
 
-        .leaderboard-list {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
+        .modal-close {
+            float: right;
+            font-size: 2rem;
+            cursor: pointer;
+            color: var(--md-on-surface);
+            opacity: 0.7;
         }
 
-        .leaderboard-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
+        .modal-close:hover {
+            opacity: 1;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--md-on-surface);
+        }
+
+        .input-group input, .input-group textarea {
+            width: 100%;
             padding: 12px;
+            border: 2px solid rgba(0, 0, 0, 0.12);
+            border-radius: 10px;
             background: var(--md-background);
+            color: var(--md-on-surface);
+            font-size: 1rem;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .input-group input:focus, .input-group textarea:focus {
+            outline: none;
+            border-color: var(--md-primary);
+        }
+
+        .story-result {
+            background: var(--md-background);
+            padding: 20px;
             border-radius: 12px;
-            transition: all 0.3s;
-            border: 1px solid transparent;
+            margin-top: 20px;
+            border-left: 4px solid var(--md-primary);
         }
 
-        .leaderboard-item:hover {
-            border-color: var(--md-halloween-purple);
-            transform: translateX(4px);
+        .test-container {
+            display: none;
         }
 
-        .leaderboard-rank {
-            width: 32px;
-            height: 32px;
+        .test-container.active {
+            display: block;
+        }
+
+        .test-question {
+            background: var(--md-surface);
+            padding: 30px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+            box-shadow: var(--md-shadow-2);
+            position: relative;
+        }
+
+        .test-question h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--md-primary);
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 600;
+        }
+        
+        .test-question p {
+            font-family: 'Fredoka', sans-serif;
+        }
+
+        .test-close-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
-            background: var(--md-halloween-orange);
-            color: white;
+            border: none;
+            background: rgba(0, 0, 0, 0.1);
+            color: var(--md-on-surface);
+            font-size: 1.5rem;
+            cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: 700;
-            font-size: 0.9rem;
+            transition: all 0.3s;
+            z-index: 10;
         }
 
-        .leaderboard-rank.top-1 {
-            background: linear-gradient(135deg, #FFD700, #FFA500);
+        .test-close-btn:hover {
+            background: rgba(220, 53, 69, 0.2);
+            color: #dc3545;
+            transform: rotate(90deg) scale(1.1);
+        }
+
+        .test-close-btn:active {
+            transform: rotate(90deg) scale(0.95);
+        }
+
+        .test-options {
+            display: grid;
+            gap: 15px;
+        }
+
+        .test-option {
+            padding: 18px 24px;
+            border: 3px solid var(--md-surface);
+            border-radius: 16px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            background: var(--md-surface);
+            box-shadow: var(--md-shadow-2);
             font-size: 1.1rem;
-        }
-
-        .leaderboard-rank.top-2 {
-            background: linear-gradient(135deg, #C0C0C0, #808080);
-        }
-
-        .leaderboard-rank.top-3 {
-            background: linear-gradient(135deg, #CD7F32, #8B4513);
-        }
-
-        .leaderboard-info {
-            flex: 1;
-            min-width: 0;
-        }
-
-        .leaderboard-name {
-            font-weight: 600;
+            font-weight: 500;
             color: var(--md-on-surface);
-            white-space: nowrap;
+            position: relative;
             overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        .leaderboard-stats {
-            font-size: 0.85rem;
-            color: var(--md-halloween-purple);
-            display: flex;
-            gap: 12px;
-        }
-
-        .leaderboard-empty {
             text-align: center;
-            padding: 40px 20px;
-            color: var(--md-on-surface);
-            opacity: 0.6;
+            font-family: 'Fredoka', sans-serif;
         }
 
-        /* Responsive */
-        @media (max-width: 1200px) {
-            .sidebar {
-                display: none;
-            }
+        .test-option::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(98, 0, 238, 0.1), transparent);
+            transition: left 0.5s;
+        }
+
+        .test-option:hover {
+            border-color: var(--md-primary);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: var(--md-shadow-4);
+        }
+
+        .test-option:hover::before {
+            left: 100%;
+        }
+
+        .test-option:active {
+            transform: translateY(-1px) scale(0.98);
+        }
+
+        .test-option.correct {
+            border-color: #48bb78;
+            background: linear-gradient(135deg, rgba(72, 187, 120, 0.15), rgba(72, 187, 120, 0.05));
+            color: #2f855a;
+            font-weight: 600;
+            animation: correctPulse 0.5s;
+        }
+
+        .test-option.correct::after {
+            content: '✓';
+            position: absolute;
+            right: 20px;
+            font-size: 1.5rem;
+            color: #48bb78;
+        }
+
+        .test-option.wrong {
+            border-color: #f56565;
+            background: linear-gradient(135deg, rgba(245, 101, 101, 0.15), rgba(245, 101, 101, 0.05));
+            color: #c53030;
+            font-weight: 600;
+            animation: wrongShake 0.5s;
+        }
+
+        .test-option.wrong::after {
+            content: '✗';
+            position: absolute;
+            right: 20px;
+            font-size: 1.5rem;
+            color: #f56565;
+        }
+
+        @keyframes correctPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes wrongShake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            75% { transform: translateX(10px); }
+        }
+
+        .test-result {
+            text-align: center;
+            padding: 40px;
+        }
+        
+        .test-result h2 {
+            font-family: 'Fredoka', sans-serif;
+        }
+        
+        .test-result p {
+            font-family: 'Fredoka', sans-serif;
+        }
+
+        .test-score {
+            font-size: 4rem;
+            font-weight: 700;
+            color: var(--md-primary);
+            margin: 20px 0;
+            font-family: 'Fredoka', sans-serif;
         }
 
         @media (max-width: 768px) {
-            .main-layout {
-                padding: 10px;
-            }
+            h1 { font-size: 1.8rem; }
+            .word-english { font-size: 2.2rem; }
+            .card { height: 450px; }
+            .controls { flex-direction: column; }
+            .search-box { width: 100%; max-width: 100%; }
+            .modal-content { padding: 25px; }
         }
     </style>
 </head>
 <body>
-    <canvas id="spiderWebCanvas"></canvas>
-    
-    <!-- Avatar Menu -->
-    <div class="avatar-menu-container" id="avatarMenuContainer" style="display: none;">
-        <button class="avatar-button" id="avatarButton" aria-label="Kullanıcı menüsü">
-            <img id="avatarImage" src="/static/avatars/girl1.png" alt="Avatar">
-        </button>
-        <div class="avatar-dropdown" id="avatarDropdown">
-            <div class="avatar-dropdown-item" onclick="window.showAvatarChangeModal()">
-                🎭 Avatar Değiştir
-            </div>
-            <div class="avatar-dropdown-item" id="themeToggleMenuItem" onclick="window.toggleTheme()">
-                <span id="themeIcon">🌙</span> <span id="themeText">Karanlık Tema</span>
-            </div>
-            <div class="avatar-dropdown-item" onclick="window.handleLogout()">
-                🚪 Çıkış
-            </div>
-        </div>
-    </div>
+    <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()">🌙</button>
 
-    <div class="main-layout">
-        <!-- Ana İçerik -->
-        <div class="content-area">
-            <div class="container">
+    <div class="container">
         <header>
             <h1>🕷️ Kelime Öğrenme</h1>
             <p class="subtitle">Eğlenceli hikayelerle İngilizce öğren!</p>
-            <div id="userInfo" style="margin-top: 15px; display: flex; gap: 10px; justify-content: center; align-items: center;"></div>
         </header>
 
-        <div class="stats" id="userStats">
+        <div class="stats">
             <div class="stat-card">
                 <div class="stat-number" id="totalWords">614</div>
                 <div class="stat-label">Toplam Kelime</div>
             </div>
         </div>
 
-        <!-- Hoş Geldin Mesajı (Giriş yapmayanlara) -->
-        <div id="welcomeMessage" style="display: none; text-align: center; padding: 60px 20px; max-width: 600px; margin: 0 auto;">
-            <div style="font-size: 4rem; margin-bottom: 20px;">📚</div>
-            <h2 style="font-size: 2rem; margin-bottom: 20px; color: var(--md-primary);">Hoş Geldiniz!</h2>
-            <p style="font-size: 1.2rem; line-height: 1.8; color: var(--md-on-surface); opacity: 0.8; margin-bottom: 30px;">
-                614 kelime ile İngilizce öğrenmeye başlayın! Anime karakterinizi seçin, testler çözün ve ilerlemenizi takip edin.
-            </p>
-            <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
-                <button class="md-button" onclick="window.showRegisterModal()" style="font-size: 1.1rem; padding: 16px 32px;">
-                    🚀 Hemen Başla
-                </button>
-                <button class="md-button-outlined" onclick="window.showLoginModal()" style="font-size: 1.1rem; padding: 16px 32px;">
-                    Giriş Yap
-                </button>
-            </div>
-            <div style="margin-top: 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px;">
-                <div class="md-card" style="padding: 20px;">
-                    <div style="font-size: 2rem; margin-bottom: 10px;">🎴</div>
-                    <div style="font-weight: 600; margin-bottom: 5px;">614 Kelime</div>
-                    <div style="font-size: 0.9rem; opacity: 0.7;">Zengin içerik</div>
-                </div>
-                <div class="md-card" style="padding: 20px;">
-                    <div style="font-size: 2rem; margin-bottom: 10px;">🎭</div>
-                    <div style="font-weight: 600; margin-bottom: 5px;">10 Avatar</div>
-                    <div style="font-size: 0.9rem; opacity: 0.7;">Anime karakterler</div>
-                </div>
-                <div class="md-card" style="padding: 20px;">
-                    <div style="font-size: 2rem; margin-bottom: 10px;">📝</div>
-                    <div style="font-weight: 600; margin-bottom: 5px;">Testler</div>
-                    <div style="font-size: 0.9rem; opacity: 0.7;">İlerleme takibi</div>
-                </div>
-                <div class="md-card" style="padding: 20px;">
-                    <div style="font-size: 2rem; margin-bottom: 10px;">🏆</div>
-                    <div style="font-weight: 600; margin-bottom: 5px;">Liderlik</div>
-                    <div style="font-size: 0.9rem; opacity: 0.7;">Rekabet edin</div>
-                </div>
-            </div>
-        </div>
-
         <div class="controls">
-            <input type="text" class="search-box" id="searchBox" placeholder="🔍 Kelime ara (Türkçe veya İngilizce)..." aria-label="Kelime ara">
-            <button class="md-button" id="randomBtn">🎲 Yeni Kelime</button>
-            <button class="md-button md-button-secondary" id="createStoryBtn">✨ Hikaye Oluştur</button>
-            <button class="md-button md-button-accent" id="testBtn">📝 Test Çöz</button>
+            <input type="text" class="search-box" id="searchBox" placeholder="🔍 Kelime ara..." />
+            <button class="md-button" onclick="loadRandomWord()">🎲 Yeni Kelime</button>
+            <button class="md-button md-button-secondary" onclick="showStoryModal()">✨ Hikaye Oluştur</button>
+            <button class="md-button md-button-accent" onclick="startTest()">📝 Test Çöz</button>
         </div>
 
-        <div class="card-container">
-            <div class="card" id="flashcard" role="button" tabindex="0" aria-label="Kartı çevirmek için tıklayın">
+        <div class="card-container" id="cardContainer">
+            <div class="card" id="flashcard" onclick="flipCard()">
                 <div class="card-face card-front">
                     <div class="word-english" id="wordEnglish">Hello</div>
                     <div class="word-pronunciation" id="wordPronunciation">he-lou</div>
-                    <button class="md-button" id="speakBtn" style="margin-top: 20px;">🔊 Sesli Dinle</button>
+                    <button class="md-button" onclick="event.stopPropagation(); speakWord()">🔊 Sesli Dinle</button>
                     <div class="flip-hint">👆 Kartı çevirmek için tıkla</div>
                 </div>
                 <div class="card-face card-back">
@@ -882,993 +548,190 @@
                     <div class="word-story" id="wordStory">Hello! How are you today?</div>
                     <div class="word-story-tr" id="wordStoryTr">Merhaba! Bugün nasılsın?</div>
                     <div class="card-actions">
-                        <button class="md-button" id="nextWordBtn">🎲 Yeni Kelime</button>
-                        <button class="md-button-outlined" id="flipBackBtn">🇹🇷 Türkçe Çeviri</button>
+                        <button class="md-button" onclick="event.stopPropagation(); loadRandomWord()">🎲 Yeni Kelime</button>
+                        <button class="md-button md-button-secondary" id="translateBtn" onclick="event.stopPropagation(); showTranslation()">🇹🇷 Türkçe Çeviri</button>
                     </div>
                 </div>
-            </div>
-        </div>
             </div>
         </div>
 
-        <!-- Liderlik Tablosu Sidebar -->
-        <aside class="sidebar" id="leaderboardSidebar" style="display: none;">
-            <div class="leaderboard-card">
-                <div class="leaderboard-header">
-                    🏆 Liderlik Tablosu
-                </div>
-                <div class="leaderboard-list" id="sidebarLeaderboard">
-                    <div class="leaderboard-empty">
-                        Yükleniyor...
-                    </div>
-                </div>
-            </div>
-        </aside>
+        <!-- Test Container -->
+        <div class="test-container" id="testContainer">
+            <div class="test-question" id="testQuestion"></div>
+            <div class="test-result" id="testResult" style="display: none;"></div>
+        </div>
     </div>
 
     <!-- Hikaye Oluştur Modal -->
     <div class="modal" id="storyModal">
         <div class="modal-content">
-            <span class="modal-close" id="closeStoryModal">&times;</span>
+            <span class="modal-close" onclick="closeStoryModal()">&times;</span>
             <div class="modal-header">✨ Hikaye Oluştur</div>
             <div class="input-group">
-                <label for="customWord">İngilizce Kelime:</label>
+                <label>İngilizce Kelime:</label>
                 <input type="text" id="customWord" placeholder="Örn: beautiful">
             </div>
-            <button class="md-button" id="generateStoryBtn" style="width: 100%;">Hikaye Oluştur</button>
-            <div class="suggestion-box" id="suggestionBox" style="display: none;">
-                <strong>Örnek İngilizce Cümle:</strong>
-                <p id="generatedStory"></p>
+            <button class="md-button" onclick="generateStory()" style="width: 100%;">Hikaye Oluştur</button>
+            <div class="story-result" id="storyResult" style="display: none;">
+                <h4 style="margin-bottom: 10px;">📖 Oluşturulan Hikaye:</h4>
+                <p id="generatedStory" style="line-height: 1.8;"></p>
+                <p id="generatedStoryTr" style="margin-top: 10px; opacity: 0.7; font-style: italic;"></p>
             </div>
         </div>
     </div>
 
-    <!-- Giriş Modal -->
-    <div class="modal" id="loginModal">
-        <div class="modal-content">
-            <span class="modal-close" id="closeLoginModal">&times;</span>
-            <div class="modal-header">🔐 Giriş Yap</div>
-            
-            <div class="md-input-group">
-                <input type="text" id="loginUsername" class="md-input" placeholder=" " required>
-                <label class="md-input-label">Kullanıcı Adı</label>
-            </div>
-            
-            <div class="md-input-group">
-                <input type="password" id="loginPassword" class="md-input" placeholder=" " required>
-                <label class="md-input-label">Şifre</label>
-            </div>
-            
-            <button class="md-button" id="loginBtn" style="width: 100%;">Giriş Yap</button>
-            <div id="loginMessage" style="margin-top: 15px; text-align: center;"></div>
-        </div>
-    </div>
-
-    <!-- Kayıt Modal -->
-    <div class="modal" id="registerModal">
-        <div class="modal-content" style="max-width: 600px;">
-            <span class="modal-close" id="closeRegisterModal">&times;</span>
-            <div class="modal-header">📝 Kayıt Ol</div>
-            
-            <div class="md-input-group">
-                <input type="text" id="registerUsername" class="md-input" placeholder=" " required>
-                <label class="md-input-label">Kullanıcı Adı</label>
-            </div>
-            
-            <div class="md-input-group">
-                <input type="email" id="registerEmail" class="md-input" placeholder=" ">
-                <label class="md-input-label">E-posta (opsiyonel)</label>
-            </div>
-            
-            <div class="md-input-group">
-                <input type="password" id="registerPassword" class="md-input" placeholder=" " required>
-                <label class="md-input-label">Şifre</label>
-            </div>
-            
-            <div style="margin: 24px 0;">
-                <h3 style="margin-bottom: 16px; font-size: 1.1rem; color: var(--md-on-surface);">Avatar Seç</h3>
-                <div class="avatar-selector" id="avatarSelector"></div>
-            </div>
-            
-            <button class="md-button" id="registerBtn" style="width: 100%;">Kayıt Ol</button>
-            <div id="registerMessage" style="margin-top: 15px; text-align: center;"></div>
-        </div>
-    </div>
-
-    <!-- Liderlik Tablosu Modal -->
-    <div class="modal" id="leaderboardModal">
-        <div class="modal-content">
-            <span class="modal-close" id="closeLeaderboardModal">&times;</span>
-            <div class="modal-header">🏆 Liderlik Tablosu</div>
-            <div id="leaderboardList" style="margin-top: 20px;"></div>
-        </div>
-    </div>
-
-    <!-- Test Modal -->
-    <div class="modal" id="testModal">
-        <div class="modal-content">
-            <span class="modal-close" id="closeTestModal">&times;</span>
-            <div class="modal-header">📝 Kelime Testi</div>
-            <div id="testContainer">
-                <div id="testQuestion" style="font-size: 1.3rem; margin-bottom: 20px; text-align: center; font-weight: 600;"></div>
-                <div id="testOptions" style="display: grid; gap: 15px; margin-bottom: 20px;"></div>
-                <div id="testResult" style="text-align: center; font-size: 1.1rem; margin-top: 20px; min-height: 30px;"></div>
-                <div style="display: flex; gap: 15px; justify-content: center; margin-top: 20px;">
-                    <button class="md-button" id="nextQuestionBtn" style="display: none;">Sonraki Soru</button>
-                    <button class="md-button-outlined" id="restartTestBtn" style="display: none;">Yeni Test</button>
-                </div>
-                <div id="testScore" style="text-align: center; margin-top: 20px; font-size: 1.2rem; font-weight: 600;"></div>
-            </div>
-        </div>
-    </div>
-
-    <script src="/static/js/avatars.js"></script>
-    <script src="/static/js/api.js"></script>
-    <script src="/static/js/leaderboard.js"></script>
-    <script src="/static/js/speech.js"></script>
-    <script src="/static/js/spider-web.js"></script>
     <script>
-        // Kelime veritabanı - 100 kelime
-        const wordDatabase = [
-            { english: "hello", turkish: "merhaba", kiro: "helo", pronunciation: "he-lou", story: "Hello! How are you today?", storyTr: "Merhaba! Bugün nasılsın?" },
-            { english: "cat", turkish: "kedi", kiro: "ket", pronunciation: "ket", story: "The cat is sleeping on the sofa.", storyTr: "Kedi kanepede uyuyor." },
-            { english: "dog", turkish: "köpek", kiro: "dok", pronunciation: "dog", story: "My dog loves to play in the park.", storyTr: "Köpeğim parkta oynamayı seviyor." },
-            { english: "water", turkish: "su", kiro: "voter", pronunciation: "vo-tır", story: "I drink water every morning.", storyTr: "Her sabah su içerim." },
-            { english: "book", turkish: "kitap", kiro: "buk", pronunciation: "buk", story: "This book is very interesting.", storyTr: "Bu kitap çok ilginç." },
-            { english: "house", turkish: "ev", kiro: "havs", pronunciation: "havs", story: "We live in a big house.", storyTr: "Büyük bir evde yaşıyoruz." },
-            { english: "friend", turkish: "arkadaş", kiro: "firend", pronunciation: "frend", story: "She is my best friend.", storyTr: "O benim en iyi arkadaşım." },
-            { english: "food", turkish: "yemek", kiro: "fud", pronunciation: "fud", story: "The food at this restaurant is delicious.", storyTr: "Bu restoranda yemekler lezzetli." },
-            { english: "love", turkish: "sevgi, aşk", kiro: "lav", pronunciation: "lav", story: "I love spending time with my family.", storyTr: "Ailemle vakit geçirmeyi seviyorum." },
-            { english: "time", turkish: "zaman", kiro: "taym", pronunciation: "taym", story: "What time is it now?", storyTr: "Şimdi saat kaç?" },
-            { english: "money", turkish: "para", kiro: "mani", pronunciation: "ma-ni", story: "I need to save more money.", storyTr: "Daha fazla para biriktirmem gerekiyor." },
-            { english: "work", turkish: "iş, çalışmak", kiro: "vörk", pronunciation: "vörk", story: "I work from home every day.", storyTr: "Her gün evden çalışıyorum." },
-            { english: "school", turkish: "okul", kiro: "iskul", pronunciation: "iskul", story: "The children go to school by bus.", storyTr: "Çocuklar okula otobüsle gidiyor." },
-            { english: "car", turkish: "araba", kiro: "kar", pronunciation: "kar", story: "His car is very fast.", storyTr: "Onun arabası çok hızlı." },
-            { english: "phone", turkish: "telefon", kiro: "fon", pronunciation: "fon", story: "Can I use your phone?", storyTr: "Telefonunu kullanabilir miyim?" },
-            { english: "computer", turkish: "bilgisayar", kiro: "kompüter", pronunciation: "kom-pyu-tır", story: "I use my computer for work.", storyTr: "Bilgisayarımı iş için kullanıyorum." },
-            { english: "tree", turkish: "ağaç", kiro: "tiri", pronunciation: "tri", story: "There is a big tree in our garden.", storyTr: "Bahçemizde büyük bir ağaç var." },
-            { english: "sun", turkish: "güneş", kiro: "san", pronunciation: "san", story: "The sun is shining brightly today.", storyTr: "Bugün güneş parlak bir şekilde parlıyor." },
-            { english: "moon", turkish: "ay", kiro: "mun", pronunciation: "mun", story: "The moon looks beautiful tonight.", storyTr: "Bu gece ay çok güzel görünüyor." }
-        ];
-
-        // Daha fazla kelime ekleniyor
-        wordDatabase.push(
-            { english: "star", turkish: "yıldız", kiro: "ıstar", pronunciation: "star", story: "I can see many stars in the sky.", storyTr: "Gökyüzünde birçok yıldız görebiliyorum." },
-            { english: "rain", turkish: "yağmur", kiro: "reyn", pronunciation: "reyn", story: "It will rain tomorrow.", storyTr: "Yarın yağmur yağacak." },
-            { english: "wind", turkish: "rüzgar", kiro: "vind", pronunciation: "vind", story: "The wind is very strong today.", storyTr: "Bugün rüzgar çok kuvvetli." },
-            { english: "fire", turkish: "ateş", kiro: "fayır", pronunciation: "fay-ır", story: "We made a fire to stay warm.", storyTr: "Isınmak için ateş yaktık." },
-            { english: "mountain", turkish: "dağ", kiro: "mauntin", pronunciation: "mavn-tın", story: "The mountain is covered with snow.", storyTr: "Dağ karla kaplı." },
-            { english: "river", turkish: "nehir", kiro: "rivır", pronunciation: "ri-vır", story: "The river flows through the city.", storyTr: "Nehir şehrin içinden akıyor." },
-            { english: "flower", turkish: "çiçek", kiro: "filavır", pronunciation: "fla-vır", story: "These flowers smell wonderful.", storyTr: "Bu çiçekler harika kokuyor." },
-            { english: "bird", turkish: "kuş", kiro: "börd", pronunciation: "börd", story: "A bird is singing in the tree.", storyTr: "Ağaçta bir kuş şarkı söylüyor." },
-            { english: "fish", turkish: "balık", kiro: "fiş", pronunciation: "fiş", story: "We caught three fish today.", storyTr: "Bugün üç balık yakaladık." },
-            { english: "bread", turkish: "ekmek", kiro: "bred", pronunciation: "bred", story: "I eat bread for breakfast.", storyTr: "Kahvaltıda ekmek yerim." },
-            { english: "milk", turkish: "süt", kiro: "milk", pronunciation: "milk", story: "Do you want milk in your coffee?", storyTr: "Kahvene süt ister misin?" },
-            { english: "apple", turkish: "elma", kiro: "epıl", pronunciation: "e-pıl", story: "An apple a day keeps the doctor away.", storyTr: "Günde bir elma doktoru uzak tutar." },
-            { english: "orange", turkish: "portakal", kiro: "orinc", pronunciation: "o-rinc", story: "I love fresh orange juice.", storyTr: "Taze portakal suyunu seviyorum." },
-            { english: "banana", turkish: "muz", kiro: "bınana", pronunciation: "bı-na-na", story: "Bananas are good for your health.", storyTr: "Muzlar sağlığınız için iyidir." },
-            { english: "coffee", turkish: "kahve", kiro: "kofi", pronunciation: "ko-fi", story: "I need a cup of coffee.", storyTr: "Bir fincan kahveye ihtiyacım var." },
-            { english: "tea", turkish: "çay", kiro: "ti", pronunciation: "ti", story: "Would you like some tea?", storyTr: "Biraz çay ister misiniz?" },
-            { english: "chair", turkish: "sandalye", kiro: "çeır", pronunciation: "çeır", story: "Please sit on this chair.", storyTr: "Lütfen bu sandalyeye oturun." },
-            { english: "table", turkish: "masa", kiro: "teybıl", pronunciation: "tey-bıl", story: "Put the book on the table.", storyTr: "Kitabı masaya koy." },
-            { english: "door", turkish: "kapı", kiro: "dor", pronunciation: "dor", story: "Close the door, please.", storyTr: "Lütfen kapıyı kapat." },
-            { english: "window", turkish: "pencere", kiro: "vindov", pronunciation: "vin-dov", story: "Open the window for fresh air.", storyTr: "Temiz hava için pencereyi aç." }
-        );
-
-        // Daha fazla kelime
-        wordDatabase.push(
-            { english: "hand", turkish: "el", kiro: "hend", pronunciation: "hend", story: "Wash your hands before eating.", storyTr: "Yemekten önce ellerini yıka." },
-            { english: "foot", turkish: "ayak", kiro: "fut", pronunciation: "fut", story: "My foot hurts after running.", storyTr: "Koştuktan sonra ayağım ağrıyor." },
-            { english: "head", turkish: "kafa, baş", kiro: "hed", pronunciation: "hed", story: "I have a headache today.", storyTr: "Bugün başım ağrıyor." },
-            { english: "eye", turkish: "göz", kiro: "ay", pronunciation: "ay", story: "She has beautiful blue eyes.", storyTr: "Onun güzel mavi gözleri var." },
-            { english: "ear", turkish: "kulak", kiro: "iır", pronunciation: "iır", story: "I can't hear you with my left ear.", storyTr: "Sol kulağımla seni duyamıyorum." },
-            { english: "mouth", turkish: "ağız", kiro: "mavs", pronunciation: "mavs", story: "Open your mouth and say 'ah'.", storyTr: "Ağzını aç ve 'ah' de." },
-            { english: "heart", turkish: "kalp", kiro: "hart", pronunciation: "hart", story: "Exercise is good for your heart.", storyTr: "Egzersiz kalbiniz için iyidir." },
-            { english: "night", turkish: "gece", kiro: "nayt", pronunciation: "nayt", story: "Good night, sleep well!", storyTr: "İyi geceler, iyi uykular!" },
-            { english: "day", turkish: "gün", kiro: "dey", pronunciation: "dey", story: "Have a nice day!", storyTr: "İyi günler!" },
-            { english: "morning", turkish: "sabah", kiro: "morning", pronunciation: "mor-ning", story: "I wake up early every morning.", storyTr: "Her sabah erken kalkarım." },
-            { english: "evening", turkish: "akşam", kiro: "ivning", pronunciation: "iv-ning", story: "We meet in the evening.", storyTr: "Akşam buluşuyoruz." },
-            { english: "year", turkish: "yıl", kiro: "yiır", pronunciation: "yiır", story: "This year is going very fast.", storyTr: "Bu yıl çok hızlı geçiyor." },
-            { english: "month", turkish: "ay", kiro: "mans", pronunciation: "mans", story: "My birthday is next month.", storyTr: "Doğum günüm gelecek ay." },
-            { english: "week", turkish: "hafta", kiro: "viik", pronunciation: "viik", story: "I go to the gym twice a week.", storyTr: "Haftada iki kez spor salonuna giderim." },
-            { english: "hour", turkish: "saat", kiro: "avır", pronunciation: "a-vır", story: "The meeting will last one hour.", storyTr: "Toplantı bir saat sürecek." },
-            { english: "minute", turkish: "dakika", kiro: "minit", pronunciation: "mi-nit", story: "Wait a minute, please.", storyTr: "Bir dakika bekle, lütfen." },
-            { english: "second", turkish: "saniye", kiro: "sekınd", pronunciation: "se-kınd", story: "Just a second, I'm coming!", storyTr: "Bir saniye, geliyorum!" },
-            { english: "big", turkish: "büyük", kiro: "big", pronunciation: "big", story: "This is a very big house.", storyTr: "Bu çok büyük bir ev." },
-            { english: "small", turkish: "küçük", kiro: "simol", pronunciation: "simol", story: "The room is too small.", storyTr: "Oda çok küçük." },
-            { english: "good", turkish: "iyi", kiro: "gud", pronunciation: "gud", story: "That's a good idea!", storyTr: "Bu iyi bir fikir!" }
-        );
-
-        // Daha fazla kelime
-        wordDatabase.push(
-            { english: "bad", turkish: "kötü", kiro: "bed", pronunciation: "bed", story: "This is a bad idea.", storyTr: "Bu kötü bir fikir." },
-            { english: "hot", turkish: "sıcak", kiro: "hat", pronunciation: "hat", story: "It's very hot today.", storyTr: "Bugün çok sıcak." },
-            { english: "cold", turkish: "soğuk", kiro: "kold", pronunciation: "kold", story: "The water is too cold.", storyTr: "Su çok soğuk." },
-            { english: "new", turkish: "yeni", kiro: "nyu", pronunciation: "nyu", story: "I bought a new phone.", storyTr: "Yeni bir telefon aldım." },
-            { english: "old", turkish: "eski", kiro: "old", pronunciation: "old", story: "This is an old building.", storyTr: "Bu eski bir bina." },
-            { english: "young", turkish: "genç", kiro: "yang", pronunciation: "yang", story: "She is very young.", storyTr: "O çok genç." },
-            { english: "beautiful", turkish: "güzel", kiro: "byutiful", pronunciation: "byu-ti-ful", story: "What a beautiful day!", storyTr: "Ne güzel bir gün!" },
-            { english: "strong", turkish: "güçlü", kiro: "ıstrong", pronunciation: "strong", story: "He is very strong.", storyTr: "O çok güçlü." },
-            { english: "fast", turkish: "hızlı", kiro: "fast", pronunciation: "fast", story: "This car is really fast.", storyTr: "Bu araba gerçekten hızlı." },
-            { english: "slow", turkish: "yavaş", kiro: "islov", pronunciation: "slow", story: "The internet is too slow.", storyTr: "İnternet çok yavaş." },
-            { english: "happy", turkish: "mutlu", kiro: "hepi", pronunciation: "he-pi", story: "I'm so happy to see you!", storyTr: "Seni gördüğüme çok mutluyum!" },
-            { english: "sad", turkish: "üzgün", kiro: "sed", pronunciation: "sed", story: "Why are you sad?", storyTr: "Neden üzgünsün?" },
-            { english: "angry", turkish: "kızgın", kiro: "engri", pronunciation: "eng-ri", story: "Don't be angry with me.", storyTr: "Bana kızma." },
-            { english: "tired", turkish: "yorgun", kiro: "tayırd", pronunciation: "tay-ırd", story: "I'm very tired today.", storyTr: "Bugün çok yorgunum." },
-            { english: "hungry", turkish: "aç", kiro: "hangri", pronunciation: "hang-ri", story: "Are you hungry?", storyTr: "Aç mısın?" },
-            { english: "thirsty", turkish: "susuz", kiro: "sörsty", pronunciation: "sörs-ti", story: "I'm thirsty, can I have water?", storyTr: "Susadım, su alabilir miyim?" },
-            { english: "sick", turkish: "hasta", kiro: "sik", pronunciation: "sik", story: "I feel sick today.", storyTr: "Bugün kendimi hasta hissediyorum." },
-            { english: "healthy", turkish: "sağlıklı", kiro: "helsi", pronunciation: "hel-si", story: "Eating vegetables keeps you healthy.", storyTr: "Sebze yemek seni sağlıklı tutar." },
-            { english: "rich", turkish: "zengin", kiro: "riç", pronunciation: "riç", story: "He is a very rich man.", storyTr: "O çok zengin bir adam." },
-            { english: "poor", turkish: "fakir", kiro: "pur", pronunciation: "pur", story: "They are poor but happy.", storyTr: "Onlar fakir ama mutlu." },
-            { english: "smart", turkish: "akıllı", kiro: "ısmart", pronunciation: "smart", story: "You are very smart!", storyTr: "Çok akıllısın!" },
-            { english: "stupid", turkish: "aptal", kiro: "ıstupid", pronunciation: "stu-pid", story: "That was a stupid mistake.", storyTr: "Bu aptalca bir hataydı." },
-            { english: "easy", turkish: "kolay", kiro: "izi", pronunciation: "i-zi", story: "This test is very easy.", storyTr: "Bu test çok kolay." },
-            { english: "difficult", turkish: "zor", kiro: "difikılt", pronunciation: "di-fi-kılt", story: "Learning English is not difficult.", storyTr: "İngilizce öğrenmek zor değil." },
-            { english: "right", turkish: "doğru, sağ", kiro: "rayt", pronunciation: "rayt", story: "You are right!", storyTr: "Haklısın!" },
-            { english: "wrong", turkish: "yanlış", kiro: "rong", pronunciation: "rong", story: "That answer is wrong.", storyTr: "O cevap yanlış." },
-            { english: "clean", turkish: "temiz", kiro: "kilin", pronunciation: "klin", story: "Keep your room clean.", storyTr: "Odanı temiz tut." },
-            { english: "dirty", turkish: "kirli", kiro: "dörti", pronunciation: "dör-ti", story: "Your hands are dirty.", storyTr: "Ellerin kirli." },
-            { english: "open", turkish: "açık", kiro: "opın", pronunciation: "o-pın", story: "The store is open now.", storyTr: "Dükkan şimdi açık." },
-            { english: "close", turkish: "kapalı, kapatmak", kiro: "kloz", pronunciation: "kloz", story: "Please close the door.", storyTr: "Lütfen kapıyı kapat." },
-            { english: "long", turkish: "uzun", kiro: "long", pronunciation: "long", story: "She has long hair.", storyTr: "Onun uzun saçları var." },
-            { english: "short", turkish: "kısa", kiro: "şort", pronunciation: "şort", story: "This is a short story.", storyTr: "Bu kısa bir hikaye." },
-            { english: "tall", turkish: "uzun boylu", kiro: "tol", pronunciation: "tol", story: "He is very tall.", storyTr: "O çok uzun boylu." },
-            { english: "wide", turkish: "geniş", kiro: "vayd", pronunciation: "vayd", story: "The street is very wide.", storyTr: "Sokak çok geniş." },
-            { english: "narrow", turkish: "dar", kiro: "nerov", pronunciation: "ne-rov", story: "This road is too narrow.", storyTr: "Bu yol çok dar." },
-            { english: "heavy", turkish: "ağır", kiro: "hevi", pronunciation: "he-vi", story: "This box is very heavy.", storyTr: "Bu kutu çok ağır." },
-            { english: "light", turkish: "hafif, ışık", kiro: "layt", pronunciation: "layt", story: "Turn on the light, please.", storyTr: "Lütfen ışığı aç." },
-            { english: "dark", turkish: "karanlık", kiro: "dark", pronunciation: "dark", story: "It's dark outside.", storyTr: "Dışarısı karanlık." },
-            { english: "bright", turkish: "parlak", kiro: "brayt", pronunciation: "brayt", story: "The sun is very bright.", storyTr: "Güneş çok parlak." },
-            { english: "quiet", turkish: "sessiz", kiro: "kvayet", pronunciation: "kva-yet", story: "Please be quiet in the library.", storyTr: "Lütfen kütüphanede sessiz ol." },
-            { english: "loud", turkish: "gürültülü", kiro: "lavd", pronunciation: "lavd", story: "The music is too loud.", storyTr: "Müzik çok gürültülü." },
-            { english: "soft", turkish: "yumuşak", kiro: "soft", pronunciation: "soft", story: "This pillow is very soft.", storyTr: "Bu yastık çok yumuşak." },
-            { english: "hard", turkish: "sert", kiro: "hard", pronunciation: "hard", story: "This bed is too hard.", storyTr: "Bu yatak çok sert." },
-            { english: "wet", turkish: "ıslak", kiro: "vet", pronunciation: "vet", story: "My clothes are wet.", storyTr: "Giysilerim ıslak." },
-            { english: "dry", turkish: "kuru", kiro: "dray", pronunciation: "dray", story: "The ground is dry.", storyTr: "Zemin kuru." },
-            { english: "full", turkish: "dolu", kiro: "ful", pronunciation: "ful", story: "The glass is full.", storyTr: "Bardak dolu." },
-            { english: "empty", turkish: "boş", kiro: "empti", pronunciation: "emp-ti", story: "The bottle is empty.", storyTr: "Şişe boş." },
-            { english: "cheap", turkish: "ucuz", kiro: "çip", pronunciation: "çip", story: "This shirt is very cheap.", storyTr: "Bu gömlek çok ucuz." },
-            { english: "expensive", turkish: "pahalı", kiro: "ekspensiv", pronunciation: "eks-pen-siv", story: "That watch is too expensive.", storyTr: "O saat çok pahalı." },
-            { english: "near", turkish: "yakın", kiro: "niır", pronunciation: "niır", story: "The school is near my house.", storyTr: "Okul evime yakın." },
-            { english: "far", turkish: "uzak", kiro: "far", pronunciation: "far", story: "How far is the airport?", storyTr: "Havaalanı ne kadar uzak?" },
-            { english: "early", turkish: "erken", kiro: "örli", pronunciation: "ör-li", story: "I wake up early every day.", storyTr: "Her gün erken kalkarım." },
-            { english: "late", turkish: "geç", kiro: "leyt", pronunciation: "leyt", story: "Don't be late for school!", storyTr: "Okula geç kalma!" },
-            { english: "always", turkish: "her zaman", kiro: "olveys", pronunciation: "ol-veys", story: "I always drink coffee in the morning.", storyTr: "Sabahları her zaman kahve içerim." },
-            { english: "never", turkish: "asla", kiro: "nevır", pronunciation: "ne-vır", story: "I never eat fast food.", storyTr: "Asla fast food yemem." },
-            { english: "sometimes", turkish: "bazen", kiro: "samtayms", pronunciation: "sam-tayms", story: "Sometimes I go to the gym.", storyTr: "Bazen spor salonuna giderim." },
-            { english: "today", turkish: "bugün", kiro: "tudey", pronunciation: "tu-dey", story: "What are you doing today?", storyTr: "Bugün ne yapıyorsun?" },
-            { english: "tomorrow", turkish: "yarın", kiro: "tumoro", pronunciation: "tu-mo-ro", story: "See you tomorrow!", storyTr: "Yarın görüşürüz!" },
-            { english: "yesterday", turkish: "dün", kiro: "yestırdey", pronunciation: "yes-tır-dey", story: "I saw him yesterday.", storyTr: "Onu dün gördüm." },
-            { english: "here", turkish: "burada", kiro: "hiır", pronunciation: "hiır", story: "Come here, please.", storyTr: "Buraya gel lütfen." },
-            { english: "there", turkish: "orada", kiro: "deır", pronunciation: "deır", story: "Put it over there.", storyTr: "Onu oraya koy." },
-            { english: "up", turkish: "yukarı", kiro: "ap", pronunciation: "ap", story: "Look up at the sky.", storyTr: "Gökyüzüne bak." },
-            { english: "down", turkish: "aşağı", kiro: "davn", pronunciation: "davn", story: "Sit down, please.", storyTr: "Lütfen otur." },
-            { english: "left", turkish: "sol", kiro: "left", pronunciation: "left", story: "Turn left at the corner.", storyTr: "Köşede sola dön." },
-            { english: "inside", turkish: "içeride", kiro: "insayd", pronunciation: "in-sayd", story: "Come inside, it's cold.", storyTr: "İçeri gel, hava soğuk." },
-            { english: "outside", turkish: "dışarıda", kiro: "avtsayd", pronunciation: "avt-sayd", story: "Let's go outside and play.", storyTr: "Hadi dışarı çıkıp oynayalım." },
-            { english: "before", turkish: "önce", kiro: "bifor", pronunciation: "bi-for", story: "Wash your hands before eating.", storyTr: "Yemekten önce ellerini yıka." },
-            { english: "after", turkish: "sonra", kiro: "aftır", pronunciation: "af-tır", story: "We'll talk after the meeting.", storyTr: "Toplantıdan sonra konuşacağız." },
-            { english: "between", turkish: "arasında", kiro: "bitvin", pronunciation: "bit-vin", story: "The bank is between the cafe and the shop.", storyTr: "Banka kafe ile dükkan arasında." }
-        );
-
-        // 500 kelime daha ekleniyor (101-600)
-        wordDatabase.push(
-            { english: "people", turkish: "insanlar", kiro: "pipıl", pronunciation: "pi-pıl", story: "Many people are here today.", storyTr: "Bugün burada çok insan var." },
-            { english: "man", turkish: "adam, erkek", kiro: "men", pronunciation: "men", story: "That man is my teacher.", storyTr: "O adam benim öğretmenim." },
-            { english: "woman", turkish: "kadın", kiro: "vumen", pronunciation: "vu-men", story: "The woman is reading a book.", storyTr: "Kadın kitap okuyor." },
-            { english: "child", turkish: "çocuk", kiro: "çayld", pronunciation: "çayld", story: "The child is playing outside.", storyTr: "Çocuk dışarıda oynuyor." },
-            { english: "boy", turkish: "erkek çocuk", kiro: "boy", pronunciation: "boy", story: "The boy is riding a bike.", storyTr: "Erkek çocuk bisiklet sürüyor." },
-            { english: "girl", turkish: "kız çocuk", kiro: "görl", pronunciation: "görl", story: "The girl is singing a song.", storyTr: "Kız çocuk şarkı söylüyor." },
-            { english: "family", turkish: "aile", kiro: "femili", pronunciation: "fe-mi-li", story: "I love my family.", storyTr: "Ailemi seviyorum." },
-            { english: "mother", turkish: "anne", kiro: "madır", pronunciation: "ma-dır", story: "My mother cooks delicious food.", storyTr: "Annem lezzetli yemekler pişirir." },
-            { english: "father", turkish: "baba", kiro: "fadır", pronunciation: "fa-dır", story: "My father works in an office.", storyTr: "Babam bir ofiste çalışıyor." },
-            { english: "brother", turkish: "erkek kardeş", kiro: "bradır", pronunciation: "bra-dır", story: "My brother is older than me.", storyTr: "Erkek kardeşim benden büyük." },
-            { english: "sister", turkish: "kız kardeş", kiro: "sistır", pronunciation: "sis-tır", story: "My sister is a doctor.", storyTr: "Kız kardeşim doktor." },
-            { english: "baby", turkish: "bebek", kiro: "beybi", pronunciation: "bey-bi", story: "The baby is sleeping.", storyTr: "Bebek uyuyor." },
-            { english: "husband", turkish: "koca, eş", kiro: "hazbınd", pronunciation: "haz-bınd", story: "Her husband is very kind.", storyTr: "Onun kocası çok nazik." },
-            { english: "wife", turkish: "karı, eş", kiro: "vayf", pronunciation: "vayf", story: "His wife is a teacher.", storyTr: "Onun karısı öğretmen." },
-            { english: "son", turkish: "oğul", kiro: "san", pronunciation: "san", story: "Their son is in college.", storyTr: "Onların oğlu üniversitede." },
-            { english: "daughter", turkish: "kız evlat", kiro: "dotır", pronunciation: "do-tır", story: "My daughter loves to dance.", storyTr: "Kızım dans etmeyi seviyor." },
-            { english: "parent", turkish: "ebeveyn", kiro: "perınt", pronunciation: "pe-rınt", story: "Every parent loves their children.", storyTr: "Her ebeveyn çocuklarını sever." },
-            { english: "grandfather", turkish: "büyükbaba", kiro: "grendfadır", pronunciation: "grend-fa-dır", story: "My grandfather tells great stories.", storyTr: "Büyükbabam harika hikayeler anlatır." },
-            { english: "grandmother", turkish: "büyükanne", kiro: "grendmadır", pronunciation: "grend-ma-dır", story: "My grandmother makes cookies.", storyTr: "Büyükannem kurabiye yapar." },
-            { english: "uncle", turkish: "amca, dayı", kiro: "ankıl", pronunciation: "an-kıl", story: "My uncle lives in another city.", storyTr: "Amcam başka bir şehirde yaşıyor." },
-            { english: "aunt", turkish: "teyze, hala", kiro: "ant", pronunciation: "ant", story: "My aunt is visiting us.", storyTr: "Teyzem bizi ziyaret ediyor." },
-            { english: "cousin", turkish: "kuzen", kiro: "kazın", pronunciation: "ka-zın", story: "My cousin is my best friend.", storyTr: "Kuzenim benim en iyi arkadaşım." },
-            { english: "person", turkish: "kişi", kiro: "pörsın", pronunciation: "pör-sın", story: "That person is very nice.", storyTr: "O kişi çok nazik." },
-            { english: "student", turkish: "öğrenci", kiro: "istudınt", pronunciation: "stu-dent", story: "She is a good student.", storyTr: "O iyi bir öğrenci." },
-            { english: "teacher", turkish: "öğretmen", kiro: "tiçır", pronunciation: "ti-çır", story: "Our teacher is very patient.", storyTr: "Öğretmenimiz çok sabırlı." },
-            { english: "doctor", turkish: "doktor", kiro: "doktır", pronunciation: "dok-tır", story: "The doctor will see you now.", storyTr: "Doktor şimdi sizi görecek." },
-            { english: "nurse", turkish: "hemşire", kiro: "nörs", pronunciation: "nörs", story: "The nurse is very helpful.", storyTr: "Hemşire çok yardımsever." },
-            { english: "police", turkish: "polis", kiro: "polis", pronunciation: "po-lis", story: "The police are coming.", storyTr: "Polis geliyor." },
-            { english: "driver", turkish: "sürücü", kiro: "drayvır", pronunciation: "dray-vır", story: "The bus driver is friendly.", storyTr: "Otobüs şoförü arkadaş canlısı." },
-            { english: "worker", turkish: "işçi", kiro: "vörkır", pronunciation: "vör-kır", story: "The workers are on break.", storyTr: "İşçiler molada." },
-            { english: "boss", turkish: "patron", kiro: "bos", pronunciation: "bos", story: "My boss is very understanding.", storyTr: "Patronum çok anlayışlı." },
-            { english: "customer", turkish: "müşteri", kiro: "kastımır", pronunciation: "kas-tı-mır", story: "The customer is always right.", storyTr: "Müşteri her zaman haklıdır." },
-            { english: "neighbor", turkish: "komşu", kiro: "neybır", pronunciation: "ney-bır", story: "Our neighbor is very friendly.", storyTr: "Komşumuz çok arkadaş canlısı." },
-            { english: "stranger", turkish: "yabancı", kiro: "istreyncır", pronunciation: "strey-ncır", story: "Don't talk to strangers.", storyTr: "Yabancılarla konuşma." },
-            { english: "guest", turkish: "misafir", kiro: "gest", pronunciation: "gest", story: "We have guests tonight.", storyTr: "Bu gece misafirlerimiz var." },
-            { english: "name", turkish: "isim", kiro: "neym", pronunciation: "neym", story: "What is your name?", storyTr: "Adın ne?" },
-            { english: "age", turkish: "yaş", kiro: "eyc", pronunciation: "eyc", story: "What is your age?", storyTr: "Kaç yaşındasın?" },
-            { english: "address", turkish: "adres", kiro: "ıdres", pronunciation: "ad-res", story: "What is your address?", storyTr: "Adresin ne?" },
-            { english: "number", turkish: "numara, sayı", kiro: "nambır", pronunciation: "nam-bır", story: "What is your phone number?", storyTr: "Telefon numaran ne?" },
-            { english: "color", turkish: "renk", kiro: "kalır", pronunciation: "ka-lır", story: "What is your favorite color?", storyTr: "En sevdiğin renk ne?" },
-            { english: "red", turkish: "kırmızı", kiro: "red", pronunciation: "red", story: "I like red roses.", storyTr: "Kırmızı gülleri severim." },
-            { english: "blue", turkish: "mavi", kiro: "blu", pronunciation: "blu", story: "The sky is blue.", storyTr: "Gökyüzü mavi." },
-            { english: "green", turkish: "yeşil", kiro: "grin", pronunciation: "grin", story: "The grass is green.", storyTr: "Çimen yeşil." },
-            { english: "yellow", turkish: "sarı", kiro: "yelou", pronunciation: "ye-lou", story: "The sun is yellow.", storyTr: "Güneş sarı." },
-            { english: "black", turkish: "siyah", kiro: "blek", pronunciation: "blek", story: "I have a black cat.", storyTr: "Siyah bir kedim var." },
-            { english: "white", turkish: "beyaz", kiro: "vayt", pronunciation: "vayt", story: "Snow is white.", storyTr: "Kar beyazdır." },
-            { english: "brown", turkish: "kahverengi", kiro: "bravn", pronunciation: "bravn", story: "The dog is brown.", storyTr: "Köpek kahverengi." },
-            { english: "pink", turkish: "pembe", kiro: "pink", pronunciation: "pink", story: "She loves pink flowers.", storyTr: "Pembe çiçekleri seviyor." },
-            { english: "purple", turkish: "mor", kiro: "pörpıl", pronunciation: "pör-pıl", story: "Purple is a beautiful color.", storyTr: "Mor güzel bir renk." },
-            { english: "gray", turkish: "gri", kiro: "grey", pronunciation: "grey", story: "The clouds are gray today.", storyTr: "Bugün bulutlar gri." },
-            { english: "country", turkish: "ülke", kiro: "kantri", pronunciation: "kant-ri", story: "Which country are you from?", storyTr: "Hangi ülkedensin?" },
-            { english: "city", turkish: "şehir", kiro: "siti", pronunciation: "si-ti", story: "I live in a big city.", storyTr: "Büyük bir şehirde yaşıyorum." },
-            { english: "town", turkish: "kasaba", kiro: "tavn", pronunciation: "tavn", story: "This is a small town.", storyTr: "Bu küçük bir kasaba." },
-            { english: "village", turkish: "köy", kiro: "vilıc", pronunciation: "vi-lic", story: "My grandparents live in a village.", storyTr: "Büyükannem ve büyükbabam bir köyde yaşıyor." },
-            { english: "street", turkish: "sokak", kiro: "istrit", pronunciation: "strit", story: "The street is very busy.", storyTr: "Sokak çok kalabalık." },
-            { english: "road", turkish: "yol", kiro: "rod", pronunciation: "rod", story: "This road goes to the beach.", storyTr: "Bu yol sahile gidiyor." },
-            { english: "bridge", turkish: "köprü", kiro: "bric", pronunciation: "bric", story: "The bridge is very old.", storyTr: "Köprü çok eski." },
-            { english: "building", turkish: "bina", kiro: "bilding", pronunciation: "bil-ding", story: "That building is very tall.", storyTr: "O bina çok yüksek." },
-            { english: "hospital", turkish: "hastane", kiro: "hospitıl", pronunciation: "hos-pi-tıl", story: "The hospital is near here.", storyTr: "Hastane buraya yakın." },
-            { english: "bank", turkish: "banka", kiro: "benk", pronunciation: "benk", story: "I need to go to the bank.", storyTr: "Bankaya gitmem gerekiyor." },
-            { english: "shop", turkish: "dükkan", kiro: "şop", pronunciation: "şop", story: "The shop opens at 9 AM.", storyTr: "Dükkan sabah 9'da açılıyor." },
-            { english: "store", turkish: "mağaza", kiro: "ıstor", pronunciation: "stor", story: "The store has many items.", storyTr: "Mağazada birçok ürün var." },
-            { english: "market", turkish: "pazar, market", kiro: "markıt", pronunciation: "mar-kit", story: "I buy vegetables at the market.", storyTr: "Pazardan sebze alıyorum." },
-            { english: "restaurant", turkish: "restoran", kiro: "restırant", pronunciation: "res-to-rant", story: "This restaurant is expensive.", storyTr: "Bu restoran pahalı." },
-            { english: "hotel", turkish: "otel", kiro: "hotel", pronunciation: "ho-tel", story: "We stayed at a nice hotel.", storyTr: "Güzel bir otelde kaldık." },
-            { english: "airport", turkish: "havaalanı", kiro: "erport", pronunciation: "er-port", story: "The airport is crowded.", storyTr: "Havaalanı kalabalık." },
-            { english: "station", turkish: "istasyon", kiro: "isteyşın", pronunciation: "stey-şın", story: "The train station is nearby.", storyTr: "Tren istasyonu yakında." },
-            { english: "park", turkish: "park", kiro: "park", pronunciation: "park", story: "Children play in the park.", storyTr: "Çocuklar parkta oynuyor." },
-            { english: "garden", turkish: "bahçe", kiro: "gardın", pronunciation: "gar-dın", story: "We have a beautiful garden.", storyTr: "Güzel bir bahçemiz var." },
-            { english: "beach", turkish: "plaj, sahil", kiro: "biç", pronunciation: "biç", story: "Let's go to the beach.", storyTr: "Hadi sahile gidelim." },
-            { english: "sea", turkish: "deniz", kiro: "si", pronunciation: "si", story: "The sea is calm today.", storyTr: "Bugün deniz sakin." },
-            { english: "ocean", turkish: "okyanus", kiro: "oşın", pronunciation: "o-şın", story: "The ocean is very deep.", storyTr: "Okyanus çok derin." },
-            { english: "lake", turkish: "göl", kiro: "leyk", pronunciation: "leyk", story: "We swim in the lake.", storyTr: "Gölde yüzüyoruz." },
-            { english: "forest", turkish: "orman", kiro: "forest", pronunciation: "fo-rest", story: "The forest is full of trees.", storyTr: "Orman ağaçlarla dolu." },
-            { english: "desert", turkish: "çöl", kiro: "dezırt", pronunciation: "de-zırt", story: "The desert is very hot.", storyTr: "Çöl çok sıcak." },
-            { english: "island", turkish: "ada", kiro: "aylınd", pronunciation: "ay-lınd", story: "We visited a beautiful island.", storyTr: "Güzel bir adayı ziyaret ettik." },
-            { english: "world", turkish: "dünya", kiro: "vörld", pronunciation: "vörld", story: "The world is beautiful.", storyTr: "Dünya güzel." },
-            { english: "earth", turkish: "dünya, toprak", kiro: "örs", pronunciation: "örs", story: "We live on Earth.", storyTr: "Dünya'da yaşıyoruz." },
-            { english: "sky", turkish: "gökyüzü", kiro: "iskay", pronunciation: "is-kay", story: "The sky is clear tonight.", storyTr: "Bu gece gökyüzü açık." },
-            { english: "cloud", turkish: "bulut", kiro: "klavd", pronunciation: "klavd", story: "There are many clouds today.", storyTr: "Bugün çok bulut var." },
-            { english: "weather", turkish: "hava durumu", kiro: "vedır", pronunciation: "ve-dır", story: "The weather is nice today.", storyTr: "Bugün hava güzel." },
-            { english: "season", turkish: "mevsim", kiro: "sizın", pronunciation: "si-zın", story: "Summer is my favorite season.", storyTr: "Yaz en sevdiğim mevsim." },
-            { english: "spring", turkish: "ilkbahar", kiro: "ıspring", pronunciation: "ısp-ring", story: "Flowers bloom in spring.", storyTr: "İlkbaharda çiçekler açar." },
-            { english: "summer", turkish: "yaz", kiro: "samır", pronunciation: "sa-mır", story: "Summer is very hot.", storyTr: "Yaz çok sıcak." },
-            { english: "autumn", turkish: "sonbahar", kiro: "otım", pronunciation: "o-tım", story: "Leaves fall in autumn.", storyTr: "Sonbaharda yapraklar düşer." },
-            { english: "winter", turkish: "kış", kiro: "vintır", pronunciation: "vin-tır", story: "It snows in winter.", storyTr: "Kışın kar yağar." },
-            { english: "snow", turkish: "kar", kiro: "isnou", pronunciation: "is-nou", story: "Children love snow.", storyTr: "Çocuklar karı sever." },
-            { english: "ice", turkish: "buz", kiro: "ays", pronunciation: "ays", story: "The ice is melting.", storyTr: "Buz eriyor." },
-            { english: "storm", turkish: "fırtına", kiro: "ıstorm", pronunciation: "ıs-torm", story: "The storm is coming.", storyTr: "Fırtına geliyor." },
-            { english: "thunder", turkish: "gök gürültüsü", kiro: "sandır", pronunciation: "san-dır", story: "I heard thunder last night.", storyTr: "Dün gece gök gürültüsü duydum." },
-            { english: "lightning", turkish: "şimşek", kiro: "laytning", pronunciation: "layt-ning", story: "Lightning struck the tree.", storyTr: "Şimşek ağaca çarptı." },
-            { english: "temperature", turkish: "sıcaklık", kiro: "tempırıçır", pronunciation: "tem-pı-rı-çır", story: "The temperature is rising.", storyTr: "Sıcaklık yükseliyor." },
-            { english: "animal", turkish: "hayvan", kiro: "enimıl", pronunciation: "e-ni-mıl", story: "I love animals.", storyTr: "Hayvanları seviyorum." },
-            { english: "pet", turkish: "evcil hayvan", kiro: "pet", pronunciation: "pet", story: "Do you have a pet?", storyTr: "Evcil hayvanın var mı?" },
-            { english: "horse", turkish: "at", kiro: "hors", pronunciation: "hors", story: "The horse is running fast.", storyTr: "At hızlı koşuyor." },
-            { english: "cow", turkish: "inek", kiro: "kav", pronunciation: "kav", story: "The cow gives us milk.", storyTr: "İnek bize süt verir." },
-            { english: "pig", turkish: "domuz", kiro: "pig", pronunciation: "pig", story: "The pig is in the mud.", storyTr: "Domuz çamurda." },
-            { english: "sheep", turkish: "koyun", kiro: "şip", pronunciation: "şip", story: "Sheep give us wool.", storyTr: "Koyunlar bize yün verir." },
-            { english: "chicken", turkish: "tavuk", kiro: "çikın", pronunciation: "çi-kın", story: "The chicken laid an egg.", storyTr: "Tavuk yumurta yumurtladı." },
-            { english: "duck", turkish: "ördek", kiro: "dak", pronunciation: "dak", story: "The duck is swimming.", storyTr: "Ördek yüzüyor." },
-            { english: "rabbit", turkish: "tavşan", kiro: "rebit", pronunciation: "re-bit", story: "The rabbit is eating carrots.", storyTr: "Tavşan havuç yiyor." },
-            { english: "mouse", turkish: "fare", kiro: "mavs", pronunciation: "mavs", story: "I saw a mouse in the kitchen.", storyTr: "Mutfakta bir fare gördüm." },
-            { english: "lion", turkish: "aslan", kiro: "layın", pronunciation: "la-yın", story: "The lion is the king of animals.", storyTr: "Aslan hayvanların kralıdır." },
-            { english: "tiger", turkish: "kaplan", kiro: "taygır", pronunciation: "tay-gır", story: "The tiger is very strong.", storyTr: "Kaplan çok güçlü." },
-            { english: "bear", turkish: "ayı", kiro: "beır", pronunciation: "beır", story: "Bears sleep in winter.", storyTr: "Ayılar kışın uyur." },
-            { english: "elephant", turkish: "fil", kiro: "elifınt", pronunciation: "e-li-fınt", story: "The elephant is very big.", storyTr: "Fil çok büyük." },
-            { english: "monkey", turkish: "maymun", kiro: "manki", pronunciation: "man-ki", story: "Monkeys love bananas.", storyTr: "Maymunlar muz sever." },
-            { english: "snake", turkish: "yılan", kiro: "isneyk", pronunciation: "is-neyk", story: "Be careful of snakes.", storyTr: "Yılanlardan dikkatli ol." },
-            { english: "frog", turkish: "kurbağa", kiro: "frog", pronunciation: "frog", story: "The frog is jumping.", storyTr: "Kurbağa zıplıyor." },
-            { english: "butterfly", turkish: "kelebek", kiro: "batırflay", pronunciation: "ba-tır-flay", story: "The butterfly is beautiful.", storyTr: "Kelebek güzel." },
-            { english: "bee", turkish: "arı", kiro: "bi", pronunciation: "bi", story: "Bees make honey.", storyTr: "Arılar bal yapar." },
-            { english: "ant", turkish: "karınca", kiro: "ent", pronunciation: "ent", story: "Ants work together.", storyTr: "Karıncalar birlikte çalışır." },
-            { english: "spider", turkish: "örümcek", kiro: "ispaydır", pronunciation: "is-pay-dır", story: "The spider made a web.", storyTr: "Örümcek ağ yaptı." },
-            { english: "fly", turkish: "sinek", kiro: "flay", pronunciation: "flay", story: "There is a fly in the room.", storyTr: "Odada bir sinek var." },
-            { english: "mosquito", turkish: "sivrisinek", kiro: "mıskito", pronunciation: "mıs-ki-to", story: "Mosquitoes bite at night.", storyTr: "Sivrisinekler geceleri ısırır." },
-            { english: "insect", turkish: "böcek", kiro: "insekt", pronunciation: "in-sekt", story: "Many insects live in the garden.", storyTr: "Bahçede birçok böcek yaşar." },
-            { english: "plant", turkish: "bitki", kiro: "plent", pronunciation: "plent", story: "Plants need water.", storyTr: "Bitkiler suya ihtiyaç duyar." },
-            { english: "grass", turkish: "çimen", kiro: "gras", pronunciation: "gras", story: "The grass is green.", storyTr: "Çimen yeşil." },
-            { english: "leaf", turkish: "yaprak", kiro: "lif", pronunciation: "lif", story: "The leaf fell from the tree.", storyTr: "Yaprak ağaçtan düştü." },
-            { english: "root", turkish: "kök", kiro: "rut", pronunciation: "rut", story: "The roots are underground.", storyTr: "Kökler yer altında." },
-            { english: "seed", turkish: "tohum", kiro: "sid", pronunciation: "sid", story: "Plant the seeds in spring.", storyTr: "İlkbaharda tohumları ek." },
-            { english: "fruit", turkish: "meyve", kiro: "frut", pronunciation: "frut", story: "Fruit is healthy.", storyTr: "Meyve sağlıklıdır." },
-            { english: "vegetable", turkish: "sebze", kiro: "vecıtıbıl", pronunciation: "ve-cı-tı-bıl", story: "Eat your vegetables.", storyTr: "Sebzelerini ye." },
-            { english: "tomato", turkish: "domates", kiro: "tımeyto", pronunciation: "tı-mey-to", story: "Tomatoes are red.", storyTr: "Domatesler kırmızıdır." },
-            { english: "potato", turkish: "patates", kiro: "pıteyto", pronunciation: "pı-tey-to", story: "I like fried potatoes.", storyTr: "Kızarmış patates severim." },
-            { english: "carrot", turkish: "havuç", kiro: "kerıt", pronunciation: "ke-rıt", story: "Carrots are good for eyes.", storyTr: "Havuç gözler için iyidir." },
-            { english: "onion", turkish: "soğan", kiro: "anyın", pronunciation: "an-yın", story: "Onions make me cry.", storyTr: "Soğan beni ağlatır." },
-            { english: "lettuce", turkish: "marul", kiro: "letis", pronunciation: "le-tis", story: "Lettuce is in the salad.", storyTr: "Marul salatada." },
-            { english: "cucumber", turkish: "salatalık", kiro: "kyukambır", pronunciation: "kyu-kam-bır", story: "Cucumbers are fresh.", storyTr: "Salatalıklar taze." },
-            { english: "pepper", turkish: "biber", kiro: "pepır", pronunciation: "pe-pır", story: "This pepper is spicy.", storyTr: "Bu biber acı." },
-            { english: "rice", turkish: "pirinç", kiro: "rays", pronunciation: "rays", story: "Rice is a staple food.", storyTr: "Pirinç temel bir gıdadır." },
-            { english: "meat", turkish: "et", kiro: "mit", pronunciation: "mit", story: "I don't eat meat.", storyTr: "Et yemem." },
-            { english: "beef", turkish: "sığır eti", kiro: "bif", pronunciation: "bif", story: "Beef is expensive.", storyTr: "Sığır eti pahalı." },
-            { english: "pork", turkish: "domuz eti", kiro: "pork", pronunciation: "pork", story: "Some people don't eat pork.", storyTr: "Bazı insanlar domuz eti yemez." },
-            { english: "egg", turkish: "yumurta", kiro: "eg", pronunciation: "eg", story: "I eat eggs for breakfast.", storyTr: "Kahvaltıda yumurta yerim." },
-            { english: "cheese", turkish: "peynir", kiro: "çiz", pronunciation: "çiz", story: "I love cheese.", storyTr: "Peyniri severim." },
-            { english: "butter", turkish: "tereyağı", kiro: "batır", pronunciation: "ba-tır", story: "Put butter on the bread.", storyTr: "Ekmeğe tereyağı sür." },
-            { english: "sugar", turkish: "şeker", kiro: "şugır", pronunciation: "şu-gır", story: "Too much sugar is bad.", storyTr: "Çok fazla şeker kötüdür." },
-            { english: "salt", turkish: "tuz", kiro: "solt", pronunciation: "solt", story: "Pass me the salt, please.", storyTr: "Tuzu uzatır mısın lütfen." },
-            { english: "oil", turkish: "yağ", kiro: "oyl", pronunciation: "oyl", story: "Cook with olive oil.", storyTr: "Zeytinyağı ile pişir." },
-            { english: "soup", turkish: "çorba", kiro: "sup", pronunciation: "sup", story: "The soup is hot.", storyTr: "Çorba sıcak." },
-            { english: "salad", turkish: "salata", kiro: "selıd", pronunciation: "se-lıd", story: "I'll have a salad.", storyTr: "Salata alacağım." },
-            { english: "sandwich", turkish: "sandviç", kiro: "sendviç", pronunciation: "send-viç", story: "Make me a sandwich.", storyTr: "Bana sandviç yap." },
-            { english: "pizza", turkish: "pizza", kiro: "pitza", pronunciation: "pit-za", story: "Let's order pizza.", storyTr: "Hadi pizza sipariş edelim." },
-            { english: "burger", turkish: "hamburger", kiro: "börgır", pronunciation: "bör-gır", story: "I want a burger.", storyTr: "Hamburger istiyorum." },
-            { english: "cake", turkish: "kek", kiro: "keyk", pronunciation: "keyk", story: "The cake is sweet.", storyTr: "Kek tatlı." },
-            { english: "cookie", turkish: "kurabiye", kiro: "kuki", pronunciation: "ku-ki", story: "These cookies are delicious.", storyTr: "Bu kurabiyeler lezzetli." },
-            { english: "chocolate", turkish: "çikolata", kiro: "çoklıt", pronunciation: "çok-lıt", story: "I love chocolate.", storyTr: "Çikolatayı severim." },
-            { english: "candy", turkish: "şeker", kiro: "kendi", pronunciation: "ken-di", story: "Children love candy.", storyTr: "Çocuklar şeker sever." },
-            { english: "ice cream", turkish: "dondurma", kiro: "ays krim", pronunciation: "ays krim", story: "Ice cream is cold and sweet.", storyTr: "Dondurma soğuk ve tatlı." },
-            { english: "juice", turkish: "meyve suyu", kiro: "cus", pronunciation: "cus", story: "Orange juice is healthy.", storyTr: "Portakal suyu sağlıklıdır." },
-            { english: "soda", turkish: "gazoz", kiro: "soda", pronunciation: "so-da", story: "Soda has too much sugar.", storyTr: "Gazozda çok fazla şeker var." },
-            { english: "beer", turkish: "bira", kiro: "biır", pronunciation: "biır", story: "He drinks beer sometimes.", storyTr: "Bazen bira içer." },
-            { english: "wine", turkish: "şarap", kiro: "vayn", pronunciation: "vayn", story: "Red wine is popular.", storyTr: "Kırmızı şarap popüler." },
-            { english: "bottle", turkish: "şişe", kiro: "botıl", pronunciation: "bo-tıl", story: "The bottle is empty.", storyTr: "Şişe boş." },
-            { english: "glass", turkish: "bardak, cam", kiro: "glas", pronunciation: "glas", story: "Pour water in the glass.", storyTr: "Bardağa su dök." },
-            { english: "cup", turkish: "fincan", kiro: "kap", pronunciation: "kap", story: "I need a cup of tea.", storyTr: "Bir fincan çaya ihtiyacım var." },
-            { english: "plate", turkish: "tabak", kiro: "pleyt", pronunciation: "pleyt", story: "Put the food on the plate.", storyTr: "Yemeği tabağa koy." },
-            { english: "bowl", turkish: "kase", kiro: "bol", pronunciation: "bol", story: "The soup is in the bowl.", storyTr: "Çorba kasede." },
-            { english: "spoon", turkish: "kaşık", kiro: "ispun", pronunciation: "is-pun", story: "I need a spoon.", storyTr: "Kaşığa ihtiyacım var." },
-            { english: "fork", turkish: "çatal", kiro: "fork", pronunciation: "fork", story: "Use a fork to eat.", storyTr: "Yemek için çatal kullan." },
-            { english: "knife", turkish: "bıçak", kiro: "nayf", pronunciation: "nayf", story: "Be careful with the knife.", storyTr: "Bıçakla dikkatli ol." },
-            { english: "kitchen", turkish: "mutfak", kiro: "kiçın", pronunciation: "ki-çın", story: "Mom is in the kitchen.", storyTr: "Annem mutfakta." },
-            { english: "bedroom", turkish: "yatak odası", kiro: "bedrum", pronunciation: "bed-rum", story: "My bedroom is upstairs.", storyTr: "Yatak odam üst katta." },
-            { english: "bathroom", turkish: "banyo", kiro: "basrum", pronunciation: "bas-rum", story: "The bathroom is clean.", storyTr: "Banyo temiz." },
-            { english: "living room", turkish: "oturma odası", kiro: "living rum", pronunciation: "li-ving rum", story: "We watch TV in the living room.", storyTr: "Oturma odasında TV izliyoruz." },
-            { english: "room", turkish: "oda", kiro: "rum", pronunciation: "rum", story: "This room is big.", storyTr: "Bu oda büyük." },
-            { english: "wall", turkish: "duvar", kiro: "vol", pronunciation: "vol", story: "The wall is white.", storyTr: "Duvar beyaz." },
-            { english: "floor", turkish: "zemin, kat", kiro: "flor", pronunciation: "flor", story: "The floor is clean.", storyTr: "Zemin temiz." },
-            { english: "ceiling", turkish: "tavan", kiro: "siling", pronunciation: "si-ling", story: "The ceiling is high.", storyTr: "Tavan yüksek." },
-            { english: "roof", turkish: "çatı", kiro: "ruf", pronunciation: "ruf", story: "The roof needs repair.", storyTr: "Çatının tamire ihtiyacı var." },
-            { english: "stairs", turkish: "merdivenler", kiro: "ısters", pronunciation: "ıs-ters", story: "Go up the stairs.", storyTr: "Merdivenleri çık." },
-            { english: "elevator", turkish: "asansör", kiro: "elevıtır", pronunciation: "e-le-vı-tır", story: "Take the elevator to floor 5.", storyTr: "5. kata asansörle çık." },
-            { english: "key", turkish: "anahtar", kiro: "ki", pronunciation: "ki", story: "I lost my key.", storyTr: "Anahtarımı kaybettim." },
-            { english: "lock", turkish: "kilit", kiro: "lok", pronunciation: "lok", story: "Lock the door.", storyTr: "Kapıyı kilitle." },
-            { english: "light", turkish: "ışık, lamba", kiro: "layt", pronunciation: "layt", story: "Turn on the light.", storyTr: "Işığı aç." },
-            { english: "lamp", turkish: "lamba", kiro: "lemp", pronunciation: "lemp", story: "The lamp is on the table.", storyTr: "Lamba masada." },
-            { english: "mirror", turkish: "ayna", kiro: "mirır", pronunciation: "mi-rır", story: "Look in the mirror.", storyTr: "Aynaya bak." },
-            { english: "picture", turkish: "resim", kiro: "pikçır", pronunciation: "pik-çır", story: "That's a nice picture.", storyTr: "Bu güzel bir resim." },
-            { english: "photo", turkish: "fotoğraf", kiro: "foto", pronunciation: "fo-to", story: "Take a photo of me.", storyTr: "Benim fotoğrafımı çek." },
-            { english: "camera", turkish: "kamera", kiro: "kemıra", pronunciation: "ke-mı-ra", story: "I bought a new camera.", storyTr: "Yeni bir kamera aldım." },
-            { english: "television", turkish: "televizyon", kiro: "televizın", pronunciation: "te-le-vi-zın", story: "Watch television after dinner.", storyTr: "Akşam yemeğinden sonra televizyon izle." },
-            { english: "radio", turkish: "radyo", kiro: "rediyo", pronunciation: "re-di-yo", story: "Listen to the radio.", storyTr: "Radyo dinle." },
-            { english: "music", turkish: "müzik", kiro: "myuzik", pronunciation: "myu-zik", story: "I love music.", storyTr: "Müziği severim." },
-            { english: "song", turkish: "şarkı", kiro: "song", pronunciation: "song", story: "This song is beautiful.", storyTr: "Bu şarkı güzel." },
-            { english: "movie", turkish: "film", kiro: "muvi", pronunciation: "mu-vi", story: "Let's watch a movie.", storyTr: "Hadi film izleyelim." },
-            { english: "video", turkish: "video", kiro: "vidiyo", pronunciation: "vi-di-yo", story: "I watched a funny video.", storyTr: "Komik bir video izledim." },
-            { english: "game", turkish: "oyun", kiro: "geym", pronunciation: "geym", story: "Let's play a game.", storyTr: "Hadi oyun oynayalım." },
-            { english: "toy", turkish: "oyuncak", kiro: "toy", pronunciation: "toy", story: "Children love toys.", storyTr: "Çocuklar oyuncak sever." },
-            { english: "ball", turkish: "top", kiro: "bol", pronunciation: "bol", story: "Throw me the ball.", storyTr: "Topu bana at." },
-            { english: "sport", turkish: "spor", kiro: "isport", pronunciation: "is-port", story: "I love sports.", storyTr: "Sporu severim." },
-            { english: "football", turkish: "futbol", kiro: "futbol", pronunciation: "fut-bol", story: "Football is popular.", storyTr: "Futbol popüler." },
-            { english: "basketball", turkish: "basketbol", kiro: "basketbol", pronunciation: "bas-ket-bol", story: "He plays basketball.", storyTr: "Basketbol oynuyor." },
-            { english: "tennis", turkish: "tenis", kiro: "tenis", pronunciation: "te-nis", story: "Tennis is fun.", storyTr: "Tenis eğlenceli." },
-            { english: "swimming", turkish: "yüzme", kiro: "isviming", pronunciation: "is-vi-ming", story: "Swimming is good exercise.", storyTr: "Yüzme iyi bir egzersiz." },
-            { english: "running", turkish: "koşu", kiro: "raning", pronunciation: "ra-ning", story: "I go running every morning.", storyTr: "Her sabah koşuya giderim." },
-            { english: "walking", turkish: "yürüme", kiro: "voking", pronunciation: "vo-king", story: "Walking is healthy.", storyTr: "Yürümek sağlıklıdır." },
-            { english: "dancing", turkish: "dans", kiro: "densing", pronunciation: "den-sing", story: "She loves dancing.", storyTr: "Dans etmeyi seviyor." },
-            { english: "singing", turkish: "şarkı söyleme", kiro: "singing", pronunciation: "sin-ging", story: "He is good at singing.", storyTr: "Şarkı söylemede iyidir." },
-            { english: "reading", turkish: "okuma", kiro: "riding", pronunciation: "ri-ding", story: "Reading is my hobby.", storyTr: "Okumak benim hobim." },
-            { english: "writing", turkish: "yazma", kiro: "rayting", pronunciation: "ray-ting", story: "I enjoy writing stories.", storyTr: "Hikaye yazmaktan keyif alıyorum." },
-            { english: "drawing", turkish: "çizim", kiro: "droing", pronunciation: "dro-ing", story: "She is drawing a picture.", storyTr: "Bir resim çiziyor." },
-            { english: "painting", turkish: "resim yapma", kiro: "peynting", pronunciation: "peyn-ting", story: "Painting is relaxing.", storyTr: "Resim yapmak rahatlatıcı." },
-            { english: "cooking", turkish: "yemek pişirme", kiro: "kuking", pronunciation: "ku-king", story: "I love cooking.", storyTr: "Yemek pişirmeyi seviyorum." },
-            { english: "eating", turkish: "yeme", kiro: "iting", pronunciation: "i-ting", story: "Eating healthy is important.", storyTr: "Sağlıklı yemek yemek önemli." },
-            { english: "drinking", turkish: "içme", kiro: "drinking", pronunciation: "drin-king", story: "Drinking water is good.", storyTr: "Su içmek iyidir." },
-            { english: "sleeping", turkish: "uyuma", kiro: "ıslipping", pronunciation: "ıs-lip-ping", story: "Sleeping well is important.", storyTr: "İyi uyumak önemli." },
-            { english: "thinking", turkish: "düşünme", kiro: "sinking", pronunciation: "sin-king", story: "I am thinking about you.", storyTr: "Seni düşünüyorum." },
-            { english: "talking", turkish: "konuşma", kiro: "toking", pronunciation: "to-king", story: "Stop talking, please.", storyTr: "Lütfen konuşmayı kes." },
-            { english: "listening", turkish: "dinleme", kiro: "lisıning", pronunciation: "li-sı-ning", story: "Listening is important.", storyTr: "Dinlemek önemli." },
-            { english: "watching", turkish: "izleme", kiro: "voçing", pronunciation: "vo-çing", story: "I am watching TV.", storyTr: "TV izliyorum." },
-            { english: "looking", turkish: "bakma", kiro: "luking", pronunciation: "lu-king", story: "What are you looking at?", storyTr: "Neye bakıyorsun?" },
-            { english: "seeing", turkish: "görme", kiro: "siing", pronunciation: "si-ing", story: "I am seeing a doctor.", storyTr: "Doktora gidiyorum." },
-            { english: "hearing", turkish: "duyma", kiro: "hiring", pronunciation: "hi-ring", story: "I am hearing strange sounds.", storyTr: "Garip sesler duyuyorum." },
-            { english: "feeling", turkish: "hissetme", kiro: "filing", pronunciation: "fi-ling", story: "I am feeling happy.", storyTr: "Mutlu hissediyorum." },
-            { english: "touching", turkish: "dokunma", kiro: "taçing", pronunciation: "ta-çing", story: "Don't touch that!", storyTr: "Ona dokunma!" },
-            { english: "smelling", turkish: "koklama", kiro: "ısmeling", pronunciation: "ıs-me-ling", story: "This flower is smelling nice.", storyTr: "Bu çiçek güzel kokuyor." },
-            { english: "tasting", turkish: "tatma", kiro: "teysting", pronunciation: "teys-ting", story: "I am tasting the soup.", storyTr: "Çorbayı tadıyorum." },
-            { english: "buying", turkish: "satın alma", kiro: "baying", pronunciation: "bay-ing", story: "I am buying a new phone.", storyTr: "Yeni bir telefon alıyorum." },
-            { english: "selling", turkish: "satma", kiro: "seling", pronunciation: "se-ling", story: "He is selling his car.", storyTr: "Arabasını satıyor." },
-            { english: "giving", turkish: "verme", kiro: "giving", pronunciation: "gi-ving", story: "She is giving me a gift.", storyTr: "Bana hediye veriyor." },
-            { english: "taking", turkish: "alma", kiro: "teyking", pronunciation: "tey-king", story: "Take this book.", storyTr: "Bu kitabı al." },
-            { english: "bringing", turkish: "getirme", kiro: "bringing", pronunciation: "brin-ging", story: "Bring me water, please.", storyTr: "Lütfen bana su getir." },
-            { english: "sending", turkish: "gönderme", kiro: "sending", pronunciation: "sen-ding", story: "I am sending an email.", storyTr: "E-posta gönderiyorum." },
-            { english: "receiving", turkish: "alma", kiro: "risiving", pronunciation: "ri-si-ving", story: "I am receiving a package.", storyTr: "Bir paket alıyorum." },
-            { english: "opening", turkish: "açma", kiro: "opıning", pronunciation: "o-pı-ning", story: "Open the door.", storyTr: "Kapıyı aç." },
-            { english: "closing", turkish: "kapatma", kiro: "klozing", pronunciation: "klo-zing", story: "Close the window.", storyTr: "Pencereyi kapat." },
-            { english: "starting", turkish: "başlama", kiro: "ıstarting", pronunciation: "ıs-tar-ting", story: "Let's start the meeting.", storyTr: "Hadi toplantıyı başlatalım." },
-            { english: "stopping", turkish: "durma", kiro: "ıstoping", pronunciation: "ıs-to-ping", story: "Stop the car!", storyTr: "Arabayı durdur!" },
-            { english: "finishing", turkish: "bitirme", kiro: "finişing", pronunciation: "fi-ni-şing", story: "I am finishing my work.", storyTr: "İşimi bitiriyorum." },
-            { english: "beginning", turkish: "başlangıç", kiro: "bigining", pronunciation: "bi-gi-ning", story: "This is just the beginning.", storyTr: "Bu sadece başlangıç." },
-            { english: "end", turkish: "son", kiro: "end", pronunciation: "end", story: "This is the end.", storyTr: "Bu son." },
-            { english: "middle", turkish: "orta", kiro: "midıl", pronunciation: "mi-dıl", story: "Stand in the middle.", storyTr: "Ortada dur." },
-            { english: "top", turkish: "üst, tepe", kiro: "top", pronunciation: "top", story: "Put it on top.", storyTr: "Üste koy." },
-            { english: "bottom", turkish: "alt", kiro: "botım", pronunciation: "bo-tım", story: "Look at the bottom.", storyTr: "Alta bak." },
-            { english: "side", turkish: "yan", kiro: "sayd", pronunciation: "sayd", story: "Move to the side.", storyTr: "Yana geç." },
-            { english: "front", turkish: "ön", kiro: "frant", pronunciation: "frant", story: "Sit in the front.", storyTr: "Öne otur." },
-            { english: "corner", turkish: "köşe", kiro: "kornır", pronunciation: "kor-nır", story: "The shop is on the corner.", storyTr: "Dükkan köşede." },
-            { english: "center", turkish: "merkez", kiro: "sentır", pronunciation: "sen-tır", story: "Meet me at the center.", storyTr: "Benimle merkezde buluş." },
-            { english: "edge", turkish: "kenar", kiro: "ec", pronunciation: "ec", story: "Don't go near the edge.", storyTr: "Kenara yaklaşma." },
-            { english: "line", turkish: "çizgi, hat", kiro: "layn", pronunciation: "layn", story: "Draw a straight line.", storyTr: "Düz bir çizgi çiz." },
-            { english: "circle", turkish: "daire", kiro: "sörkıl", pronunciation: "sör-kıl", story: "Make a circle.", storyTr: "Bir daire yap." },
-            { english: "square", turkish: "kare", kiro: "iskveır", pronunciation: "is-kveır", story: "This is a square.", storyTr: "Bu bir kare." },
-            { english: "triangle", turkish: "üçgen", kiro: "trayengıl", pronunciation: "tray-en-gıl", story: "Draw a triangle.", storyTr: "Bir üçgen çiz." },
-            { english: "shape", turkish: "şekil", kiro: "şeyp", pronunciation: "şeyp", story: "What shape is this?", storyTr: "Bu ne şekil?" },
-            { english: "size", turkish: "boyut", kiro: "sayz", pronunciation: "sayz", story: "What size do you need?", storyTr: "Hangi bedene ihtiyacın var?" },
-            { english: "length", turkish: "uzunluk", kiro: "lengs", pronunciation: "lengs", story: "Measure the length.", storyTr: "Uzunluğu ölç." },
-            { english: "width", turkish: "genişlik", kiro: "vids", pronunciation: "vids", story: "What is the width?", storyTr: "Genişlik ne kadar?" },
-            { english: "height", turkish: "yükseklik", kiro: "hayt", pronunciation: "hayt", story: "Check the height.", storyTr: "Yüksekliği kontrol et." },
-            { english: "depth", turkish: "derinlik", kiro: "deps", pronunciation: "deps", story: "The depth is 10 meters.", storyTr: "Derinlik 10 metre." },
-            { english: "distance", turkish: "mesafe", kiro: "distıns", pronunciation: "dis-tıns", story: "The distance is far.", storyTr: "Mesafe uzak." },
-            { english: "speed", turkish: "hız", kiro: "ispid", pronunciation: "is-pid", story: "Reduce your speed.", storyTr: "Hızını azalt." },
-            { english: "direction", turkish: "yön", kiro: "direkşın", pronunciation: "di-rek-şın", story: "Which direction?", storyTr: "Hangi yön?" },
-            { english: "north", turkish: "kuzey", kiro: "nors", pronunciation: "nors", story: "Go north.", storyTr: "Kuzeye git." },
-            { english: "south", turkish: "güney", kiro: "savs", pronunciation: "savs", story: "Head south.", storyTr: "Güneye git." },
-            { english: "east", turkish: "doğu", kiro: "ist", pronunciation: "ist", story: "The sun rises in the east.", storyTr: "Güneş doğuda doğar." },
-            { english: "west", turkish: "batı", kiro: "vest", pronunciation: "vest", story: "Go west.", storyTr: "Batıya git." },
-            { english: "map", turkish: "harita", kiro: "mep", pronunciation: "mep", story: "Look at the map.", storyTr: "Haritaya bak." },
-            { english: "place", turkish: "yer", kiro: "pleys", pronunciation: "pleys", story: "This is a nice place.", storyTr: "Burası güzel bir yer." },
-            { english: "location", turkish: "konum", kiro: "lokeyşın", pronunciation: "lo-key-şın", story: "Share your location.", storyTr: "Konumunu paylaş." },
-            { english: "position", turkish: "pozisyon", kiro: "pızişın", pronunciation: "pı-zi-şın", story: "Change your position.", storyTr: "Pozisyonunu değiştir." },
-            { english: "area", turkish: "alan", kiro: "eriıa", pronunciation: "e-ri-ıa", story: "This area is safe.", storyTr: "Bu alan güvenli." },
-            { english: "space", turkish: "alan, uzay", kiro: "ıspeys", pronunciation: "ıs-peys", story: "We need more space.", storyTr: "Daha fazla alana ihtiyacımız var." },
-            { english: "office", turkish: "ofis", kiro: "ofis", pronunciation: "o-fis", story: "I work in an office.", storyTr: "Bir ofiste çalışıyorum." },
-            { english: "company", turkish: "şirket", kiro: "kampıni", pronunciation: "kam-pı-ni", story: "Which company do you work for?", storyTr: "Hangi şirkette çalışıyorsun?" },
-            { english: "business", turkish: "iş", kiro: "biznıs", pronunciation: "biz-nıs", story: "Business is good.", storyTr: "İşler iyi." },
-            { english: "job", turkish: "iş", kiro: "cob", pronunciation: "cob", story: "I need a new job.", storyTr: "Yeni bir işe ihtiyacım var." },
-            { english: "career", turkish: "kariyer", kiro: "kıriır", pronunciation: "kı-ri-ır", story: "She has a great career.", storyTr: "Harika bir kariyeri var." },
-            { english: "meeting", turkish: "toplantı", kiro: "miting", pronunciation: "mi-ting", story: "We have a meeting at 3.", storyTr: "Saat 3'te toplantımız var." },
-            { english: "project", turkish: "proje", kiro: "procekt", pronunciation: "pro-cekt", story: "This project is important.", storyTr: "Bu proje önemli." },
-            { english: "plan", turkish: "plan", kiro: "plen", pronunciation: "plen", story: "What's the plan?", storyTr: "Plan ne?" },
-            { english: "idea", turkish: "fikir", kiro: "aydiıa", pronunciation: "ay-di-ıa", story: "That's a good idea!", storyTr: "Bu iyi bir fikir!" },
-            { english: "problem", turkish: "problem", kiro: "problım", pronunciation: "prob-lım", story: "We have a problem.", storyTr: "Bir problemimiz var." },
-            { english: "solution", turkish: "çözüm", kiro: "sıluşın", pronunciation: "sı-lu-şın", story: "I found a solution.", storyTr: "Bir çözüm buldum." },
-            { english: "answer", turkish: "cevap", kiro: "ensır", pronunciation: "en-sır", story: "What's the answer?", storyTr: "Cevap ne?" },
-            { english: "question", turkish: "soru", kiro: "kuesçın", pronunciation: "kues-çın", story: "I have a question.", storyTr: "Bir sorum var." },
-            { english: "help", turkish: "yardım", kiro: "help", pronunciation: "help", story: "I need help.", storyTr: "Yardıma ihtiyacım var." },
-            { english: "advice", turkish: "tavsiye", kiro: "ıdvays", pronunciation: "ıd-vays", story: "Can you give me advice?", storyTr: "Bana tavsiye verebilir misin?" },
-            { english: "information", turkish: "bilgi", kiro: "informeyşın", pronunciation: "in-for-mey-şın", story: "I need more information.", storyTr: "Daha fazla bilgiye ihtiyacım var." },
-            { english: "news", turkish: "haber", kiro: "nyuz", pronunciation: "nyuz", story: "Did you hear the news?", storyTr: "Haberi duydun mu?" },
-            { english: "story", turkish: "hikaye", kiro: "ıstori", pronunciation: "ıs-to-ri", story: "Tell me a story.", storyTr: "Bana bir hikaye anlat." },
-            { english: "word", turkish: "kelime", kiro: "vörd", pronunciation: "vörd", story: "What does this word mean?", storyTr: "Bu kelime ne anlama geliyor?" },
-            { english: "sentence", turkish: "cümle", kiro: "sentıns", pronunciation: "sen-tıns", story: "Write a sentence.", storyTr: "Bir cümle yaz." },
-            { english: "language", turkish: "dil", kiro: "lengvic", pronunciation: "leng-vic", story: "I speak two languages.", storyTr: "İki dil konuşuyorum." },
-            { english: "English", turkish: "İngilizce", kiro: "ingliş", pronunciation: "ing-liş", story: "I am learning English.", storyTr: "İngilizce öğreniyorum." },
-            { english: "lesson", turkish: "ders", kiro: "lesın", pronunciation: "le-sın", story: "Today's lesson is important.", storyTr: "Bugünkü ders önemli." },
-            { english: "class", turkish: "sınıf", kiro: "klas", pronunciation: "klas", story: "Which class are you in?", storyTr: "Hangi sınıftasın?" },
-            { english: "homework", turkish: "ödev", kiro: "homvörk", pronunciation: "hom-vörk", story: "Do your homework.", storyTr: "Ödevini yap." },
-            { english: "test", turkish: "test, sınav", kiro: "test", pronunciation: "test", story: "We have a test tomorrow.", storyTr: "Yarın testimiz var." },
-            { english: "exam", turkish: "sınav", kiro: "igzem", pronunciation: "ig-zem", story: "The exam is difficult.", storyTr: "Sınav zor." },
-            { english: "grade", turkish: "not", kiro: "greyd", pronunciation: "greyd", story: "What grade did you get?", storyTr: "Kaç aldın?" },
-            { english: "paper", turkish: "kağıt", kiro: "peypır", pronunciation: "pey-pır", story: "Write it on paper.", storyTr: "Kağıda yaz." },
-            { english: "pen", turkish: "kalem", kiro: "pen", pronunciation: "pen", story: "I need a pen.", storyTr: "Kaleme ihtiyacım var." },
-            { english: "pencil", turkish: "kurşun kalem", kiro: "pensıl", pronunciation: "pen-sıl", story: "Use a pencil.", storyTr: "Kurşun kalem kullan." },
-            { english: "eraser", turkish: "silgi", kiro: "ireysır", pronunciation: "i-rey-sır", story: "I need an eraser.", storyTr: "Silgiye ihtiyacım var." },
-            { english: "ruler", turkish: "cetvel", kiro: "rulır", pronunciation: "ru-lır", story: "Use a ruler to draw.", storyTr: "Çizmek için cetvel kullan." },
-            { english: "bag", turkish: "çanta", kiro: "beg", pronunciation: "beg", story: "Put it in your bag.", storyTr: "Çantana koy." },
-            { english: "pocket", turkish: "cep", kiro: "pokit", pronunciation: "po-kit", story: "It's in my pocket.", storyTr: "Cebimde." },
-            { english: "wallet", turkish: "cüzdan", kiro: "volit", pronunciation: "vo-lit", story: "I lost my wallet.", storyTr: "Cüzdanımı kaybettim." },
-            { english: "purse", turkish: "el çantası", kiro: "pörs", pronunciation: "pörs", story: "Her purse is expensive.", storyTr: "Onun el çantası pahalı." },
-            { english: "watch", turkish: "saat", kiro: "voç", pronunciation: "voç", story: "What time is your watch?", storyTr: "Saatin kaç?" },
-            { english: "clock", turkish: "saat", kiro: "klok", pronunciation: "klok", story: "The clock is ticking.", storyTr: "Saat tik tak ediyor." },
-            { english: "ring", turkish: "yüzük", kiro: "ring", pronunciation: "ring", story: "That's a beautiful ring.", storyTr: "Bu güzel bir yüzük." },
-            { english: "necklace", turkish: "kolye", kiro: "neklıs", pronunciation: "nek-lıs", story: "She wears a gold necklace.", storyTr: "Altın kolye takıyor." },
-            { english: "bracelet", turkish: "bilezik", kiro: "breyslıt", pronunciation: "breys-lıt", story: "I bought a silver bracelet.", storyTr: "Gümüş bilezik aldım." },
-            { english: "earring", turkish: "küpe", kiro: "iring", pronunciation: "i-ring", story: "Her earrings are pretty.", storyTr: "Küpeleri güzel." },
-            { english: "glasses", turkish: "gözlük", kiro: "glasız", pronunciation: "gla-sız", story: "I need my glasses.", storyTr: "Gözlüğüme ihtiyacım var." },
-            { english: "hat", turkish: "şapka", kiro: "het", pronunciation: "het", story: "Wear a hat in the sun.", storyTr: "Güneşte şapka tak." },
-            { english: "cap", turkish: "kep", kiro: "kep", pronunciation: "kep", story: "He wears a baseball cap.", storyTr: "Beyzbol kasketi takıyor." },
-            { english: "shirt", turkish: "gömlek", kiro: "şört", pronunciation: "şört", story: "This shirt is clean.", storyTr: "Bu gömlek temiz." },
-            { english: "t-shirt", turkish: "tişört", kiro: "ti şört", pronunciation: "ti şört", story: "I wear a t-shirt.", storyTr: "Tişört giyiyorum." },
-            { english: "pants", turkish: "pantolon", kiro: "pents", pronunciation: "pents", story: "These pants are tight.", storyTr: "Bu pantolonlar dar." },
-            { english: "jeans", turkish: "kot pantolon", kiro: "cins", pronunciation: "cins", story: "I love wearing jeans.", storyTr: "Kot pantolon giymeyi seviyorum." },
-            { english: "shorts", turkish: "şort", kiro: "şorts", pronunciation: "şorts", story: "It's hot, wear shorts.", storyTr: "Hava sıcak, şort giy." },
-            { english: "skirt", turkish: "etek", kiro: "ıskört", pronunciation: "ıs-kört", story: "She wears a long skirt.", storyTr: "Uzun etek giyiyor." },
-            { english: "dress", turkish: "elbise", kiro: "dres", pronunciation: "dres", story: "That dress is beautiful.", storyTr: "O elbise güzel." },
-            { english: "suit", turkish: "takım elbise", kiro: "sut", pronunciation: "sut", story: "He wears a suit to work.", storyTr: "İşe takım elbise giyiyor." },
-            { english: "coat", turkish: "palto", kiro: "kot", pronunciation: "kot", story: "Wear a coat, it's cold.", storyTr: "Palto giy, hava soğuk." },
-            { english: "jacket", turkish: "ceket", kiro: "cekit", pronunciation: "ce-kit", story: "I need a warm jacket.", storyTr: "Sıcak bir cekete ihtiyacım var." },
-            { english: "sweater", turkish: "kazak", kiro: "isvetır", pronunciation: "is-ve-tır", story: "This sweater is soft.", storyTr: "Bu kazak yumuşak." },
-            { english: "socks", turkish: "çorap", kiro: "soks", pronunciation: "soks", story: "I need clean socks.", storyTr: "Temiz çoraba ihtiyacım var." },
-            { english: "shoes", turkish: "ayakkabı", kiro: "şuz", pronunciation: "şuz", story: "These shoes are comfortable.", storyTr: "Bu ayakkabılar rahat." },
-            { english: "boots", turkish: "bot", kiro: "buts", pronunciation: "buts", story: "Wear boots in winter.", storyTr: "Kışın bot giy." },
-            { english: "sandals", turkish: "sandalet", kiro: "sendıls", pronunciation: "sen-dıls", story: "I wear sandals in summer.", storyTr: "Yazın sandalet giyiyorum." },
-            { english: "tie", turkish: "kravat", kiro: "tay", pronunciation: "tay", story: "He wears a tie.", storyTr: "Kravat takıyor." },
-            { english: "belt", turkish: "kemer", kiro: "belt", pronunciation: "belt", story: "Tighten your belt.", storyTr: "Kemerini sıkılaştır." },
-            { english: "button", turkish: "düğme", kiro: "batın", pronunciation: "ba-tın", story: "The button fell off.", storyTr: "Düğme düştü." },
-            { english: "zipper", turkish: "fermuar", kiro: "zipır", pronunciation: "zi-pır", story: "The zipper is broken.", storyTr: "Fermuar bozuk." },
-            { english: "clothes", turkish: "giysiler", kiro: "kloz", pronunciation: "kloz", story: "Wash your clothes.", storyTr: "Giysilerini yıka." },
-            { english: "fashion", turkish: "moda", kiro: "feşın", pronunciation: "fe-şın", story: "She follows fashion.", storyTr: "Modayı takip ediyor." },
-            { english: "style", turkish: "stil", kiro: "ıstayl", pronunciation: "ıs-tayl", story: "I like your style.", storyTr: "Stilini beğendim." },
-            { english: "color", turkish: "renk", kiro: "kalır", pronunciation: "ka-lır", story: "What's your favorite color?", storyTr: "En sevdiğin renk ne?" },
-            { english: "pattern", turkish: "desen", kiro: "petırn", pronunciation: "pe-tırn", story: "I like this pattern.", storyTr: "Bu deseni beğendim." },
-            { english: "material", turkish: "malzeme", kiro: "mıtiriıl", pronunciation: "mı-ti-ri-ıl", story: "What material is this?", storyTr: "Bu ne malzemeden?" },
-            { english: "cotton", turkish: "pamuk", kiro: "kotın", pronunciation: "ko-tın", story: "This is 100% cotton.", storyTr: "Bu %100 pamuk." },
-            { english: "silk", turkish: "ipek", kiro: "silk", pronunciation: "silk", story: "Silk is expensive.", storyTr: "İpek pahalı." },
-            { english: "wool", turkish: "yün", kiro: "vul", pronunciation: "vul", story: "This sweater is wool.", storyTr: "Bu kazak yünden." },
-            { english: "leather", turkish: "deri", kiro: "ledır", pronunciation: "le-dır", story: "Leather shoes are durable.", storyTr: "Deri ayakkabılar dayanıklı." },
-            { english: "plastic", turkish: "plastik", kiro: "plestik", pronunciation: "ples-tik", story: "Don't use plastic bags.", storyTr: "Plastik poşet kullanma." },
-            { english: "metal", turkish: "metal", kiro: "metıl", pronunciation: "me-tıl", story: "This is made of metal.", storyTr: "Bu metalden yapılmış." },
-            { english: "wood", turkish: "ahşap", kiro: "vud", pronunciation: "vud", story: "The table is wood.", storyTr: "Masa ahşap." },
-            { english: "stone", turkish: "taş", kiro: "ıston", pronunciation: "ıs-ton", story: "This wall is stone.", storyTr: "Bu duvar taştan." },
-            { english: "glass", turkish: "cam", kiro: "glas", pronunciation: "glas", story: "Be careful, it's glass.", storyTr: "Dikkatli ol, cam." },
-            { english: "gold", turkish: "altın", kiro: "gold", pronunciation: "gold", story: "Gold is valuable.", storyTr: "Altın değerli." },
-            { english: "silver", turkish: "gümüş", kiro: "silvır", pronunciation: "sil-vır", story: "I have a silver ring.", storyTr: "Gümüş yüzüğüm var." },
-            { english: "diamond", turkish: "elmas", kiro: "daymınd", pronunciation: "day-mınd", story: "Diamonds are expensive.", storyTr: "Elmaslar pahalı." },
-            { english: "price", turkish: "fiyat", kiro: "prays", pronunciation: "prays", story: "What's the price?", storyTr: "Fiyatı ne?" },
-            { english: "cost", turkish: "maliyet", kiro: "kost", pronunciation: "kost", story: "How much does it cost?", storyTr: "Ne kadar?" },
-            { english: "value", turkish: "değer", kiro: "velyu", pronunciation: "vel-yu", story: "This has great value.", storyTr: "Bunun büyük değeri var." },
-            { english: "cheap", turkish: "ucuz", kiro: "çip", pronunciation: "çip", story: "This is very cheap.", storyTr: "Bu çok ucuz." },
-            { english: "expensive", turkish: "pahalı", kiro: "ekspensiv", pronunciation: "eks-pen-siv", story: "That's too expensive.", storyTr: "Bu çok pahalı." },
-            { english: "free", turkish: "ücretsiz", kiro: "fri", pronunciation: "fri", story: "This is free.", storyTr: "Bu ücretsiz." },
-            { english: "sale", turkish: "indirim", kiro: "seyl", pronunciation: "seyl", story: "There's a big sale.", storyTr: "Büyük indirim var." },
-            { english: "discount", turkish: "indirim", kiro: "diskavnt", pronunciation: "dis-kavnt", story: "Do you have a discount?", storyTr: "İndiriminiz var mı?" },
-            { english: "payment", turkish: "ödeme", kiro: "peymınt", pronunciation: "pey-mınt", story: "Cash or card payment?", storyTr: "Nakit mi kart mı?" },
-            { english: "cash", turkish: "nakit", kiro: "keş", pronunciation: "keş", story: "I'll pay with cash.", storyTr: "Nakit ödeyeceğim." },
-            { english: "card", turkish: "kart", kiro: "kard", pronunciation: "kard", story: "Can I pay by card?", storyTr: "Kartla ödeyebilir miyim?" },
-            { english: "credit", turkish: "kredi", kiro: "kredit", pronunciation: "kre-dit", story: "I have good credit.", storyTr: "İyi kredim var." },
-            { english: "debt", turkish: "borç", kiro: "det", pronunciation: "det", story: "I have no debt.", storyTr: "Borcum yok." },
-            { english: "loan", turkish: "kredi", kiro: "lon", pronunciation: "lon", story: "I need a loan.", storyTr: "Krediye ihtiyacım var." },
-            { english: "interest", turkish: "faiz", kiro: "intrıst", pronunciation: "int-rıst", story: "The interest rate is high.", storyTr: "Faiz oranı yüksek." },
-            { english: "tax", turkish: "vergi", kiro: "teks", pronunciation: "teks", story: "Don't forget the tax.", storyTr: "Vergiyi unutma." },
-            { english: "bill", turkish: "fatura", kiro: "bil", pronunciation: "bil", story: "Pay the bill, please.", storyTr: "Lütfen hesabı öde." },
-            { english: "receipt", turkish: "fiş", kiro: "risit", pronunciation: "ri-sit", story: "Keep the receipt.", storyTr: "Fişi sakla." },
-            { english: "change", turkish: "para üstü", kiro: "çeync", pronunciation: "çeync", story: "Here's your change.", storyTr: "İşte para üstünüz." },
-            { english: "tip", turkish: "bahşiş", kiro: "tip", pronunciation: "tip", story: "Leave a tip for the waiter.", storyTr: "Garsona bahşiş bırak." },
-            { english: "service", turkish: "hizmet", kiro: "sörvıs", pronunciation: "sör-vıs", story: "The service is excellent.", storyTr: "Hizmet mükemmel." },
-            { english: "quality", turkish: "kalite", kiro: "kvoliti", pronunciation: "kvo-li-ti", story: "This is high quality.", storyTr: "Bu yüksek kalite." },
-            { english: "quantity", turkish: "miktar", kiro: "kvontiti", pronunciation: "kvon-ti-ti", story: "What quantity do you need?", storyTr: "Ne kadar miktara ihtiyacın var?" },
-            { english: "amount", turkish: "miktar", kiro: "ımavnt", pronunciation: "ı-mavnt", story: "The amount is correct.", storyTr: "Miktar doğru." },
-            { english: "total", turkish: "toplam", kiro: "totıl", pronunciation: "to-tıl", story: "What's the total?", storyTr: "Toplam ne kadar?" },
-            { english: "half", turkish: "yarım", kiro: "haf", pronunciation: "haf", story: "Give me half.", storyTr: "Bana yarısını ver." },
-            { english: "quarter", turkish: "çeyrek", kiro: "kvortır", pronunciation: "kvor-tır", story: "It's a quarter past three.", storyTr: "Saat üçü çeyrek geçiyor." },
-            { english: "whole", turkish: "bütün", kiro: "hol", pronunciation: "hol", story: "I ate the whole pizza.", storyTr: "Tüm pizzayı yedim." },
-            { english: "part", turkish: "parça", kiro: "part", pronunciation: "part", story: "This is part of the set.", storyTr: "Bu setin bir parçası." },
-            { english: "piece", turkish: "parça", kiro: "pis", pronunciation: "pis", story: "Can I have a piece?", storyTr: "Bir parça alabilir miyim?" },
-            { english: "bit", turkish: "parça", kiro: "bit", pronunciation: "bit", story: "Just a little bit.", storyTr: "Sadece biraz." },
-            { english: "lot", turkish: "çok", kiro: "lot", pronunciation: "lot", story: "I have a lot of work.", storyTr: "Çok işim var." },
-            { english: "few", turkish: "az", kiro: "fyu", pronunciation: "fyu", story: "Only a few people came.", storyTr: "Sadece birkaç kişi geldi." },
-            { english: "many", turkish: "çok", kiro: "meni", pronunciation: "me-ni", story: "Many people are here.", storyTr: "Burada çok insan var." },
-            { english: "much", turkish: "çok", kiro: "maç", pronunciation: "maç", story: "How much do you want?", storyTr: "Ne kadar istiyorsun?" },
-            { english: "some", turkish: "biraz", kiro: "sam", pronunciation: "sam", story: "I need some help.", storyTr: "Biraz yardıma ihtiyacım var." },
-            { english: "any", turkish: "herhangi", kiro: "eni", pronunciation: "e-ni", story: "Do you have any questions?", storyTr: "Herhangi bir sorun var mı?" },
-            { english: "all", turkish: "hepsi", kiro: "ol", pronunciation: "ol", story: "All students passed.", storyTr: "Tüm öğrenciler geçti." },
-            { english: "every", turkish: "her", kiro: "evri", pronunciation: "ev-ri", story: "Every day is important.", storyTr: "Her gün önemli." },
-            { english: "each", turkish: "her biri", kiro: "iç", pronunciation: "iç", story: "Each person gets one.", storyTr: "Her kişi bir tane alır." },
-            { english: "both", turkish: "ikisi de", kiro: "bos", pronunciation: "bos", story: "Both answers are correct.", storyTr: "İki cevap da doğru." },
-            { english: "either", turkish: "ikisinden biri", kiro: "aydır", pronunciation: "ay-dır", story: "Choose either one.", storyTr: "İkisinden birini seç." },
-            { english: "neither", turkish: "ikisi de değil", kiro: "naydır", pronunciation: "nay-dır", story: "Neither option is good.", storyTr: "İki seçenek de iyi değil." },
-            { english: "other", turkish: "diğer", kiro: "adır", pronunciation: "a-dır", story: "The other one is better.", storyTr: "Diğeri daha iyi." },
-            { english: "another", turkish: "başka bir", kiro: "ınadır", pronunciation: "ı-na-dır", story: "Give me another chance.", storyTr: "Bana başka bir şans ver." },
-            { english: "same", turkish: "aynı", kiro: "seym", pronunciation: "seym", story: "We have the same phone.", storyTr: "Aynı telefona sahibiz." },
-            { english: "different", turkish: "farklı", kiro: "difrınt", pronunciation: "dif-rınt", story: "This is different.", storyTr: "Bu farklı." },
-            { english: "similar", turkish: "benzer", kiro: "similır", pronunciation: "si-mi-lır", story: "They look similar.", storyTr: "Benzer görünüyorlar." },
-            { english: "equal", turkish: "eşit", kiro: "ikıl", pronunciation: "i-kıl", story: "All people are equal.", storyTr: "Tüm insanlar eşittir." },
-            { english: "more", turkish: "daha fazla", kiro: "mor", pronunciation: "mor", story: "I need more time.", storyTr: "Daha fazla zamana ihtiyacım var." },
-            { english: "less", turkish: "daha az", kiro: "les", pronunciation: "les", story: "Eat less sugar.", storyTr: "Daha az şeker ye." },
-            { english: "most", turkish: "en çok", kiro: "most", pronunciation: "most", story: "This is the most important.", storyTr: "Bu en önemlisi." },
-            { english: "least", turkish: "en az", kiro: "list", pronunciation: "list", story: "This costs the least.", storyTr: "Bu en az maliyetli." },
-            { english: "better", turkish: "daha iyi", kiro: "betır", pronunciation: "be-tır", story: "This is better.", storyTr: "Bu daha iyi." },
-            { english: "worse", turkish: "daha kötü", kiro: "vörs", pronunciation: "vörs", story: "It's getting worse.", storyTr: "Daha da kötüleşiyor." },
-            { english: "best", turkish: "en iyi", kiro: "best", pronunciation: "best", story: "You're the best!", storyTr: "Sen en iyisisin!" },
-            { english: "worst", turkish: "en kötü", kiro: "vörst", pronunciation: "vörst", story: "That's the worst.", storyTr: "Bu en kötüsü." },
-            { english: "first", turkish: "ilk", kiro: "först", pronunciation: "först", story: "I'm first in line.", storyTr: "Sırada ilk benim." },
-            { english: "last", turkish: "son", kiro: "last", pronunciation: "last", story: "This is my last chance.", storyTr: "Bu benim son şansım." },
-            { english: "next", turkish: "sonraki", kiro: "nekst", pronunciation: "nekst", story: "Next, please!", storyTr: "Sıradaki lütfen!" },
-            { english: "previous", turkish: "önceki", kiro: "priviıs", pronunciation: "pri-vi-ıs", story: "Go to the previous page.", storyTr: "Önceki sayfaya git." },
-            { english: "only", turkish: "sadece", kiro: "onli", pronunciation: "on-li", story: "I only have one.", storyTr: "Sadece bir tane var." },
-            { english: "also", turkish: "ayrıca", kiro: "olso", pronunciation: "ol-so", story: "I also like pizza.", storyTr: "Ben de pizza severim." },
-            { english: "too", turkish: "de, çok", kiro: "tu", pronunciation: "tu", story: "Me too!", storyTr: "Ben de!" },
-            { english: "very", turkish: "çok", kiro: "veri", pronunciation: "ve-ri", story: "It's very hot.", storyTr: "Çok sıcak." },
-            { english: "quite", turkish: "oldukça", kiro: "kvayt", pronunciation: "kvayt", story: "It's quite good.", storyTr: "Oldukça iyi." },
-            { english: "really", turkish: "gerçekten", kiro: "riıli", pronunciation: "ri-ıli", story: "I really like it.", storyTr: "Gerçekten beğendim." },
-            { english: "actually", turkish: "aslında", kiro: "ekçuıli", pronunciation: "ek-çu-ıli", story: "Actually, I'm busy.", storyTr: "Aslında meşgulüm." },
-            { english: "probably", turkish: "muhtemelen", kiro: "probıbli", pronunciation: "pro-bıb-li", story: "He's probably late.", storyTr: "Muhtemelen geç kaldı." },
-            { english: "maybe", turkish: "belki", kiro: "meybi", pronunciation: "mey-bi", story: "Maybe tomorrow.", storyTr: "Belki yarın." },
-            { english: "perhaps", turkish: "belki", kiro: "pörheps", pronunciation: "pör-heps", story: "Perhaps you're right.", storyTr: "Belki haklısın." },
-            { english: "certainly", turkish: "kesinlikle", kiro: "sörtınli", pronunciation: "sör-tın-li", story: "Certainly, I can help.", storyTr: "Kesinlikle yardım edebilirim." },
-            { english: "definitely", turkish: "kesinlikle", kiro: "definıtli", pronunciation: "de-fi-nıt-li", story: "I'll definitely come.", storyTr: "Kesinlikle geleceğim." },
-            { english: "absolutely", turkish: "kesinlikle", kiro: "ebsılutli", pronunciation: "eb-sı-lut-li", story: "Absolutely correct!", storyTr: "Kesinlikle doğru!" },
-            { english: "exactly", turkish: "tam olarak", kiro: "igzektli", pronunciation: "ig-zekt-li", story: "Exactly what I need!", storyTr: "Tam ihtiyacım olan şey!" },
-            { english: "almost", turkish: "neredeyse", kiro: "olmost", pronunciation: "ol-most", story: "I'm almost done.", storyTr: "Neredeyse bittim." },
-            { english: "nearly", turkish: "neredeyse", kiro: "niırli", pronunciation: "ni-ırli", story: "It's nearly midnight.", storyTr: "Neredeyse gece yarısı." },
-            { english: "just", turkish: "sadece, az önce", kiro: "cast", pronunciation: "cast", story: "I just arrived.", storyTr: "Az önce geldim." },
-            { english: "still", turkish: "hala", kiro: "ıstil", pronunciation: "ıs-til", story: "I'm still waiting.", storyTr: "Hala bekliyorum." },
-            { english: "yet", turkish: "henüz", kiro: "yet", pronunciation: "yet", story: "Not yet.", storyTr: "Henüz değil." },
-            { english: "already", turkish: "zaten", kiro: "olredi", pronunciation: "ol-re-di", story: "I already know.", storyTr: "Zaten biliyorum." },
-            { english: "soon", turkish: "yakında", kiro: "sun", pronunciation: "sun", story: "See you soon!", storyTr: "Yakında görüşürüz!" },
-            { english: "immediately", turkish: "hemen", kiro: "imidiıtli", pronunciation: "i-mi-di-ıt-li", story: "Come immediately!", storyTr: "Hemen gel!" },
-            { english: "suddenly", turkish: "aniden", kiro: "sadınli", pronunciation: "sa-dın-li", story: "Suddenly, it rained.", storyTr: "Aniden yağmur yağdı." },
-            { english: "quickly", turkish: "hızlıca", kiro: "kvikli", pronunciation: "kvik-li", story: "Do it quickly!", storyTr: "Hızlıca yap!" },
-            { english: "slowly", turkish: "yavaşça", kiro: "ıslouli", pronunciation: "ıs-lou-li", story: "Drive slowly.", storyTr: "Yavaş sür." },
-            { english: "carefully", turkish: "dikkatle", kiro: "kerfıli", pronunciation: "ker-fı-li", story: "Listen carefully.", storyTr: "Dikkatle dinle." },
-            { english: "easily", turkish: "kolayca", kiro: "izili", pronunciation: "i-zi-li", story: "You can do it easily.", storyTr: "Bunu kolayca yapabilirsin." },
-            { english: "hardly", turkish: "zar zor", kiro: "hardli", pronunciation: "hard-li", story: "I can hardly see.", storyTr: "Zar zor görebiliyorum." },
-            { english: "clearly", turkish: "açıkça", kiro: "kliırli", pronunciation: "kli-ırli", story: "Speak clearly.", storyTr: "Açıkça konuş." },
-            { english: "loudly", turkish: "yüksek sesle", kiro: "lavdli", pronunciation: "lavd-li", story: "Don't talk loudly.", storyTr: "Yüksek sesle konuşma." },
-            { english: "quietly", turkish: "sessizce", kiro: "kvayıtli", pronunciation: "kvay-ıt-li", story: "Walk quietly.", storyTr: "Sessizce yürü." },
-            { english: "together", turkish: "birlikte", kiro: "tıgedır", pronunciation: "tı-ge-dır", story: "Let's work together.", storyTr: "Hadi birlikte çalışalım." },
-            { english: "alone", turkish: "yalnız", kiro: "ılon", pronunciation: "ı-lon", story: "I live alone.", storyTr: "Yalnız yaşıyorum." },
-            { english: "away", turkish: "uzakta", kiro: "ıvey", pronunciation: "ı-vey", story: "Go away!", storyTr: "Git buradan!" },
-            { english: "back", turkish: "geri", kiro: "bek", pronunciation: "bek", story: "Come back soon.", storyTr: "Yakında geri gel." },
-            { english: "forward", turkish: "ileri", kiro: "forvırd", pronunciation: "for-vırd", story: "Move forward.", storyTr: "İleri git." },
-            { english: "backward", turkish: "geri", kiro: "bekvırd", pronunciation: "bek-vırd", story: "Step backward.", storyTr: "Geri adım at." },
-            { english: "upward", turkish: "yukarı doğru", kiro: "apvırd", pronunciation: "ap-vırd", story: "Look upward.", storyTr: "Yukarı bak." },
-            { english: "downward", turkish: "aşağı doğru", kiro: "davnvırd", pronunciation: "davn-vırd", story: "Move downward.", storyTr: "Aşağı in." },
-            { english: "everywhere", turkish: "her yerde", kiro: "evriveer", pronunciation: "ev-ri-veer", story: "I looked everywhere.", storyTr: "Her yere baktım." },
-            { english: "somewhere", turkish: "bir yerde", kiro: "samveer", pronunciation: "sam-veer", story: "It's somewhere here.", storyTr: "Buralarda bir yerde." },
-            { english: "nowhere", turkish: "hiçbir yerde", kiro: "noveer", pronunciation: "no-veer", story: "I have nowhere to go.", storyTr: "Gidecek yerim yok." },
-            { english: "anywhere", turkish: "herhangi bir yerde", kiro: "eniveer", pronunciation: "e-ni-veer", story: "You can sit anywhere.", storyTr: "Herhangi bir yere oturabilirsin." },
-            { english: "everyone", turkish: "herkes", kiro: "evrivan", pronunciation: "ev-ri-van", story: "Everyone is here.", storyTr: "Herkes burada." },
-            { english: "someone", turkish: "birisi", kiro: "samvan", pronunciation: "sam-van", story: "Someone is calling.", storyTr: "Birisi arıyor." },
-            { english: "no one", turkish: "kimse", kiro: "no van", pronunciation: "no van", story: "No one knows.", storyTr: "Kimse bilmiyor." },
-            { english: "anyone", turkish: "herhangi biri", kiro: "enivan", pronunciation: "e-ni-van", story: "Can anyone help?", storyTr: "Birisi yardım edebilir mi?" },
-            { english: "everything", turkish: "her şey", kiro: "evrising", pronunciation: "ev-ri-sing", story: "Everything is fine.", storyTr: "Her şey yolunda." },
-            { english: "something", turkish: "bir şey", kiro: "samsing", pronunciation: "sam-sing", story: "I need something.", storyTr: "Bir şeye ihtiyacım var." },
-            { english: "nothing", turkish: "hiçbir şey", kiro: "nasing", pronunciation: "na-sing", story: "Nothing is wrong.", storyTr: "Hiçbir şey yanlış değil." },
-            { english: "anything", turkish: "herhangi bir şey", kiro: "enising", pronunciation: "e-ni-sing", story: "Do you need anything?", storyTr: "Bir şeye ihtiyacın var mı?" },
-            { english: "yes", turkish: "evet", kiro: "yes", pronunciation: "yes", story: "Yes, I agree.", storyTr: "Evet, katılıyorum." },
-            { english: "no", turkish: "hayır", kiro: "no", pronunciation: "no", story: "No, thank you.", storyTr: "Hayır, teşekkürler." },
-            { english: "please", turkish: "lütfen", kiro: "pliz", pronunciation: "pliz", story: "Please help me.", storyTr: "Lütfen bana yardım et." },
-            { english: "thank you", turkish: "teşekkür ederim", kiro: "senk yu", pronunciation: "senk yu", story: "Thank you very much!", storyTr: "Çok teşekkür ederim!" },
-            { english: "sorry", turkish: "üzgünüm", kiro: "sori", pronunciation: "so-ri", story: "I'm sorry.", storyTr: "Üzgünüm." },
-            { english: "excuse me", turkish: "affedersiniz", kiro: "ekskyuz mi", pronunciation: "eks-kyuz mi", story: "Excuse me, where is the bank?", storyTr: "Affedersiniz, banka nerede?" },
-            { english: "goodbye", turkish: "hoşça kal", kiro: "gudbay", pronunciation: "gud-bay", story: "Goodbye, see you later!", storyTr: "Hoşça kal, sonra görüşürüz!" },
-            { english: "welcome", turkish: "hoş geldiniz", kiro: "velkam", pronunciation: "vel-kam", story: "Welcome to our home!", storyTr: "Evimize hoş geldiniz!" },
-            { english: "congratulations", turkish: "tebrikler", kiro: "kıngreçuleyşıns", pronunciation: "kong-ra-çu-ley-şıns", story: "Congratulations on your success!", storyTr: "Başarın için tebrikler!" },
-            { english: "happy birthday", turkish: "doğum günün kutlu olsun", kiro: "hepi börsdey", pronunciation: "he-pi börs-dey", story: "Happy birthday to you!", storyTr: "Doğum günün kutlu olsun!" },
-            { english: "good luck", turkish: "iyi şanslar", kiro: "gud lak", pronunciation: "gud lak", story: "Good luck on your exam!", storyTr: "Sınavında iyi şanslar!" },
-            { english: "bless you", turkish: "çok yaşa", kiro: "bles yu", pronunciation: "bles yu", story: "Bless you! (after sneezing)", storyTr: "Çok yaşa! (hapşırma sonrası)" },
-            { english: "cheers", turkish: "şerefe", kiro: "çiırs", pronunciation: "çi-ırs", story: "Cheers! Let's celebrate!", storyTr: "Şerefe! Hadi kutlayalım!" },
-            { english: "okay", turkish: "tamam", kiro: "okey", pronunciation: "o-key", story: "Okay, I understand.", storyTr: "Tamam, anlıyorum." },
-            { english: "alright", turkish: "peki", kiro: "olrayt", pronunciation: "ol-rayt", story: "Alright, let's go!", storyTr: "Peki, hadi gidelim!" },
-            { english: "sure", turkish: "elbette", kiro: "şur", pronunciation: "şur", story: "Sure, no problem!", storyTr: "Elbette, sorun değil!" },
-            { english: "of course", turkish: "tabii ki", kiro: "ov kors", pronunciation: "ov kors", story: "Of course I'll help you!", storyTr: "Tabii ki sana yardım edeceğim!" },
-            { english: "why not", turkish: "neden olmasın", kiro: "vay not", pronunciation: "vay not", story: "Why not? Let's try!", storyTr: "Neden olmasın? Hadi deneyelim!" },
-            { english: "I see", turkish: "anlıyorum", kiro: "ay si", pronunciation: "ay si", story: "I see what you mean.", storyTr: "Ne demek istediğini anlıyorum." },
-            { english: "I know", turkish: "biliyorum", kiro: "ay no", pronunciation: "ay no", story: "I know the answer.", storyTr: "Cevabı biliyorum." },
-            { english: "I think", turkish: "sanırım", kiro: "ay sink", pronunciation: "ay sink", story: "I think you're right.", storyTr: "Sanırım haklısın." },
-            { english: "I hope", turkish: "umarım", kiro: "ay hop", pronunciation: "ay hop", story: "I hope so!", storyTr: "Umarım öyledir!" },
-            { english: "I believe", turkish: "inanıyorum", kiro: "ay biliv", pronunciation: "ay bi-liv", story: "I believe in you!", storyTr: "Sana inanıyorum!" },
-            { english: "I understand", turkish: "anlıyorum", kiro: "ay andırıstend", pronunciation: "ay an-dır-stend", story: "I understand now.", storyTr: "Şimdi anlıyorum." },
-            { english: "I agree", turkish: "katılıyorum", kiro: "ay ıgri", pronunciation: "ay ıg-ri", story: "I agree with you.", storyTr: "Seninle aynı fikirdeyim." },
-            { english: "I disagree", turkish: "katılmıyorum", kiro: "ay disıgri", pronunciation: "ay dis-ıg-ri", story: "I disagree with that.", storyTr: "Buna katılmıyorum." },
-            { english: "I remember", turkish: "hatırlıyorum", kiro: "ay rimembır", pronunciation: "ay ri-mem-bır", story: "I remember you!", storyTr: "Seni hatırlıyorum!" },
-            { english: "I forget", turkish: "unutuyorum", kiro: "ay forget", pronunciation: "ay for-get", story: "I forget his name.", storyTr: "Onun adını unutuyorum." }
-        );
-
-        // Uygulama durumu
-
-        // Uygulama durumu
         let currentWord = null;
-        let filteredWords = [...wordDatabase];
-        
-        // Test durumu
-        let testQuestions = [];
-        let currentQuestionIndex = 0;
-        let correctAnswers = 0;
-        let totalQuestions = 10;
+        let allWords = [];
 
-        // İstatistikleri güncelle
-        function updateStats() {
-            document.getElementById('totalWords').textContent = wordDatabase.length;
-        }
-
-        // Rastgele kelime göster
-        function showRandomWord() {
-            if (filteredWords.length === 0) {
-                filteredWords = [...wordDatabase];
-            }
-            const randomIndex = Math.floor(Math.random() * filteredWords.length);
-            currentWord = filteredWords[randomIndex];
-            displayWord(currentWord);
-            
-            // Kartı ön yüze çevir
-            document.getElementById('flashcard').classList.remove('flipped');
-        }
-
-        // Kelimeyi göster
-        function displayWord(word) {
-            document.getElementById('wordEnglish').textContent = word.english;
-            document.getElementById('wordPronunciation').textContent = word.pronunciation;
-            document.getElementById('wordKiro').textContent = `${word.english} (${word.pronunciation})`;
-            document.getElementById('wordTurkish').textContent = word.turkish;
-            document.getElementById('wordStory').textContent = word.story;
-            const storyTrElement = document.getElementById('wordStoryTr');
-            storyTrElement.textContent = word.storyTr || '';
-            storyTrElement.style.display = 'none'; // Başlangıçta gizli
-            
-            // Butonu sıfırla
-            const flipBtn = document.getElementById('flipBackBtn');
-            if (flipBtn) {
-                flipBtn.textContent = '🇹🇷 Türkçe Çeviri';
-            }
-        }
-
-        // Kartı çevir
-        function flipCard() {
-            document.getElementById('flashcard').classList.toggle('flipped');
-        }
-
-        // Sesli telaffuz - speech.js'den kullanılıyor
-        // function speakWord() kaldırıldı - speech.js'deki kullanılacak
-
-        // Test fonksiyonları
-        function startTest() {
-            correctAnswers = 0;
-            currentQuestionIndex = 0;
-            
-            // Rastgele 10 kelime seç
-            const shuffled = [...wordDatabase].sort(() => Math.random() - 0.5);
-            testQuestions = shuffled.slice(0, totalQuestions);
-            
-            document.getElementById('testModal').classList.add('active');
-            showQuestion();
-        }
-
-        function showQuestion() {
-            if (currentQuestionIndex >= testQuestions.length) {
-                showTestResults();
-                return;
-            }
-
-            const question = testQuestions[currentQuestionIndex];
-            const questionDiv = document.getElementById('testQuestion');
-            const optionsDiv = document.getElementById('testOptions');
-            const resultDiv = document.getElementById('testResult');
-            
-            // Soru tipini rastgele seç (İngilizce->Türkçe veya Türkçe->İngilizce)
-            const questionType = Math.random() > 0.5 ? 'en-tr' : 'tr-en';
-            
-            if (questionType === 'en-tr') {
-                questionDiv.innerHTML = `<strong>${question.english}</strong> kelimesinin Türkçe karşılığı nedir?`;
-            } else {
-                questionDiv.innerHTML = `<strong>${question.turkish}</strong> kelimesinin İngilizce karşılığı nedir?`;
-            }
-            
-            // Yanlış cevaplar için rastgele kelimeler seç
-            const wrongAnswers = wordDatabase
-                .filter(w => w.english !== question.english)
-                .sort(() => Math.random() - 0.5)
-                .slice(0, 3);
-            
-            // Doğru cevabı ekle ve karıştır
-            const allOptions = [question, ...wrongAnswers].sort(() => Math.random() - 0.5);
-            
-            // Seçenekleri göster
-            optionsDiv.innerHTML = '';
-            allOptions.forEach(option => {
-                const btn = document.createElement('button');
-                btn.className = 'md-button-outlined';
-                btn.style.width = '100%';
-                btn.style.padding = '15px';
-                btn.textContent = questionType === 'en-tr' ? option.turkish : option.english;
-                btn.onclick = () => checkAnswer(option.english === question.english, btn);
-                optionsDiv.appendChild(btn);
-            });
-            
-            resultDiv.innerHTML = '';
-            document.getElementById('nextQuestionBtn').style.display = 'none';
-            document.getElementById('testScore').innerHTML = `Soru ${currentQuestionIndex + 1}/${totalQuestions}`;
-        }
-
-        function checkAnswer(isCorrect, button) {
-            const optionsDiv = document.getElementById('testOptions');
-            const resultDiv = document.getElementById('testResult');
-            const buttons = optionsDiv.querySelectorAll('button');
-            
-            // Tüm butonları devre dışı bırak
-            buttons.forEach(btn => btn.disabled = true);
-            
-            if (isCorrect) {
-                button.style.background = '#48bb78';
-                button.style.color = 'white';
-                resultDiv.innerHTML = '✅ Doğru!';
-                resultDiv.style.color = '#48bb78';
-                correctAnswers++;
-            } else {
-                button.style.background = '#fc8181';
-                button.style.color = 'white';
-                resultDiv.innerHTML = '❌ Yanlış!';
-                resultDiv.style.color = '#fc8181';
-                
-                // Doğru cevabı göster
-                const correctBtn = Array.from(buttons).find(btn => 
-                    btn.textContent === testQuestions[currentQuestionIndex].turkish || 
-                    btn.textContent === testQuestions[currentQuestionIndex].english
-                );
-                if (correctBtn && correctBtn !== button) {
-                    correctBtn.style.background = '#48bb78';
-                    correctBtn.style.color = 'white';
+        // Kelimeleri JSON'dan yükle
+        async function loadWordsFromFile() {
+            console.log('Kelimeler yükleniyor...');
+            try {
+                const response = await fetch('/static/words.json');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
                 }
-            }
-            
-            document.getElementById('nextQuestionBtn').style.display = 'inline-block';
-        }
-
-        function nextQuestion() {
-            currentQuestionIndex++;
-            showQuestion();
-        }
-
-        function showTestResults() {
-            const questionDiv = document.getElementById('testQuestion');
-            const optionsDiv = document.getElementById('testOptions');
-            const resultDiv = document.getElementById('testResult');
-            const scoreDiv = document.getElementById('testScore');
-            
-            const percentage = (correctAnswers / totalQuestions * 100).toFixed(0);
-            
-            questionDiv.innerHTML = '🎉 Test Tamamlandı!';
-            optionsDiv.innerHTML = '';
-            
-            let message = '';
-            if (percentage >= 90) {
-                message = '🌟 Mükemmel! Harikasın!';
-            } else if (percentage >= 70) {
-                message = '👏 Çok iyi! Devam et!';
-            } else if (percentage >= 50) {
-                message = '👍 İyi! Biraz daha pratik yapabilirsin.';
-            } else {
-                message = '💪 Devam et! Pratik yapmaya devam et.';
-            }
-            
-            resultDiv.innerHTML = message;
-            resultDiv.style.color = 'var(--accent)';
-            scoreDiv.innerHTML = `<div style="font-size: 2rem; color: var(--accent); margin-bottom: 10px;">${correctAnswers}/${totalQuestions}</div>
-                                  <div style="font-size: 1.2rem;">%${percentage} Başarı</div>`;
-            
-            document.getElementById('nextQuestionBtn').style.display = 'none';
-            document.getElementById('restartTestBtn').style.display = 'inline-block';
-        }
-
-        // Arama fonksiyonu
-        function searchWords(query) {
-            if (!query.trim()) {
-                filteredWords = [...wordDatabase];
-                return;
-            }
-            
-            const lowerQuery = query.toLowerCase();
-            filteredWords = wordDatabase.filter(word => 
-                word.english.toLowerCase().includes(lowerQuery) ||
-                word.turkish.toLowerCase().includes(lowerQuery) ||
-                word.kiro.toLowerCase().includes(lowerQuery)
-            );
-            
-            if (filteredWords.length > 0) {
-                currentWord = filteredWords[0];
-                displayWord(currentWord);
-                document.getElementById('flashcard').classList.remove('flipped');
+                allWords = await response.json();
+                console.log(`${allWords.length} kelime yüklendi!`);
+                document.getElementById('totalWords').textContent = allWords.length;
+                loadRandomWord();
+            } catch (error) {
+                console.error('Kelimeler yüklenemedi:', error);
+                alert('Kelimeler yüklenirken hata oluştu! Lütfen sayfayı yenileyin.');
+                // Yedek kelimeler
+                allWords = [
+                    {english: "hello", turkish: "merhaba", pronunciation: "he-lou", story: "Hello! How are you today?", story_tr: "Merhaba! Bugün nasılsın?"},
+                    {english: "world", turkish: "dünya", pronunciation: "wörld", story: "The world is beautiful.", story_tr: "Dünya güzeldir."},
+                    {english: "love", turkish: "sevgi, aşk", pronunciation: "lav", story: "Love makes life beautiful.", story_tr: "Sevgi hayatı güzelleştirir."}
+                ];
+                document.getElementById('totalWords').textContent = allWords.length;
+                loadRandomWord();
             }
         }
 
-        // Tema değiştir
+        // Tema değiştirme
         function toggleTheme() {
             const html = document.documentElement;
             const currentTheme = html.getAttribute('data-theme');
             const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
             html.setAttribute('data-theme', newTheme);
             localStorage.setItem('theme', newTheme);
+            document.getElementById('themeToggle').textContent = newTheme === 'dark' ? '☀️' : '🌙';
+        }
+
+        // Tema yükle
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        document.getElementById('themeToggle').textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+
+
+
+        function loadRandomWord() {
+            if (allWords.length === 0) return;
+            currentWord = allWords[Math.floor(Math.random() * allWords.length)];
+            displayWord();
+            document.getElementById('flashcard').classList.remove('flipped');
+        }
+
+        function displayWord() {
+            if (!currentWord) return;
+            document.getElementById('wordEnglish').textContent = currentWord.english;
+            document.getElementById('wordPronunciation').textContent = currentWord.pronunciation;
+            document.getElementById('wordKiro').textContent = `${currentWord.english} (${currentWord.pronunciation})`;
+            document.getElementById('wordTurkish').textContent = currentWord.turkish;
+            document.getElementById('wordStory').textContent = currentWord.story;
+            document.getElementById('wordStoryTr').textContent = currentWord.story_tr;
             
-            // Avatar menüsündeki tema ikonunu güncelle
-            const themeIcon = document.getElementById('themeIcon');
-            const themeText = document.getElementById('themeText');
-            if (themeIcon && themeText) {
-                themeIcon.textContent = newTheme === 'dark' ? '☀️' : '🌙';
-                themeText.textContent = newTheme === 'dark' ? 'Aydınlık Tema' : 'Karanlık Tema';
+            // Türkçe çeviriyi gizle ve butonu sıfırla
+            const storyTr = document.getElementById('wordStoryTr');
+            const btn = document.getElementById('translateBtn');
+            storyTr.classList.remove('visible');
+            if (btn) btn.textContent = '🇹🇷 Türkçe Çeviri';
+        }
+
+        function flipCard() {
+            document.getElementById('flashcard').classList.toggle('flipped');
+        }
+
+        function speakWord() {
+            if (currentWord && 'speechSynthesis' in window) {
+                const utterance = new SpeechSynthesisUtterance(currentWord.english);
+                utterance.lang = 'en-US';
+                
+                // Kadın sesi seç
+                const voices = speechSynthesis.getVoices();
+                const femaleVoice = voices.find(voice => 
+                    voice.lang.startsWith('en') && 
+                    (voice.name.includes('Female') || 
+                     voice.name.includes('female') || 
+                     voice.name.includes('Woman') ||
+                     voice.name.includes('Samantha') ||
+                     voice.name.includes('Victoria') ||
+                     voice.name.includes('Karen') ||
+                     voice.name.includes('Zira'))
+                );
+                
+                if (femaleVoice) {
+                    utterance.voice = femaleVoice;
+                }
+                
+                utterance.rate = 0.9; // Biraz yavaş
+                utterance.pitch = 1.1; // Biraz tiz
+                
+                speechSynthesis.speak(utterance);
             }
         }
         
-        // Global olarak erişilebilir yap
-        window.toggleTheme = toggleTheme;
+        // Sesleri yükle
+        if ('speechSynthesis' in window) {
+            speechSynthesis.onvoiceschanged = () => {
+                speechSynthesis.getVoices();
+            };
+        }
 
-        // Hikaye oluştur
+        // Arama
+        document.getElementById('searchBox').addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase();
+            if (!query) return;
+            
+            const found = allWords.find(w => 
+                w.english.toLowerCase().includes(query) || 
+                w.turkish.toLowerCase().includes(query)
+            );
+            
+            if (found) {
+                currentWord = found;
+                displayWord();
+                document.getElementById('flashcard').classList.remove('flipped');
+            }
+        });
+
+        // Türkçe çeviri göster
+        function showTranslation() {
+            const storyTr = document.getElementById('wordStoryTr');
+            const btn = document.getElementById('translateBtn');
+            
+            if (storyTr.classList.contains('visible')) {
+                storyTr.classList.remove('visible');
+                btn.textContent = '🇹🇷 Türkçe Çeviri';
+            } else {
+                storyTr.classList.add('visible');
+                btn.textContent = '❌ Çeviriyi Gizle';
+            }
+        }
+
+        // Hikaye modal
+        function showStoryModal() {
+            document.getElementById('storyModal').classList.add('active');
+            document.getElementById('storyResult').style.display = 'none';
+            document.getElementById('customWord').value = '';
+        }
+
+        function closeStoryModal() {
+            document.getElementById('storyModal').classList.remove('active');
+        }
+
         function generateStory() {
             const word = document.getElementById('customWord').value.trim().toLowerCase();
             if (!word) {
@@ -1876,315 +739,231 @@
                 return;
             }
 
-            // Kelimeyi veritabanında ara
-            const foundWord = wordDatabase.find(w => w.english.toLowerCase() === word);
-            const turkishWord = foundWord ? foundWord.turkish : word;
-
-            // İngilizce ve Türkçe örnek cümle şablonları
-            const templates = [
-                { en: `I ${word} every day.`, tr: `Her gün ${turkishWord}.` },
-                { en: `This is a ${word}.`, tr: `Bu bir ${turkishWord}.` },
-                { en: `The ${word} is very nice.`, tr: `${turkishWord} çok güzel.` },
-                { en: `I love ${word}.`, tr: `${turkishWord} seviyorum.` },
-                { en: `Can you see the ${word}?`, tr: `${turkishWord} görebiliyor musun?` },
-                { en: `My ${word} is here.`, tr: `Benim ${turkishWord} burada.` },
-                { en: `We need a ${word}.`, tr: `Bir ${turkishWord} lazım.` },
-                { en: `That ${word} is beautiful.`, tr: `O ${turkishWord} güzel.` },
-                { en: `I want to ${word}.`, tr: `${turkishWord} istiyorum.` },
-                { en: `She has a ${word}.`, tr: `Onun bir ${turkishWord} var.` },
-                { en: `He likes ${word}.`, tr: `O ${turkishWord} seviyor.` },
-                { en: `They are ${word}.`, tr: `Onlar ${turkishWord}.` },
-                { en: `This ${word} is good.`, tr: `Bu ${turkishWord} iyi.` },
-                { en: `Where is the ${word}?`, tr: `${turkishWord} nerede?` },
-                { en: `I don't have a ${word}.`, tr: `Benim ${turkishWord} yok.` },
-                { en: `The ${word} is on the table.`, tr: `${turkishWord} masada.` },
-                { en: `Please give me the ${word}.`, tr: `Lütfen bana ${turkishWord} ver.` },
-                { en: `I'm looking for a ${word}.`, tr: `Bir ${turkishWord} arıyorum.` },
-                { en: `That's a great ${word}!`, tr: `Bu harika bir ${turkishWord}!` },
-                { en: `Do you like ${word}?`, tr: `${turkishWord} sever misin?` }
-            ];
-
-            const randomTemplate = templates[Math.floor(Math.random() * templates.length)];
-            document.getElementById('generatedStory').innerHTML = `${randomTemplate.en}<br><em style="color: var(--text-secondary); font-size: 0.9rem;">${randomTemplate.tr}</em>`;
-            document.getElementById('suggestionBox').style.display = 'block';
-        }
-
-
-
-        // Event listeners
-        const randomBtn = document.getElementById('randomBtn');
-        const flashcard = document.getElementById('flashcard');
-        const flipBackBtn = document.getElementById('flipBackBtn');
-        const nextWordBtn = document.getElementById('nextWordBtn');
-        
-        if (randomBtn) {
-            randomBtn.addEventListener('click', showRandomWord);
-        }
-        
-        if (flashcard) {
-            flashcard.addEventListener('click', flipCard);
-        }
-        
-        if (flipBackBtn) {
-            flipBackBtn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                const storyTr = document.getElementById('wordStoryTr');
-                if (storyTr.style.display === 'none' || storyTr.style.display === '') {
-                    storyTr.style.display = 'block';
-                    e.target.textContent = '🇹🇷 Türkçe Çeviriyi Gizle';
-                } else {
-                    storyTr.style.display = 'none';
-                    e.target.textContent = '🇹🇷 Türkçe Çeviri';
-                }
-            });
-        }
-        
-        // speakBtn event listener - speech.js'de tanımlı
-        
-        if (nextWordBtn) {
-            nextWordBtn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                showRandomWord();
-            });
-        }
-        
-        // Arama
-        document.getElementById('searchBox').addEventListener('input', (e) => {
-            searchWords(e.target.value);
-        });
-
-        // Modal kontrolleri
-        document.getElementById('createStoryBtn').addEventListener('click', () => {
-            document.getElementById('storyModal').classList.add('active');
-        });
-        
-        document.getElementById('closeStoryModal').addEventListener('click', () => {
-            document.getElementById('storyModal').classList.remove('active');
-        });
-        
-        document.getElementById('generateStoryBtn').addEventListener('click', generateStory);
-        
-        document.getElementById('testBtn').addEventListener('click', startTest);
-        
-        document.getElementById('closeTestModal').addEventListener('click', () => {
-            document.getElementById('testModal').classList.remove('active');
-        });
-        
-        document.getElementById('nextQuestionBtn').addEventListener('click', nextQuestion);
-        
-        document.getElementById('restartTestBtn').addEventListener('click', () => {
-            document.getElementById('restartTestBtn').style.display = 'none';
-            startTest();
-        });
-
-        // Modal dışına tıklayınca kapat
-        document.querySelectorAll('.modal').forEach(modal => {
-            modal.addEventListener('click', (e) => {
-                if (e.target === modal) {
-                    modal.classList.remove('active');
-                }
-            });
-        });
-
-        // Klavye navigasyonu
-        document.getElementById('flashcard').addEventListener('keydown', (e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                flipCard();
+            // Kelimeyi bul veya yeni hikaye oluştur
+            const foundWord = allWords.find(w => w.english.toLowerCase() === word);
+            
+            let story, storyTr;
+            if (foundWord) {
+                // Veritabanındaki kelime için de çeşitli hikayeler
+                const tr = foundWord.turkish;
+                const templates = [
+                    {en: foundWord.story, tr: foundWord.story_tr},
+                    {en: `I love ${word}. It makes me happy every day.`, tr: `${tr}'i seviyorum. Her gün beni mutlu ediyor.`},
+                    {en: `${word} is amazing! Everyone should know about it.`, tr: `${tr} harika! Herkes bunu bilmeli.`},
+                    {en: `Learning about ${word} changed my life.`, tr: `${tr} hakkında öğrenmek hayatımı değiştirdi.`},
+                    {en: `I use ${word} every day in my life.`, tr: `Hayatımda her gün ${tr} kullanıyorum.`},
+                    {en: `${word} is very important in my life.`, tr: `${tr} hayatımda çok önemli.`},
+                    {en: `When I think about ${word}, I smile.`, tr: `${tr} düşündüğümde gülümsüyorum.`},
+                    {en: `${word} reminds me of beautiful memories.`, tr: `${tr} bana güzel anıları hatırlatıyor.`},
+                    {en: `I want to learn more about ${word}.`, tr: `${tr} hakkında daha fazla öğrenmek istiyorum.`},
+                    {en: `${word} is the best thing ever!`, tr: `${tr} şimdiye kadarki en iyi şey!`},
+                    {en: `I always think about ${word} before sleeping.`, tr: `Uyumadan önce hep ${tr} düşünürüm.`},
+                    {en: `${word} changed my perspective on life.`, tr: `${tr} hayata bakış açımı değiştirdi.`},
+                    {en: `People should appreciate ${word} more.`, tr: `İnsanlar ${tr}'i daha çok takdir etmeli.`},
+                    {en: `${word} brings joy to everyone around.`, tr: `${tr} etrafındaki herkese neşe getiriyor.`},
+                    {en: `${word} is trending on social media now.`, tr: `${tr} şu anda sosyal medyada trend.`},
+                    {en: `${word} is more interesting than I thought.`, tr: `${tr} düşündüğümden daha ilginç.`},
+                    {en: `I want to share ${word} with my friends.`, tr: `${tr}'i arkadaşlarımla paylaşmak istiyorum.`},
+                    {en: `${word} makes me feel confident and strong.`, tr: `${tr} beni kendimden emin ve güçlü hissettiriyor.`},
+                    {en: `Every time I see ${word}, I get excited.`, tr: `${tr}'i her gördüğümde heyecanlanıyorum.`},
+                    {en: `I wish everyone knew about ${word}.`, tr: `Keşke herkes ${tr} hakkında bilse.`}
+                ];
+                const template = templates[Math.floor(Math.random() * templates.length)];
+                story = template.en;
+                storyTr = template.tr;
+            } else {
+                // Yeni kelime için çeşitli şablonlar
+                const templates = [
+                    {en: `I love ${word}. It makes me happy every day.`, tr: `${word}'i seviyorum. Her gün beni mutlu ediyor.`},
+                    {en: `${word} is very important in my life.`, tr: `${word} hayatımda çok önemli.`},
+                    {en: `When I think about ${word}, I smile.`, tr: `${word} düşündüğümde gülümsüyorum.`},
+                    {en: `${word} reminds me of beautiful memories.`, tr: `${word} bana güzel anıları hatırlatıyor.`},
+                    {en: `I want to learn more about ${word}.`, tr: `${word} hakkında daha fazla öğrenmek istiyorum.`},
+                    {en: `${word} is amazing! I can't believe it.`, tr: `${word} harika! İnanamıyorum.`},
+                    {en: `Everyone talks about ${word} these days.`, tr: `Bugünlerde herkes ${word} hakkında konuşuyor.`},
+                    {en: `I discovered ${word} recently and I love it!`, tr: `${word}'i yakın zamanda keşfettim ve bayıldım!`},
+                    {en: `${word} makes everything better.`, tr: `${word} her şeyi daha iyi yapıyor.`},
+                    {en: `I can't imagine my life without ${word}.`, tr: `${word} olmadan hayatımı hayal edemiyorum.`},
+                    {en: `My friend told me about ${word} yesterday.`, tr: `Arkadaşım dün bana ${word} hakkında anlattı.`},
+                    {en: `${word} is the best thing ever!`, tr: `${word} şimdiye kadarki en iyi şey!`},
+                    {en: `I always think about ${word} before sleeping.`, tr: `Uyumadan önce hep ${word} düşünürüm.`},
+                    {en: `${word} changed my perspective on life.`, tr: `${word} hayata bakış açımı değiştirdi.`},
+                    {en: `People should appreciate ${word} more.`, tr: `İnsanlar ${word}'i daha çok takdir etmeli.`},
+                    {en: `${word} brings joy to everyone around.`, tr: `${word} etrafındaki herkese neşe getiriyor.`},
+                    {en: `I learned about ${word} in school today.`, tr: `Bugün okulda ${word} hakkında öğrendim.`},
+                    {en: `${word} is trending on social media now.`, tr: `${word} şu anda sosyal medyada trend.`},
+                    {en: `My teacher explained ${word} very well.`, tr: `Öğretmenim ${word}'i çok iyi açıkladı.`},
+                    {en: `${word} is more interesting than I thought.`, tr: `${word} düşündüğümden daha ilginç.`},
+                    {en: `I want to share ${word} with my friends.`, tr: `${word}'i arkadaşlarımla paylaşmak istiyorum.`},
+                    {en: `${word} makes me feel confident and strong.`, tr: `${word} beni kendimden emin ve güçlü hissettiriyor.`},
+                    {en: `Every time I see ${word}, I get excited.`, tr: `${word}'i her gördüğümde heyecanlanıyorum.`},
+                    {en: `${word} is something I truly appreciate.`, tr: `${word} gerçekten takdir ettiğim bir şey.`},
+                    {en: `I wish everyone knew about ${word}.`, tr: `Keşke herkes ${word} hakkında bilse.`}
+                ];
+                const template = templates[Math.floor(Math.random() * templates.length)];
+                story = template.en;
+                storyTr = template.tr;
             }
-        });
 
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowRight') {
-                showRandomWord();
-            } else if (e.key === 'ArrowLeft') {
-                flipCard();
-            } else if (e.key === 's' && e.ctrlKey) {
-                e.preventDefault();
-                // speakWord çağrısı kaldırıldı - speech.js'deki kullanılacak
-                if (window.speakWord) {
-                    const wordElement = document.getElementById('wordEnglish');
-                    if (wordElement) {
-                        window.speakWord(wordElement.textContent.trim());
+            document.getElementById('generatedStory').textContent = story;
+            document.getElementById('generatedStoryTr').textContent = storyTr;
+            document.getElementById('storyResult').style.display = 'block';
+        }
+
+        // Test sistemi
+        let testQuestions = [];
+        let currentQuestion = 0;
+        let correctAnswers = 0;
+
+        function startTest() {
+            console.log('Test başlatılıyor, kelime sayısı:', allWords.length);
+            
+            if (allWords.length === 0) {
+                alert('Kelimeler henüz yüklenmedi! Lütfen bekleyin...');
+                return;
+            }
+            
+            if (allWords.length < 4) {
+                alert('Test için en az 4 kelime gerekli!');
+                return;
+            }
+
+            // Test sorularını hazırla
+            testQuestions = [];
+            const shuffled = [...allWords].sort(() => Math.random() - 0.5);
+            const testWords = shuffled.slice(0, Math.min(10, allWords.length));
+
+            testWords.forEach(word => {
+                // Yanlış cevaplar için diğer kelimeleri al
+                const wrongAnswers = allWords
+                    .filter(w => w.english !== word.english)
+                    .sort(() => Math.random() - 0.5)
+                    .slice(0, 3)
+                    .map(w => w.turkish);
+
+                const options = [word.turkish, ...wrongAnswers].sort(() => Math.random() - 0.5);
+
+                testQuestions.push({
+                    word: word.english,
+                    correct: word.turkish,
+                    options: options
+                });
+            });
+
+            currentQuestion = 0;
+            correctAnswers = 0;
+
+            // Test ekranını göster
+            console.log('Test ekranı gösteriliyor...');
+            document.getElementById('cardContainer').style.display = 'none';
+            document.querySelector('.controls').style.display = 'none';
+            const testContainer = document.getElementById('testContainer');
+            const testQuestion = document.getElementById('testQuestion');
+            const testResult = document.getElementById('testResult');
+            
+            testContainer.classList.add('active');
+            testContainer.style.display = 'block';
+            testQuestion.style.display = 'block';
+            testResult.style.display = 'none';
+            
+            console.log('Test container görünür:', testContainer.style.display);
+
+            showQuestion();
+        }
+
+        function showQuestion() {
+            console.log('showQuestion çağrıldı, soru:', currentQuestion);
+            
+            if (currentQuestion >= testQuestions.length) {
+                showTestResult();
+                return;
+            }
+
+            const q = testQuestions[currentQuestion];
+            const questionDiv = document.getElementById('testQuestion');
+            
+            console.log('Soru gösteriliyor:', q);
+
+            questionDiv.innerHTML = `
+                <button class="test-close-btn" onclick="exitTest()" title="Testi Kapat">✕</button>
+                <h3>Soru ${currentQuestion + 1}/${testQuestions.length}</h3>
+                <p style="font-size: 2rem; font-weight: 700; margin: 20px 0; color: var(--md-primary);">${q.word}</p>
+                <p style="margin-bottom: 20px; opacity: 0.7;">Bu kelimenin Türkçe karşılığı nedir?</p>
+                <div class="test-options">
+                    ${q.options.map((opt, i) => `
+                        <div class="test-option" onclick="checkAnswer('${opt.replace(/'/g, "\\'")}', '${q.correct.replace(/'/g, "\\'")}', this)">
+                            ${opt}
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+            
+            questionDiv.style.display = 'block';
+        }
+
+        function checkAnswer(selected, correct, element) {
+            const options = document.querySelectorAll('.test-option');
+            options.forEach(opt => opt.style.pointerEvents = 'none');
+
+            if (selected === correct) {
+                element.classList.add('correct');
+                correctAnswers++;
+            } else {
+                element.classList.add('wrong');
+                // Doğru cevabı göster
+                options.forEach(opt => {
+                    if (opt.textContent.trim() === correct) {
+                        opt.classList.add('correct');
                     }
-                }
+                });
             }
-        });
 
-        // Giriş modalını göster (global)
-        window.showLoginModal = function() {
-            document.getElementById('loginModal').classList.add('active');
+            setTimeout(() => {
+                currentQuestion++;
+                showQuestion();
+            }, 1500);
         }
 
-        // Kayıt modalını göster (global)
-        window.showRegisterModal = function() {
-            document.getElementById('registerModal').classList.add('active');
+        function showTestResult() {
+            const percentage = Math.round((correctAnswers / testQuestions.length) * 100);
+            const resultDiv = document.getElementById('testResult');
+
+            let emoji = '🎉';
+            let message = 'Harika!';
+            if (percentage < 50) {
+                emoji = '💪';
+                message = 'Daha fazla çalışmalısın!';
+            } else if (percentage < 80) {
+                emoji = '👍';
+                message = 'İyi iş çıkardın!';
+            }
+
+            resultDiv.innerHTML = `
+                <div style="font-size: 5rem;">${emoji}</div>
+                <h2 style="margin: 20px 0; color: var(--md-primary);">${message}</h2>
+                <div class="test-score">%${percentage}</div>
+                <p style="font-size: 1.2rem; margin-bottom: 30px;">
+                    ${correctAnswers} / ${testQuestions.length} doğru cevap
+                </p>
+                <button class="md-button" onclick="exitTest()">Ana Sayfaya Dön</button>
+                <button class="md-button md-button-accent" onclick="startTest()" style="margin-left: 10px;">🔄 Yeni Test</button>
+            `;
+
+            document.getElementById('testQuestion').style.display = 'none';
+            resultDiv.style.display = 'block';
         }
 
-        // Liderlik tablosunu göster
-        async function showLeaderboard() {
-            const result = await api.getLeaderboard();
-            if (result.success) {
-                const list = document.getElementById('leaderboardList');
-                list.innerHTML = `
-                    <table style="width: 100%; border-collapse: collapse;">
-                        <thead>
-                            <tr style="border-bottom: 2px solid var(--border);">
-                                <th style="padding: 10px; text-align: left;">Sıra</th>
-                                <th style="padding: 10px; text-align: left;">Kullanıcı</th>
-                                <th style="padding: 10px; text-align: center;">Kelime</th>
-                                <th style="padding: 10px; text-align: center;">Başarı</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            ${result.leaderboard.map(user => `
-                                <tr style="border-bottom: 1px solid var(--border);">
-                                    <td style="padding: 10px;">${user.rank}</td>
-                                    <td style="padding: 10px; font-weight: 600;">${user.username}</td>
-                                    <td style="padding: 10px; text-align: center;">${user.words_learned}</td>
-                                    <td style="padding: 10px; text-align: center;">%${user.avg_score}</td>
-                                </tr>
-                            `).join('')}
-                        </tbody>
-                    </table>
-                `;
-            }
-            document.getElementById('leaderboardModal').classList.add('active');
+        function exitTest() {
+            const testContainer = document.getElementById('testContainer');
+            testContainer.classList.remove('active');
+            testContainer.style.display = 'none';
+            document.getElementById('cardContainer').style.display = 'block';
+            document.querySelector('.controls').style.display = 'flex';
+            document.getElementById('testQuestion').style.display = 'block';
         }
 
-        // Giriş işlemi
-        document.getElementById('loginBtn').addEventListener('click', async () => {
-            const username = document.getElementById('loginUsername').value;
-            const password = document.getElementById('loginPassword').value;
-            const messageDiv = document.getElementById('loginMessage');
-            
-            if (!username || !password) {
-                messageDiv.innerHTML = '<span style="color: #fc8181;">Lütfen tüm alanları doldurun</span>';
-                return;
-            }
-            
-            const result = await api.login(username, password);
-            if (result.success) {
-                messageDiv.innerHTML = '<span style="color: #48bb78;">Giriş başarılı! Yönlendiriliyorsunuz...</span>';
-                setTimeout(() => location.reload(), 1000);
-            } else {
-                messageDiv.innerHTML = `<span style="color: #fc8181;">${result.message}</span>`;
-            }
-        });
-
-        // Avatar seçici oluştur
-        let selectedAvatar = 'girl1';
-        
-        function initAvatarSelector() {
-            const selector = document.getElementById('avatarSelector');
-            if (!selector) return;
-            
-            const allAvatars = getAllAvatars();
-            selector.innerHTML = '';
-            
-            allAvatars.forEach(avatar => {
-                const option = document.createElement('div');
-                option.className = 'avatar-option';
-                option.dataset.avatar = avatar.id;
-                if (avatar.id === selectedAvatar) {
-                    option.classList.add('selected');
-                }
-                // PNG resim kullan
-                option.innerHTML = `<img src="/static/avatars/${avatar.id}.png" alt="${avatar.name}" style="width: 100%; height: 100%; object-fit: cover;">`;
-                option.onclick = () => {
-                    document.querySelectorAll('.avatar-option').forEach(el => el.classList.remove('selected'));
-                    option.classList.add('selected');
-                    selectedAvatar = avatar.id;
-                };
-                selector.appendChild(option);
-            });
-        }
-        
-        // Kayıt modalı açıldığında avatar seçiciyi başlat
-        window.showRegisterModal = function() {
-            document.getElementById('registerModal').classList.add('active');
-            setTimeout(initAvatarSelector, 100);
-        }
-        
-        // Kayıt işlemi
-        document.getElementById('registerBtn').addEventListener('click', async () => {
-            const username = document.getElementById('registerUsername').value;
-            const password = document.getElementById('registerPassword').value;
-            const email = document.getElementById('registerEmail').value;
-            const messageDiv = document.getElementById('registerMessage');
-            
-            if (!username || !password) {
-                messageDiv.innerHTML = '<span style="color: var(--md-error);">Kullanıcı adı ve şifre gerekli</span>';
-                return;
-            }
-            
-            const result = await api.register(username, password, email, selectedAvatar);
-            if (result.success) {
-                messageDiv.innerHTML = '<span style="color: var(--md-secondary);">Kayıt başarılı! Yönlendiriliyorsunuz...</span>';
-                setTimeout(() => location.reload(), 1000);
-            } else {
-                messageDiv.innerHTML = `<span style="color: var(--md-error);">${result.message}</span>`;
-            }
-        });
-
-        // Modal kapatma
-        document.getElementById('closeLoginModal').addEventListener('click', () => {
-            document.getElementById('loginModal').classList.remove('active');
-        });
-        
-        document.getElementById('closeRegisterModal').addEventListener('click', () => {
-            document.getElementById('registerModal').classList.remove('active');
-        });
-        
-        document.getElementById('closeLeaderboardModal').addEventListener('click', () => {
-            document.getElementById('leaderboardModal').classList.remove('active');
-        });
-
-        // leaderboardBtn elementi varsa event listener ekle
-        const leaderboardBtn = document.getElementById('leaderboardBtn');
-        if (leaderboardBtn) {
-            leaderboardBtn.addEventListener('click', showLeaderboard);
-        }
-
-        // Test sonucunu kaydet (mevcut showTestResults fonksiyonunu güncelle)
-        const originalShowTestResults = showTestResults;
-        showTestResults = async function() {
-            originalShowTestResults();
-            
-            // Test sonucunu backend'e kaydet
-            const user = await api.getUser();
-            if (user.logged_in) {
-                await api.saveTest(correctAnswers, totalQuestions);
-                await loadUserStats();
-            }
-        };
-
-        // Sayfa yüklendiğinde
-        window.addEventListener('DOMContentLoaded', () => {
-            // Tema yükle
-            const savedTheme = localStorage.getItem('theme') || 'light';
-            document.documentElement.setAttribute('data-theme', savedTheme);
-            
-            // Avatar menüsündeki tema ikonunu güncelle
-            const themeIcon = document.getElementById('themeIcon');
-            const themeText = document.getElementById('themeText');
-            if (themeIcon && themeText) {
-                themeIcon.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
-                themeText.textContent = savedTheme === 'dark' ? 'Aydınlık Tema' : 'Karanlık Tema';
-            }
-            
-            // Varsayılan olarak welcome mesajını göster
-            hideWordLearningInterface();
-            
-            // İlk kelimeyi göster (arka planda hazır olsun)
-            showRandomWord();
-            
-            // İstatistikleri güncelle
-            updateStats();
-            
-            // Kullanıcı durumunu kontrol et
-            checkUserStatus();
-        });
+        // Başlat
+        loadWordsFromFile();
     </script>
 </body>
 </html>
