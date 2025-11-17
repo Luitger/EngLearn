@@ -548,8 +548,8 @@
                     <div class="word-story" id="wordStory">Hello! How are you today?</div>
                     <div class="word-story-tr" id="wordStoryTr">Merhaba! Bugün nasılsın?</div>
                     <div class="card-actions">
-                        <button class="md-button" onclick="event.stopPropagation(); event.preventDefault(); loadRandomWord()">🎲 Yeni Kelime</button>
-                        <button class="md-button md-button-secondary" id="translateBtn" onclick="event.stopPropagation(); event.preventDefault(); showTranslation()">🇹🇷 Türkçe Çeviri</button>
+                        <button class="md-button" onclick="event.stopPropagation(); loadRandomWord(); return false;">🎲 Yeni Kelime</button>
+                        <button class="md-button md-button-secondary" id="translateBtn" onclick="event.stopPropagation(); showTranslation(); return false;">🇹🇷 Türkçe Çeviri</button>
                     </div>
                 </div>
             </div>
